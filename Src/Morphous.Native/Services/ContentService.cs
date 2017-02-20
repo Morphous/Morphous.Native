@@ -37,7 +37,7 @@ namespace Morphous.Native.Services
 
         public Task<IContentItem> GetContentItem(string baseUrl, int id)
         {
-            return GetContentItem($"/api/Contents/Item/{id}", baseUrl);
+            return GetContentItem(baseUrl, $"/api/Contents/Item/{id}");
         }
     }
 }

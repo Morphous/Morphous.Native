@@ -22,6 +22,6 @@ namespace Morphous.Native.Models
         
         public string DisplayType { get;  set; }
 
-        public IList<IZone> Zones { get; } = new List<Zone>();
+        public IList<IZone> Zones { get; } = new List<IZone>();
     }
 }
