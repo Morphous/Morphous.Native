@@ -17,6 +17,7 @@ namespace Morphous.Native.ViewModels
 
     public class ContentItemViewModel : ViewModelBase, IContentItemViewModel
     {
+        #region ViewModel
         private bool _loading;
         public bool Loading
         {
@@ -30,8 +31,7 @@ namespace Morphous.Native.ViewModels
             get { return _contentItem; }
             private set { Set(ref _contentItem, value); }
         }
-
-
+        #endregion
 
 
         private readonly IContentService _contentService;

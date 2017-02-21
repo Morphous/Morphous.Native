@@ -27,30 +27,8 @@ namespace Morphous.Native.Droid.UI
         public override void OnViewCreated(View view, Bundle savedInstanceState)
         {
             base.OnViewCreated(view, savedInstanceState);
-            this.SetBinding(() => ViewModel.ContentItem)
-                .WhenSourceChanges(ContentItemBinding);
-        }
 
-        private void ContentItemBinding()
-        {
-            if (ViewModel.ContentItem == null)
-                return;
-
-            foreach(var zone in ViewModel.ContentItem.Zones)
-            {
-                var zoneLayout = View.FindViewById<ViewGroup>(Resources.GetIdentifier(zone.Name, "id", Activity.PackageName));
-
-                if (zoneLayout != null)
-                {
-                    foreach(var element in zone.Elements)
-                    {
-                        var textView = new TextView(Activity);
-                        textView.Text = element.Type;
-
-                        zoneLayout.AddView(textView);
-                    }
-                }
-            }
+            Binding test = new ContentItemBinding(this, Activity, () => ViewModel.ContentItem, () => view);
         }
     }
 }
