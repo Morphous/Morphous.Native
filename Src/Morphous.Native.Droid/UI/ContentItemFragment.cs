@@ -6,12 +6,15 @@ using GalaSoft.MvvmLight.Helpers;
 using Morphous.Native.Models;
 using Morphous.Native.ViewModels;
 using Android.Widget;
+using Morphous.Native.Droid.Bindings;
 
 namespace Morphous.Native.Droid.UI
 {
     public class ContentItemFragment : Fragment
     {
-        public IContentItemViewModel ViewModel { get; private set; }
+        private IContentItemViewModel ViewModel { get; set; }
+
+        private Binding _contentItemBinding;
 
         public override void OnCreate(Bundle savedInstanceState)
         {
@@ -27,8 +30,7 @@ namespace Morphous.Native.Droid.UI
         public override void OnViewCreated(View view, Bundle savedInstanceState)
         {
             base.OnViewCreated(view, savedInstanceState);
-
-            Binding test = new ContentItemBinding(this, Activity, () => ViewModel.ContentItem, () => view);
+            _contentItemBinding = this.SetContentBinding(() => ViewModel.ContentItem, () => view);
         }
     }
 }
