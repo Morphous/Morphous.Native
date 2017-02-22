@@ -13,6 +13,7 @@ namespace Morphous.Native.Services
         Task<IContentItem> GetContentItem(string baseUrl, string resourceUrl);
         Task<IContentItem> GetContentItem(string baseUrl, int id);
     }
+
     public class ContentService : IContentService
     {
         private readonly IContentRequester _contentRequester;

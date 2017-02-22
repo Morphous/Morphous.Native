@@ -3,6 +3,8 @@ using Android.Content;
 using Android.Views;
 using Android.Widget;
 using GalaSoft.MvvmLight.Helpers;
+using Morphous.Native.Droid.Factories;
+using Morphous.Native.Droid.UI.Elements;
 using Morphous.Native.Models;
 using System;
 using System.Collections.Generic;
@@ -15,11 +17,13 @@ namespace Morphous.Native.Droid.Bindings
         private readonly Func<IContentItem> _sourcePropertyFunc;
         private readonly Func<View> _targetPropertyFunc;
         private readonly List<ElementViewHolder> _elementViewHolders = new List<ElementViewHolder>();
+        private readonly IElementViewHolderFactory _elementViewHolderFactory;
 
         public ContentItemBinding(
             object source,
             Expression<Func<IContentItem>> sourcePropertyExpression,
-            Expression<Func<View>> targetPropertyExpression)
+            Expression<Func<View>> targetPropertyExpression,
+            IElementViewHolderFactory elementViewHolderFactory = null)
             : base(
                 source,
                 sourcePropertyExpression,
@@ -31,6 +35,7 @@ namespace Morphous.Native.Droid.Bindings
         {
             _sourcePropertyFunc = sourcePropertyExpression.Compile();
             _targetPropertyFunc = targetPropertyExpression.Compile();
+            _elementViewHolderFactory = elementViewHolderFactory ?? DefaultElementViewHolderFactory.Instance;
             this.WhenSourceChanges(Update);
         }
 
@@ -43,6 +48,7 @@ namespace Morphous.Native.Droid.Bindings
                 return;
             
             var context = view.Context;
+            var inflater = LayoutInflater.From(context);
 
             foreach (var zone in contentItem.Zones)
             {
@@ -52,7 +58,7 @@ namespace Morphous.Native.Droid.Bindings
                 {
                     foreach (var element in zone.Elements)
                     {
-                        var elementViewHolder = new ElementViewHolder<IContentElement>(context, element);
+                        var elementViewHolder = _elementViewHolderFactory.Create(context, inflater, zoneLayout, element);// new ElementViewHolder<IContentElement>(context, element);
                         _elementViewHolders.Add(elementViewHolder);
                         zoneLayout.AddView(elementViewHolder.View);
                     }
@@ -66,69 +72,6 @@ namespace Morphous.Native.Droid.Bindings
             foreach (var elementViewHolder in _elementViewHolders)
             {
                 elementViewHolder.Dispose();
-            }
-        }
-
-        public abstract class ElementViewHolder : IDisposable
-        {
-            protected Context Context { get; }
-            protected IList<Binding> Bindings { get; } = new List<Binding>();
-
-            public ElementViewHolder(Context context)
-            {
-                Context = context;
-            }
-
-            private View _view;
-            public View View
-            {
-                get
-                {
-                    if (_view == null)
-                    {
-                        _view = CreateView();
-                        BindView(_view);
-                    }
-
-                    return _view;
-                }
-            }
-
-            protected abstract View CreateView();
-
-            protected virtual void BindView(View view)
-            {
-            }
-
-            public virtual void Dispose()
-            {
-                foreach (var binding in Bindings)
-                {
-                    binding.Detach();
-                }
-            }
-        }
-
-        public class ElementViewHolder<TElement> : ElementViewHolder where TElement : class, IContentElement
-        {
-            protected TElement Element { get; }
-
-            public ElementViewHolder(Context context, TElement element) : base(context)
-            {
-                Element = element;
-            }
-
-            private TextView _textView;
-
-            protected override View CreateView()
-            {
-                _textView = new TextView(Context);
-                return _textView;
-            }
-
-            protected override void BindView(View view)
-            {
-                Bindings.Add(this.SetBinding(() => Element.Type, () => _textView.Text));
             }
         }
     }
