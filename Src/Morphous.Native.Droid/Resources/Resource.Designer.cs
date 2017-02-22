@@ -1668,8 +1668,8 @@ namespace Morphous.Native.Droid
 			// aapt resource value: 0x7f0a0057
 			public static int Meta = 2131361879;
 			
-			// aapt resource value: 0x7f0a005d
-			public static int action0 = 2131361885;
+			// aapt resource value: 0x7f0a005e
+			public static int action0 = 2131361886;
 			
 			// aapt resource value: 0x7f0a0047
 			public static int action_bar = 2131361863;
@@ -1692,17 +1692,17 @@ namespace Morphous.Native.Droid
 			// aapt resource value: 0x7f0a0024
 			public static int action_bar_title = 2131361828;
 			
-			// aapt resource value: 0x7f0a005a
-			public static int action_container = 2131361882;
+			// aapt resource value: 0x7f0a005b
+			public static int action_container = 2131361883;
 			
 			// aapt resource value: 0x7f0a0048
 			public static int action_context_bar = 2131361864;
 			
-			// aapt resource value: 0x7f0a0061
-			public static int action_divider = 2131361889;
+			// aapt resource value: 0x7f0a0062
+			public static int action_divider = 2131361890;
 			
-			// aapt resource value: 0x7f0a005b
-			public static int action_image = 2131361883;
+			// aapt resource value: 0x7f0a005c
+			public static int action_image = 2131361884;
 			
 			// aapt resource value: 0x7f0a0002
 			public static int action_menu_divider = 2131361794;
@@ -1719,11 +1719,11 @@ namespace Morphous.Native.Droid
 			// aapt resource value: 0x7f0a0026
 			public static int action_mode_close_button = 2131361830;
 			
-			// aapt resource value: 0x7f0a005c
-			public static int action_text = 2131361884;
+			// aapt resource value: 0x7f0a005d
+			public static int action_text = 2131361885;
 			
-			// aapt resource value: 0x7f0a006a
-			public static int actions = 2131361898;
+			// aapt resource value: 0x7f0a006b
+			public static int actions = 2131361899;
 			
 			// aapt resource value: 0x7f0a0027
 			public static int activity_chooser_view_content = 2131361831;
@@ -1746,14 +1746,14 @@ namespace Morphous.Native.Droid
 			// aapt resource value: 0x7f0a002e
 			public static int buttonPanel = 2131361838;
 			
-			// aapt resource value: 0x7f0a005e
-			public static int cancel_action = 2131361886;
+			// aapt resource value: 0x7f0a005f
+			public static int cancel_action = 2131361887;
 			
 			// aapt resource value: 0x7f0a003e
 			public static int checkbox = 2131361854;
 			
-			// aapt resource value: 0x7f0a0066
-			public static int chronometer = 2131361894;
+			// aapt resource value: 0x7f0a0067
+			public static int chronometer = 2131361895;
 			
 			// aapt resource value: 0x7f0a001e
 			public static int collapseActionView = 2131361822;
@@ -1782,8 +1782,8 @@ namespace Morphous.Native.Droid
 			// aapt resource value: 0x7f0a001b
 			public static int end = 2131361819;
 			
-			// aapt resource value: 0x7f0a0070
-			public static int end_padder = 2131361904;
+			// aapt resource value: 0x7f0a0071
+			public static int end_padder = 2131361905;
 			
 			// aapt resource value: 0x7f0a0028
 			public static int expand_activities_button = 2131361832;
@@ -1803,8 +1803,8 @@ namespace Morphous.Native.Droid
 			// aapt resource value: 0x7f0a002c
 			public static int icon = 2131361836;
 			
-			// aapt resource value: 0x7f0a006b
-			public static int icon_group = 2131361899;
+			// aapt resource value: 0x7f0a006c
+			public static int icon_group = 2131361900;
 			
 			// aapt resource value: 0x7f0a001f
 			public static int ifRoom = 2131361823;
@@ -1812,14 +1812,14 @@ namespace Morphous.Native.Droid
 			// aapt resource value: 0x7f0a0029
 			public static int image = 2131361833;
 			
-			// aapt resource value: 0x7f0a0067
-			public static int info = 2131361895;
+			// aapt resource value: 0x7f0a0068
+			public static int info = 2131361896;
 			
-			// aapt resource value: 0x7f0a006c
-			public static int line1 = 2131361900;
+			// aapt resource value: 0x7f0a006d
+			public static int line1 = 2131361901;
 			
-			// aapt resource value: 0x7f0a006e
-			public static int line3 = 2131361902;
+			// aapt resource value: 0x7f0a006f
+			public static int line3 = 2131361903;
 			
 			// aapt resource value: 0x7f0a0009
 			public static int listMode = 2131361801;
@@ -1827,8 +1827,8 @@ namespace Morphous.Native.Droid
 			// aapt resource value: 0x7f0a002b
 			public static int list_item = 2131361835;
 			
-			// aapt resource value: 0x7f0a0060
-			public static int media_actions = 2131361888;
+			// aapt resource value: 0x7f0a0061
+			public static int media_actions = 2131361889;
 			
 			// aapt resource value: 0x7f0a001c
 			public static int middle = 2131361820;
@@ -1845,17 +1845,20 @@ namespace Morphous.Native.Droid
 			// aapt resource value: 0x7f0a000a
 			public static int normal = 2131361802;
 			
-			// aapt resource value: 0x7f0a0069
-			public static int notification_background = 2131361897;
+			// aapt resource value: 0x7f0a006a
+			public static int notification_background = 2131361898;
+			
+			// aapt resource value: 0x7f0a0064
+			public static int notification_main_column = 2131361892;
 			
 			// aapt resource value: 0x7f0a0063
-			public static int notification_main_column = 2131361891;
-			
-			// aapt resource value: 0x7f0a0062
-			public static int notification_main_column_container = 2131361890;
+			public static int notification_main_column_container = 2131361891;
 			
 			// aapt resource value: 0x7f0a0030
 			public static int parentPanel = 2131361840;
+			
+			// aapt resource value: 0x7f0a005a
+			public static int progressBar = 2131361882;
 			
 			// aapt resource value: 0x7f0a0005
 			public static int progress_circular = 2131361797;
@@ -1866,11 +1869,11 @@ namespace Morphous.Native.Droid
 			// aapt resource value: 0x7f0a0040
 			public static int radio = 2131361856;
 			
-			// aapt resource value: 0x7f0a0068
-			public static int right_icon = 2131361896;
+			// aapt resource value: 0x7f0a0069
+			public static int right_icon = 2131361897;
 			
-			// aapt resource value: 0x7f0a0064
-			public static int right_side = 2131361892;
+			// aapt resource value: 0x7f0a0065
+			public static int right_side = 2131361893;
 			
 			// aapt resource value: 0x7f0a0015
 			public static int screen = 2131361813;
@@ -1944,8 +1947,8 @@ namespace Morphous.Native.Droid
 			// aapt resource value: 0x7f0a0018
 			public static int src_over = 2131361816;
 			
-			// aapt resource value: 0x7f0a005f
-			public static int status_bar_latest_event_content = 2131361887;
+			// aapt resource value: 0x7f0a0060
+			public static int status_bar_latest_event_content = 2131361888;
 			
 			// aapt resource value: 0x7f0a0041
 			public static int submenuarrow = 2131361857;
@@ -1956,11 +1959,11 @@ namespace Morphous.Native.Droid
 			// aapt resource value: 0x7f0a000b
 			public static int tabMode = 2131361803;
 			
-			// aapt resource value: 0x7f0a006f
-			public static int text = 2131361903;
+			// aapt resource value: 0x7f0a0070
+			public static int text = 2131361904;
 			
-			// aapt resource value: 0x7f0a006d
-			public static int text2 = 2131361901;
+			// aapt resource value: 0x7f0a006e
+			public static int text2 = 2131361902;
 			
 			// aapt resource value: 0x7f0a0035
 			public static int textSpacerNoButtons = 2131361845;
@@ -1968,8 +1971,8 @@ namespace Morphous.Native.Droid
 			// aapt resource value: 0x7f0a0034
 			public static int textSpacerNoTitle = 2131361844;
 			
-			// aapt resource value: 0x7f0a0065
-			public static int time = 2131361893;
+			// aapt resource value: 0x7f0a0066
+			public static int time = 2131361894;
 			
 			// aapt resource value: 0x7f0a002d
 			public static int title = 2131361837;

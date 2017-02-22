@@ -19,7 +19,7 @@ namespace Morphous.Native.IntegrationTests
         {
             ContentRequester contentRequester = new ContentRequester();
 
-            var contentItem = await contentRequester.GetContentItem("http://192.168.0.13:98", 12);
+            var contentItem = await contentRequester.GetContentItem("http://localhost:98/api/Contents/Item/12");
 
             contentItem.ShouldBeEquivalentTo(_testContentItem);
         }

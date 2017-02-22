@@ -122,7 +122,7 @@ namespace Morphous.Native.Droid.Bindings
 
             protected override View CreateView()
             {
-                var _textView = new TextView(Context);
+                _textView = new TextView(Context);
                 return _textView;
             }
 

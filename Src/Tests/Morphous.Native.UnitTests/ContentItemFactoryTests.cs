@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Morphous.Native.Tests
+namespace Morphous.Native.UnitTests
 {
     [TestFixture]
     public class ContentItemFactoryTests

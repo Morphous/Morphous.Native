@@ -35,7 +35,15 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Container.cs" />
+    <Compile Include="DTOs\BodyPartDto.cs" />
+    <Compile Include="DTOs\BooleanFieldDto.cs" />
+    <Compile Include="DTOs\CommonPartDto.cs" />
+    <Compile Include="DTOs\ContentElementDto.cs" />
+    <Compile Include="DTOs\ContentFieldDto.cs" />
     <Compile Include="DTOs\ContentItemDto.cs" />
+    <Compile Include="DTOs\ElementConverter.cs" />
+    <Compile Include="DTOs\TitlePartDto.cs" />
+    <Compile Include="DTOs\ZoneDto.cs" />
     <Compile Include="Factories\ContentItemFactory.cs" />
     <Compile Include="Models\ContentElement.cs" />
     <Compile Include="Models\ContentItem.cs" />

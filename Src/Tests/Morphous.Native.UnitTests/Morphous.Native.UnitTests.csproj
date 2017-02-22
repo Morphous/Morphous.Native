@@ -7,8 +7,8 @@
     <ProjectGuid>{9D1CD6D5-39C4-46B6-AB63-42362BB4BE4B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Morphous.Native.Tests</RootNamespace>
-    <AssemblyName>Morphous.Native.Tests</AssemblyName>
+    <RootNamespace>Morphous.Native.UnitTests</RootNamespace>
+    <AssemblyName>Morphous.Native.UnitTests</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -85,6 +85,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ContentItemFactoryTests.cs" />
+    <Compile Include="ElementConverterTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
