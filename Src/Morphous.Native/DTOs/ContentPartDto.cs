@@ -8,9 +8,7 @@ using System.Threading.Tasks;
 namespace Morphous.Native.DTOs
 {
     [DataContract]
-    public class TitlePartDto : ContentPartDto
+    public class ContentPartDto : ContentElementDto
     {
-        [DataMember(Name = "title")]
-        public string Title { get; set; }
     }
 }

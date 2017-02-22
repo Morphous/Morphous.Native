@@ -30,7 +30,7 @@ namespace Morphous.Native.Factories
             return contentItem;
         }
 
-        private IZone CreateZone(ZoneDto zoneDto)
+        private Zone CreateZone(ZoneDto zoneDto)
         {
             var zone = new Zone();
             zone.Name = zoneDto.Name;
@@ -44,12 +44,72 @@ namespace Morphous.Native.Factories
             return zone;
         }
 
-        private IContentElement CreateElement(ContentElementDto elementDto)
+        private ContentElement CreateElement(ContentElementDto elementDto)
         {
-            var element = new ContentElement();
+            ContentElement element;
+
+            if (elementDto is ContentPartDto)
+            {
+                element = CreatePart(elementDto as ContentPartDto);
+            }
+            else if (elementDto is ContentFieldDto)
+            {
+                element = CreateField(elementDto as ContentFieldDto);
+            }
+            else
+            {
+                element = new ContentElement();
+            }
+
             element.Type = elementDto.Type;
 
             return element;
+        }
+
+        private ContentElement CreatePart(ContentPartDto contentPartDto)
+        {
+            ContentPart contentPart;
+
+            if (contentPartDto is CommonPartDto)
+            {
+                var commonPartDto = contentPartDto as CommonPartDto;
+                contentPart = new CommonPart { Id = commonPartDto.Id, ResourceUrl = commonPartDto.ResourceUrl, CreatedUtc = commonPartDto.CreatedUtc, PublishedUtc = commonPartDto.PublishedUtc };
+            }
+            else if (contentPartDto is TitlePartDto)
+            {
+                var titlePartDto = contentPartDto as TitlePartDto;
+                contentPart = new TitlePart { Title = titlePartDto.Title };
+            }
+            else if (contentPartDto is BodyPartDto)
+            {
+                var bodyPartDto = contentPartDto as BodyPartDto;
+                contentPart = new BodyPart { Html = bodyPartDto.Html};
+            }
+            else
+            {
+                throw new NotSupportedException("No mapping from element dto " + contentPartDto.Type + " to element model.");
+            }
+
+            return contentPart;
+        }
+
+        private ContentElement CreateField(ContentFieldDto contentFieldDto)
+        {
+            ContentField contentField;
+
+            if (contentFieldDto is BooleanFieldDto)
+            {
+                var booleanFieldDto = contentFieldDto as BooleanFieldDto;
+                contentField = new BooleanField { Value = booleanFieldDto.Value };
+            }
+            else
+            {
+                throw new NotSupportedException("No mapping from element dto " + contentFieldDto.Type + " to element model.");
+            }
+
+            contentField.Name = contentFieldDto.Name;
+
+            return contentField;
         }
     }
 }
