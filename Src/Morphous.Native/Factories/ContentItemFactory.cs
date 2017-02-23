@@ -15,6 +15,7 @@ namespace Morphous.Native.Factories
 
     public class ContentItemFactory : IContentItemFactory
     {
+        // ContentItem
         public IContentItem Create(ContentItemDto contentItemDto)
         {
             var contentItem = new ContentItem();
@@ -23,28 +24,31 @@ namespace Morphous.Native.Factories
             
             foreach (var zoneDto in contentItemDto.Zones)
             {
-                var zone = CreateZone(zoneDto);
+                var zone = CreateZone(zoneDto, contentItem);
                 contentItem.Zones.Add(zone);
             }
 
             return contentItem;
         }
 
-        private Zone CreateZone(ZoneDto zoneDto)
+        // Zone
+        private Zone CreateZone(ZoneDto zoneDto, IContentItem contentItem)
         {
             var zone = new Zone();
             zone.Name = zoneDto.Name;
+            zone.ContentItem = contentItem;
 
             foreach (var elementDto in zoneDto.Elements)
             {
-                var element = CreateElement(elementDto);
+                var element = CreateElement(elementDto, zone);
                 zone.Elements.Add(element);
             }
 
             return zone;
         }
 
-        private ContentElement CreateElement(ContentElementDto elementDto)
+        // Elements
+        private ContentElement CreateElement(ContentElementDto elementDto, IZone zone)
         {
             ContentElement element;
 
@@ -62,18 +66,19 @@ namespace Morphous.Native.Factories
             }
 
             element.Type = elementDto.Type;
+            element.Zone = zone;
 
             return element;
         }
 
+        // Parts
         private ContentElement CreatePart(ContentPartDto contentPartDto)
         {
             ContentPart contentPart;
 
             if (contentPartDto is CommonPartDto)
             {
-                var commonPartDto = contentPartDto as CommonPartDto;
-                contentPart = new CommonPart { Id = commonPartDto.Id, ResourceUrl = commonPartDto.ResourceUrl, CreatedUtc = commonPartDto.CreatedUtc, PublishedUtc = commonPartDto.PublishedUtc };
+                contentPart = CreateCommonPart(contentPartDto as CommonPartDto);
             }
             else if (contentPartDto is TitlePartDto)
             {
@@ -93,6 +98,18 @@ namespace Morphous.Native.Factories
             return contentPart;
         }
 
+        private ContentPart CreateCommonPart(CommonPartDto commonPartDto)
+        {
+            var commonPart = new CommonPart();
+            commonPart.Id = commonPartDto.Id;
+            commonPart.ResourceUrl = commonPartDto.ResourceUrl;
+            commonPart.CreatedDate = DateTime.Parse(commonPartDto.CreatedUtc);
+            commonPart.PublishedDate = DateTime.Parse(commonPartDto.PublishedUtc);
+
+            return commonPart;
+        }
+
+        // Fields
         private ContentElement CreateField(ContentFieldDto contentFieldDto)
         {
             ContentField contentField;

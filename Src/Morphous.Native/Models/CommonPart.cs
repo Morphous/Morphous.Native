@@ -10,15 +10,15 @@ namespace Morphous.Native.Models
     {
         int Id { get; }
         string ResourceUrl { get; }
-        string CreatedUtc { get; }
-        string PublishedUtc { get; }
+        DateTime CreatedDate { get; }
+        DateTime PublishedDate { get; }
     }
 
     public class CommonPart : ContentPart, ICommonPart
     {
         public int Id { get; internal set; }
         public string ResourceUrl { get; internal set; }
-        public string CreatedUtc { get; internal set; }
-        public string PublishedUtc { get; internal set; }
+        public DateTime CreatedDate { get; internal set; }
+        public DateTime PublishedDate { get; internal set; }
     }
 }

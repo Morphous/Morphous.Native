@@ -27,17 +27,15 @@ namespace Morphous.Native.Droid.UI.Elements
             Element = element;
         }
 
-        private TextView _textView;
-
         protected override View CreateView()
         {
-            _textView = new TextView(Context);
-            return _textView;
-        }
+            var layoutId = Context.Resources.GetIdentifier(Element.Type.ToLower(), "layout", Context.PackageName);
+            if (layoutId > 0)
+            {
+                return Inflater.Inflate(layoutId, Container, false);
+            }
 
-        protected override void BindView(View view)
-        {
-            Bindings.Add(this.SetBinding(() => Element.Type, () => _textView.Text));
+            return new View(Context);
         }
     }
 

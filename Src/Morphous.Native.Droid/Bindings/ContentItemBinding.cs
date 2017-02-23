@@ -12,6 +12,17 @@ using System.Linq.Expressions;
 
 namespace Morphous.Native.Droid.Bindings
 {
+    public static class ContentItemBindingExtensions
+    {
+        public static ContentItemBinding SetContentBinding(
+            this object source,
+            Expression<Func<IContentItem>> sourcePropertyExpression,
+            Expression<Func<View>> targetPropertyExpression)
+        {
+            return new ContentItemBinding(source, sourcePropertyExpression, targetPropertyExpression);
+        }
+    }
+
     public class ContentItemBinding : Binding<IContentItem, View>
     {
         private readonly Func<IContentItem> _sourcePropertyFunc;
@@ -58,7 +69,7 @@ namespace Morphous.Native.Droid.Bindings
                 {
                     foreach (var element in zone.Elements)
                     {
-                        var elementViewHolder = _elementViewHolderFactory.Create(context, inflater, zoneLayout, element);// new ElementViewHolder<IContentElement>(context, element);
+                        var elementViewHolder = _elementViewHolderFactory.Create(context, inflater, zoneLayout, element);
                         _elementViewHolders.Add(elementViewHolder);
                         zoneLayout.AddView(elementViewHolder.View);
                     }

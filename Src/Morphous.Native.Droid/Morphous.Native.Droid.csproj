@@ -94,7 +94,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Bindings\BindingExtensions.cs" />
     <Compile Include="Bindings\ContentItemBinding.cs" />
     <Compile Include="Factories\DefaultElementViewHolderFactory.cs" />
     <Compile Include="Factories\IElementViewHolderFactory.cs" />
@@ -102,16 +101,31 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UI\ContentItemActivity.cs" />
     <Compile Include="UI\ContentItemFragment.cs" />
+    <Compile Include="UI\Elements\BodyPartViewHolder.cs" />
+    <Compile Include="UI\Elements\BooleanFieldViewHolder.cs" />
+    <Compile Include="UI\Elements\CommonPartViewHolder.cs" />
     <Compile Include="UI\Elements\ElementViewHolder.cs" />
     <Compile Include="UI\Elements\TitlePartViewHolder.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
     <None Include="Resources\AboutResources.txt" />
-    <AndroidResource Include="Resources\Layout\fragment_content_item.axml">
+    <AndroidResource Include="Resources\Layout\ContentItem.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\Layout\activity_content_item.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\TitlePart.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\BodyPart.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\BooleanField.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\CommonPart.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

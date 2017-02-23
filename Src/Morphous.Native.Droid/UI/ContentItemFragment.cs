@@ -31,7 +31,7 @@ namespace Morphous.Native.Droid.UI
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-            return inflater.Inflate(Resource.Layout.fragment_content_item, container, false);
+            return inflater.Inflate(Resource.Layout.ContentItem, container, false);
         }
 
         public override void OnViewCreated(View view, Bundle savedInstanceState)

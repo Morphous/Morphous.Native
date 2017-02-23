@@ -10,23 +10,24 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Morphous.Native.Models;
+using GalaSoft.MvvmLight.Helpers;
 
 namespace Morphous.Native.Droid.UI.Elements
 {
     public class TitlePartViewHolder : ElementViewHolder<ITitlePart>
     {
+        private TextView _textView;
+        private Binding _titleBinding;
+
         public TitlePartViewHolder(Context context, LayoutInflater inflater, ViewGroup container, ITitlePart element) : base(context, inflater, container, element)
         {
-        }
-
-        protected override View CreateView()
-        {
-            return base.CreateView();
         }
 
         protected override void BindView(View view)
         {
             base.BindView(view);
+            _textView = view.FindViewById<TextView>(Resource.Id.titlePart_title);
+            _titleBinding = this.SetBinding(() => Element.Title, () => _textView.Text);
         }
     }
 }

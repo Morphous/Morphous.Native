@@ -24,7 +24,26 @@ namespace Morphous.Native.UnitTests
 
             var contentItem = contentItemFactory.Create(contentItemDto);
 
-            contentItem.ShouldBeEquivalentTo(expectedContentItem);
+            contentItem.ShouldBeEquivalentTo(expectedContentItem, options => options.IgnoringCyclicReferences());
+        }
+
+        [Test]
+        public void Create_maps_parent_relationships()
+        {
+            var contentItemFactory = new ContentItemFactory();
+            var contentItemDto = CreateContentItemDto();
+            var expectedContentItem = CreateContentItem();
+
+            var contentItem = contentItemFactory.Create(contentItemDto);
+            
+            foreach (var zone in contentItem.Zones)
+            {
+                zone.ContentItem.Should().Be(contentItem);
+                foreach (var element in zone.Elements)
+                {
+                    element.Zone.Should().Be(zone);
+                }
+            }
         }
         
 
@@ -34,23 +53,23 @@ namespace Morphous.Native.UnitTests
             var contentItem = new FakeContentItem { ContentType = "test1", DisplayType = "test2" };
             
 
-            var zone1 = new FakeZone { Name = "zone1" };
+            var zone1 = new FakeZone { Name = "zone1", ContentItem = contentItem };
             contentItem.Zones.Add(zone1);
 
-            var commonPart = new FakeCommonPart { Id = 10, ResourceUrl = "resourceUrl", CreatedUtc = "createdUtc", PublishedUtc = "publishedUtc" };
+            var commonPart = new FakeCommonPart { Zone = zone1, Id = 10, ResourceUrl = "resourceUrl", CreatedDate = DateTime.Parse("2017-02-08T21:18:41.8420836Z"), PublishedDate = DateTime.Parse("2017-02-08T21:18:41.8420836Z") };
             zone1.Elements.Add(commonPart);
 
-            var titlePart = new FakeTitlePart { Title = "title1" };
+            var titlePart = new FakeTitlePart { Zone = zone1, Title = "title1" };
             zone1.Elements.Add(titlePart);
 
 
-            var zone2 = new FakeZone { Name = "zone2" };
+            var zone2 = new FakeZone { Name = "zone2", ContentItem = contentItem };
             contentItem.Zones.Add(zone2);
 
-            var bodyPart = new FakeBodyPart { Html = "html" };
+            var bodyPart = new FakeBodyPart { Zone = zone2, Html = "html" };
             zone2.Elements.Add(bodyPart);
 
-            var booleanField = new FakeBooleanField { Value = true };
+            var booleanField = new FakeBooleanField { Zone = zone2, Value = true };
             zone2.Elements.Add(booleanField);
 
 
@@ -66,7 +85,7 @@ namespace Morphous.Native.UnitTests
             zone1.Elements = new List<ContentElementDto>();
             contentItem.Zones.Add(zone1);
 
-            var commonPart = new CommonPartDto { Id = 10, ResourceUrl = "resourceUrl", CreatedUtc = "createdUtc", PublishedUtc = "publishedUtc" };
+            var commonPart = new CommonPartDto { Id = 10, ResourceUrl = "resourceUrl", CreatedUtc = "2017-02-08T21:18:41.8420836Z", PublishedUtc = "2017-02-08T21:18:41.8420836Z" };
             zone1.Elements.Add(commonPart);
 
             var titlePart = new TitlePartDto { Title = "title1" };
@@ -98,27 +117,31 @@ namespace Morphous.Native.UnitTests
         {
             public string Name { get; set; }
             public IList<IContentElement> Elements { get; } = new List<IContentElement>();
+            public IContentItem ContentItem { get; set; }
         }
 
         private class FakeTitlePart : ITitlePart
         {
             public string Title { get; set; }
             public string Type { get; set; }
+            public IZone Zone { get; set; }
         }
 
         private class FakeCommonPart : ICommonPart
         {
-            public string CreatedUtc { get; set; }
+            public DateTime CreatedDate { get; set; }
             public int Id { get; set; }
-            public string PublishedUtc { get; set; }
+            public DateTime PublishedDate { get; set; }
             public string ResourceUrl { get; set; }
             public string Type { get; set; }
+            public IZone Zone { get; set; }
         }
 
         private class FakeBodyPart : IBodyPart
         {
             public string Html { get; set; }
             public string Type { get; set; }
+            public IZone Zone { get; set; }
         }
 
         private class FakeBooleanField : IBooleanField
@@ -126,6 +149,7 @@ namespace Morphous.Native.UnitTests
             public string Name { get; set; }
             public string Type { get; set; }
             public bool Value { get; set; }
+            public IZone Zone { get; set; }
         }
     }
 }

@@ -10,10 +10,13 @@ namespace Morphous.Native.Models
     public interface IContentElement
     {
         string Type { get; }
+        IZone Zone { get; }
     }
 
     public class ContentElement : ObservableObject, IContentElement
     {
         public string Type { get; internal set; }
+
+        public IZone Zone { get; internal set; }
     }
 }

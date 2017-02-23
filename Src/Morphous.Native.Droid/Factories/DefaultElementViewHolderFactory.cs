@@ -21,9 +21,21 @@ namespace Morphous.Native.Droid.Factories
 
         public ElementViewHolder Create(Context context, LayoutInflater inflater, ViewGroup zoneLayout, IContentElement element)
         {
-            if (element is ITitlePart)
+            if (element is ICommonPart)
+            {
+                return new CommonPartViewHolder(context, inflater, zoneLayout, element as ICommonPart);
+            }
+            else if (element is ITitlePart)
             {
                 return new TitlePartViewHolder(context, inflater, zoneLayout, element as ITitlePart);
+            }
+            else if (element is IBodyPart)
+            {
+                return new BodyPartViewHolder(context, inflater, zoneLayout, element as IBodyPart);
+            }
+            else if (element is IBooleanField)
+            {
+                return new BooleanFieldViewHolder(context, inflater, zoneLayout, element as IBooleanField);
             }
             else
             {
