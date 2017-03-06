@@ -29,14 +29,53 @@ namespace Morphous.Native.Droid.UI.Elements
 
         protected override View CreateView()
         {
-            var layoutId = Context.Resources.GetIdentifier(Element.Type.ToLower(), "layout", Context.PackageName);
+            var elementType = Element.Type.ToLower();
+            var id = Element.Zone.ContentItem.Id;
+
+            var contentType = Element.Zone.ContentItem.ContentType.ToLower();
+            var displayType = Element.Zone.ContentItem.DisplayType.ToLower();
+            var zoneName = Element.Zone.Name.ToLower();
+
+            var alternates = new string[]
+            {
+                $"{elementType}_{id}",
+                $"{elementType}_{contentType}_{displayType}_{zoneName}",
+                $"{elementType}_{contentType}_{displayType}",
+                $"{elementType}_{contentType}",
+                $"{elementType}_{displayType}_{zoneName}",
+                $"{elementType}_{displayType}",
+                $"{elementType}_{zoneName}",
+                $"{elementType}",
+            };
+
+            View layout = null;
+
+            foreach (var alternate in alternates)
+            {
+                layout = GetLayout(alternate);
+
+                if (layout != null)
+                    return layout;
+            }
+
+            return new View(Context);
+        }
+
+        protected View GetLayout(string layoutName)
+        {
+            var layoutId = Context.Resources.GetIdentifier(layoutName, "layout", Context.PackageName);
             if (layoutId > 0)
             {
                 return Inflater.Inflate(layoutId, Container, false);
             }
 
-            return new View(Context);
+            return null;
         }
+
+        private string[] _alternates = new string[]
+        {
+
+        };
     }
 
     public abstract class ElementViewHolder : IDisposable

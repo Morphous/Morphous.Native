@@ -32,9 +32,17 @@ namespace Morphous.Native.Droid.UI.Elements
             _htmlBinding = this.SetBinding(() => Element.Html, () => _htmlTextView.TextFormatted).ConvertSourceToTarget(StringToHtml);
         }
 
-        private ICharSequence StringToHtml(string arg)
+        protected virtual ICharSequence StringToHtml(string arg)
         {
-            return Html.FromHtml(arg);
+            var html = Html.FromHtml(arg);
+
+            var end = html.Length();
+            while (end > 0 && Character.IsWhitespace(html.CharAt(end - 1)))
+            {
+                end--;
+            }
+
+            return html.SubSequenceFormatted(0, end);
         }
     }
 }

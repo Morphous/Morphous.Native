@@ -39,8 +39,13 @@ namespace Morphous.Native.Droid.UI.Elements
 
             _idBinding = this.SetBinding(() => Element.Id, () => _idTextView.Text);
             _resourceUrlBinding = this.SetBinding(() => Element.ResourceUrl, () => _resourceUrlTextView.Text);
-            _createdDateBinding = this.SetBinding(() => Element.CreatedDate, () => _createdDateTextView.Text);
-            _publishedDateBinding = this.SetBinding(() => Element.PublishedDate, () => _publishedDateTextView.Text);
+            _createdDateBinding = this.SetBinding(() => Element.CreatedDate, () => _createdDateTextView.Text).ConvertSourceToTarget(FormatDate);
+            _publishedDateBinding = this.SetBinding(() => Element.PublishedDate, () => _publishedDateTextView.Text).ConvertSourceToTarget(FormatDate);
+        }
+
+        protected virtual string FormatDate(DateTime arg)
+        {
+            return arg.ToString("dd MMM yyyy");
         }
     }
 }
