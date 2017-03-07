@@ -110,10 +110,10 @@ namespace Morphous.Native.UnitTests
         {
             public string ContentType { get; set; }
             public string DisplayType { get; set; }
-            public IList<IZone> Zones { get; } = new List<IZone>();
+            public IList<IContentZone> Zones { get; } = new List<IContentZone>();
         }
 
-        private class FakeZone : IZone
+        private class FakeZone : IContentZone
         {
             public string Name { get; set; }
             public IList<IContentElement> Elements { get; } = new List<IContentElement>();
@@ -124,7 +124,7 @@ namespace Morphous.Native.UnitTests
         {
             public string Title { get; set; }
             public string Type { get; set; }
-            public IZone Zone { get; set; }
+            public IContentZone Zone { get; set; }
         }
 
         private class FakeCommonPart : ICommonPart
@@ -134,14 +134,14 @@ namespace Morphous.Native.UnitTests
             public DateTime PublishedDate { get; set; }
             public string ResourceUrl { get; set; }
             public string Type { get; set; }
-            public IZone Zone { get; set; }
+            public IContentZone Zone { get; set; }
         }
 
         private class FakeBodyPart : IBodyPart
         {
             public string Html { get; set; }
             public string Type { get; set; }
-            public IZone Zone { get; set; }
+            public IContentZone Zone { get; set; }
         }
 
         private class FakeBooleanField : IBooleanField
@@ -149,7 +149,7 @@ namespace Morphous.Native.UnitTests
             public string Name { get; set; }
             public string Type { get; set; }
             public bool Value { get; set; }
-            public IZone Zone { get; set; }
+            public IContentZone Zone { get; set; }
         }
     }
 }

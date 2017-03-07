@@ -32,9 +32,9 @@ namespace Morphous.Native.Factories
         }
 
         // Zone
-        private Zone CreateZone(ZoneDto zoneDto, IContentItem contentItem)
+        private ContentZone CreateZone(ZoneDto zoneDto, IContentItem contentItem)
         {
-            var zone = new Zone();
+            var zone = new ContentZone();
             zone.Name = zoneDto.Name;
             zone.ContentItem = contentItem;
 
@@ -48,7 +48,7 @@ namespace Morphous.Native.Factories
         }
 
         // Elements
-        private ContentElement CreateElement(ContentElementDto elementDto, IZone zone)
+        private ContentElement CreateElement(ContentElementDto elementDto, IContentZone zone)
         {
             ContentElement element;
 

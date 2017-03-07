@@ -15,7 +15,7 @@ namespace Morphous.Native.Models
 
         string DisplayType { get; }
 
-        IList<IZone> Zones { get; }
+        IList<IContentZone> Zones { get; }
 
         TElement As<TElement>() where TElement : IContentElement;
     }
@@ -28,7 +28,7 @@ namespace Morphous.Native.Models
         
         public string DisplayType { get;  set; }
 
-        public IList<IZone> Zones { get; } = new List<IZone>();
+        public IList<IContentZone> Zones { get; } = new List<IContentZone>();
 
         public TElement As<TElement>() where TElement : IContentElement
         {
