@@ -33,6 +33,10 @@ namespace Morphous.Native.Droid.Factories
             {
                 return new BodyPartViewHolder(context, inflater, zoneLayout, element as IBodyPart);
             }
+            else if (element is ITermPart)
+            {
+                return new TermPartViewHolder(context, inflater, zoneLayout, element as ITermPart);
+            }
             else if (element is IBooleanField)
             {
                 return new BooleanFieldViewHolder(context, inflater, zoneLayout, element as IBooleanField);

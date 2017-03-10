@@ -23,10 +23,26 @@ namespace Morphous.Native.Droid.UI
         private Binding _contentItemBinding;
         private Binding _loadingSpinnerBinding;
 
+        public static ContentItemFragment Create(int contentItemId)
+        {
+            var bundle = new Bundle();
+            bundle.PutInt(MphExtras.ContentItemId, contentItemId);
+
+            var fragment = new ContentItemFragment();
+            fragment.Arguments = bundle;
+            return fragment;
+        }
+
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            ViewModel = ContentItemViewModel.Create();
+            var contentItemId = Arguments.GetInt(MphExtras.ContentItemId);            
+            if (contentItemId == -1)
+            {
+                throw new ArgumentException("ContentItemFragment must be started with an int extra for the content item id.");
+            }
+
+            ViewModel = ContentItemViewModel.Create(contentItemId);
         }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)

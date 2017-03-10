@@ -50,7 +50,7 @@ namespace Morphous.Native.UnitTests
 
         private static IContentItem CreateContentItem()
         {
-            var contentItem = new FakeContentItem { ContentType = "test1", DisplayType = "test2" };
+            var contentItem = new FakeContentItem { Id = 10, ContentType = "test1", DisplayType = "test2" };
             
 
             var zone1 = new FakeZone { Name = "zone1", ContentItem = contentItem };
@@ -110,7 +110,15 @@ namespace Morphous.Native.UnitTests
         {
             public string ContentType { get; set; }
             public string DisplayType { get; set; }
+
+            public int? Id { get; set; }
+
             public IList<IContentZone> Zones { get; } = new List<IContentZone>();
+
+            public TElement As<TElement>() where TElement : IContentElement
+            {
+                throw new NotImplementedException();
+            }
         }
 
         private class FakeZone : IContentZone

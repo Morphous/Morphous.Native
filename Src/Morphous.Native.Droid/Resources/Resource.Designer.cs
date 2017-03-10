@@ -2217,7 +2217,10 @@ namespace Morphous.Native.Droid
 			public static int support_simple_spinner_dropdown_item = 2130903090;
 			
 			// aapt resource value: 0x7f030033
-			public static int TitlePart = 2130903091;
+			public static int TermPart = 2130903091;
+			
+			// aapt resource value: 0x7f030034
+			public static int TitlePart = 2130903092;
 			
 			static Layout()
 			{

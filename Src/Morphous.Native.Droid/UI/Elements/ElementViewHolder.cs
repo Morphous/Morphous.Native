@@ -57,8 +57,10 @@ namespace Morphous.Native.Droid.UI.Elements
                 if (layout != null)
                     return layout;
             }
-
-            return new View(Context);
+            
+            var view = new View(Context);
+            view.LayoutParameters = new ViewGroup.LayoutParams(0, 0);
+            return view;
         }
 
         protected View GetLayout(string layoutName)

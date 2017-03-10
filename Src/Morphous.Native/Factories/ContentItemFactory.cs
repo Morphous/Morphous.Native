@@ -40,8 +40,11 @@ namespace Morphous.Native.Factories
 
             foreach (var elementDto in zoneDto.Elements)
             {
-                var element = CreateElement(elementDto, zone);
-                zone.Elements.Add(element);
+                if (elementDto != null)
+                {
+                    var element = CreateElement(elementDto, zone);
+                    zone.Elements.Add(element);
+                }
             }
 
             return zone;
@@ -90,6 +93,10 @@ namespace Morphous.Native.Factories
                 var bodyPartDto = contentPartDto as BodyPartDto;
                 contentPart = new BodyPart { Html = bodyPartDto.Html};
             }
+            else if (contentPartDto is TermPartDto)
+            {
+                contentPart = CreateTermPart(contentPartDto as TermPartDto);
+            }
             else
             {
                 throw new NotSupportedException("No mapping from element dto " + contentPartDto.Type + " to element model.");
@@ -107,6 +114,18 @@ namespace Morphous.Native.Factories
             commonPart.PublishedDate = DateTime.Parse(commonPartDto.PublishedUtc);
 
             return commonPart;
+        }
+
+        private ContentPart CreateTermPart(TermPartDto termPartDto)
+        {
+            var termPart = new TermPart();
+
+            foreach (var contentItemDto in termPartDto.ContentItems)
+            {
+                termPart.ContentItems.Add(Create(contentItemDto));
+            }
+
+            return termPart;
         }
 
         // Fields
