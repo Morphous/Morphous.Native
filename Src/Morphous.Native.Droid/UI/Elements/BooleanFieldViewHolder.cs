@@ -18,8 +18,6 @@ namespace Morphous.Native.Droid.UI.Elements
     {
         private TextView _nameTextView;
         private TextView _valueTextView;
-        private Binding _nameBinding;
-        private Binding _valueBinding;
 
         public BooleanFieldViewHolder(Context context, LayoutInflater inflater, ViewGroup container, IBooleanField element) : base(context, inflater, container, element)
         {
@@ -30,8 +28,8 @@ namespace Morphous.Native.Droid.UI.Elements
             base.BindView(view);
             _nameTextView = view.FindViewById<TextView>(Resource.Id.booleanField_name);
             _valueTextView = view.FindViewById<TextView>(Resource.Id.booleanField_value);
-            _nameBinding = this.SetBinding(() => Element.Name, () => _nameTextView.Text);
-            _valueBinding = this.SetBinding(() => Element.Value, () => _valueTextView.Text);
+            Bindings.Add(this.SetBinding(() => Element.Name, () => _nameTextView.Text));
+            Bindings.Add(this.SetBinding(() => Element.Value, () => _valueTextView.Text));
         }
     }
 }

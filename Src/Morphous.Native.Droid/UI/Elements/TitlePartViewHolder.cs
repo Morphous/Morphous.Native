@@ -17,7 +17,6 @@ namespace Morphous.Native.Droid.UI.Elements
     public class TitlePartViewHolder : ElementViewHolder<ITitlePart>
     {
         private TextView _textView;
-        private Binding _titleBinding;
 
         public TitlePartViewHolder(Context context, LayoutInflater inflater, ViewGroup container, ITitlePart element) : base(context, inflater, container, element)
         {
@@ -27,7 +26,7 @@ namespace Morphous.Native.Droid.UI.Elements
         {
             base.BindView(view);
             _textView = view.FindViewById<TextView>(Resource.Id.titlePart_title);
-            _titleBinding = this.SetBinding(() => Element.Title, () => _textView.Text);
+            Bindings.Add(this.SetBinding(() => Element.Title, () => _textView.Text));
         }
     }
 }

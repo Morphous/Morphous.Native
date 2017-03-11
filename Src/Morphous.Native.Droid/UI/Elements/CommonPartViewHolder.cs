@@ -20,10 +20,6 @@ namespace Morphous.Native.Droid.UI.Elements
         private TextView _resourceUrlTextView;
         private TextView _createdDateTextView;
         private TextView _publishedDateTextView;
-        private Binding _idBinding;
-        private Binding _resourceUrlBinding;
-        private Binding _createdDateBinding;
-        private Binding _publishedDateBinding;
 
         public CommonPartViewHolder(Context context, LayoutInflater inflater, ViewGroup container, ICommonPart element) : base(context, inflater, container, element)
         {
@@ -37,10 +33,10 @@ namespace Morphous.Native.Droid.UI.Elements
             _createdDateTextView = view.FindViewById<TextView>(Resource.Id.commonPart_createdDate);
             _publishedDateTextView = view.FindViewById<TextView>(Resource.Id.commonPart_publishedDate);
 
-            _idBinding = this.SetBinding(() => Element.Id, () => _idTextView.Text);
-            _resourceUrlBinding = this.SetBinding(() => Element.ResourceUrl, () => _resourceUrlTextView.Text);
-            _createdDateBinding = this.SetBinding(() => Element.CreatedDate, () => _createdDateTextView.Text).ConvertSourceToTarget(FormatDate);
-            _publishedDateBinding = this.SetBinding(() => Element.PublishedDate, () => _publishedDateTextView.Text).ConvertSourceToTarget(FormatDate);
+            Bindings.Add(this.SetBinding(() => Element.Id, () => _idTextView.Text));
+            Bindings.Add(this.SetBinding(() => Element.ResourceUrl, () => _resourceUrlTextView.Text));
+            Bindings.Add(this.SetBinding(() => Element.CreatedDate, () => _createdDateTextView.Text).ConvertSourceToTarget(FormatDate));
+            Bindings.Add(this.SetBinding(() => Element.PublishedDate, () => _publishedDateTextView.Text).ConvertSourceToTarget(FormatDate));
         }
 
         protected virtual string FormatDate(DateTime arg)
