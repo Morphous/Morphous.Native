@@ -7,7 +7,7 @@
     android:gravity="center_vertical"
     android:background="?android:attr/selectableItemBackground">
 
-    <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    <TextView
         style="@style/TextAppearance.AppCompat.Subhead"
         android:id="@+id/taxonomyItem_title"
         android:layout_width="wrap_content"

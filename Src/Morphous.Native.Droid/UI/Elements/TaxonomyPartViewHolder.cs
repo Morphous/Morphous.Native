@@ -37,13 +37,13 @@ namespace Morphous.Native.Droid.UI.Elements
         {
             base.BindView(view);
             var adapter = new TermsAdapater(Inflater, Element.Terms);
-            adapter.TermSelected += Adapter_ChildItemSelected;
+            adapter.TermSelected += Adapter_TermSelected;
 
             _recyclerView = view.FindViewById<RecyclerView>(Resource.Id.recycler_view);
             _recyclerView.SetAdapter(adapter);
         }
 
-        private void Adapter_ChildItemSelected(object sender, ITaxonomyItem e)
+        private void Adapter_TermSelected(object sender, ITaxonomyItem e)
         {
             var termWrapper = new TermWrapper { Id = e.Id };
             _messenger.Send(new ContentItemSelectedMessage(termWrapper));
@@ -53,22 +53,6 @@ namespace Morphous.Native.Droid.UI.Elements
         {
             base.Dispose();
             //TODO detach the bindings for each child item
-        }
-
-        public class TermWrapper : IContentItem
-        {
-            public int? Id { get; set; }
-
-            public string ContentType => throw new NotImplementedException();
-
-            public string DisplayType => throw new NotImplementedException();
-
-            public IList<IContentZone> Zones => throw new NotImplementedException();
-
-            public TElement As<TElement>() where TElement : IContentElement
-            {
-                throw new NotImplementedException();
-            }
         }
 
 
@@ -130,6 +114,23 @@ namespace Morphous.Native.Droid.UI.Elements
                 }
 
                 _binding = this.SetBinding(() => Term.Title, () => _titleTextView.Text);
+            }
+        }
+        
+
+        public class TermWrapper : IContentItem
+        {
+            public int? Id { get; set; }
+
+            public string ContentType => throw new NotImplementedException();
+
+            public string DisplayType => throw new NotImplementedException();
+
+            public IList<IContentZone> Zones => throw new NotImplementedException();
+
+            public TElement As<TElement>() where TElement : IContentElement
+            {
+                throw new NotImplementedException();
             }
         }
     }
