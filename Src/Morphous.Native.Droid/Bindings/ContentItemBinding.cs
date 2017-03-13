@@ -30,6 +30,7 @@ namespace Morphous.Native.Droid.Bindings
         private readonly List<ElementViewHolder> _elementViewHolders = new List<ElementViewHolder>();
         private readonly IElementViewHolderFactory _elementViewHolderFactory;
 
+
         public ContentItemBinding(
             object source,
             Expression<Func<IContentItem>> sourcePropertyExpression,
@@ -57,15 +58,16 @@ namespace Morphous.Native.Droid.Bindings
 
             if (contentItem == null || view == null)
                 return;
+
+            var contentItemContainer = view.FindViewById<ViewGroup>(Resource.Id.contentItem_container);
+            if (contentItemContainer == null)
+                throw new ArgumentException("ContentItemBinding requires a view with a ViewGroup with id contentItem_container");
             
             var context = view.Context;
             var inflater = LayoutInflater.From(context);
 
-            var contentItemContainer = view.FindViewById<ViewGroup>(Resource.Id.contentItem_container);
-            if (contentItemContainer == null)
-                throw new ArgumentException("ContentItemBinding requires a view that contains a ViewGroup with id contentItem_container");
-            
-            var contentItemView = inflater.Inflate(Resource.Layout.ContentItem, contentItemContainer, true);
+            var contentItemView = GetTemplate(context, inflater, contentItemContainer, contentItem);
+            contentItemContainer.AddView(contentItemView);
 
             foreach (var zone in contentItem.Zones)
             {
@@ -81,6 +83,33 @@ namespace Morphous.Native.Droid.Bindings
                     }
                 }
             }
+        }
+
+        private static View GetTemplate(Context context, LayoutInflater inflater, ViewGroup parent, IContentItem contentItem)
+        {
+            var id = contentItem.Id;
+            var contentType = contentItem.ContentType.ToLower();
+            var displayType = contentItem.DisplayType.ToLower();
+
+            var alternates = new string[]
+            {
+                $"contentitem_{id}",
+                $"contentitem_{contentType}_{displayType}",
+                $"contentitem_{contentType}",
+                $"contentitem_{displayType}",
+                $"contentitem",
+            };
+
+            foreach (var alternate in alternates)
+            {
+                var layoutId = Application.Context.Resources.GetIdentifier(alternate, "layout", context.PackageName);
+                if (layoutId > 0)
+                {
+                    return inflater.Inflate(layoutId, parent, false);
+                }
+            }
+
+            throw new InflateException("Couldn't find any content item templates to inflate.");
         }
 
         public override void Detach()

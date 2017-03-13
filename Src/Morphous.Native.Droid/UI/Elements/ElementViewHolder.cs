@@ -31,7 +31,6 @@ namespace Morphous.Native.Droid.UI.Elements
         {
             var elementType = Element.Type.ToLower();
             var id = Element.Zone.ContentItem.Id;
-
             var contentType = Element.Zone.ContentItem.ContentType.ToLower();
             var displayType = Element.Zone.ContentItem.DisplayType.ToLower();
             var zoneName = Element.Zone.Name.ToLower();
@@ -63,7 +62,7 @@ namespace Morphous.Native.Droid.UI.Elements
             return view;
         }
 
-        protected View GetLayout(string layoutName)
+        private View GetLayout(string layoutName)
         {
             var layoutId = Context.Resources.GetIdentifier(layoutName, "layout", Context.PackageName);
             if (layoutId > 0)
@@ -73,11 +72,6 @@ namespace Morphous.Native.Droid.UI.Elements
 
             return null;
         }
-
-        private string[] _alternates = new string[]
-        {
-
-        };
     }
 
     public abstract class ElementViewHolder : IDisposable

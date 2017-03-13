@@ -712,6 +712,7 @@ namespace MainSample.Droid
 			global::Morphous.Native.Droid.Resource.Layout.BooleanField = global::MainSample.Droid.Resource.Layout.BooleanField;
 			global::Morphous.Native.Droid.Resource.Layout.CommonPart = global::MainSample.Droid.Resource.Layout.CommonPart;
 			global::Morphous.Native.Droid.Resource.Layout.ContentItem = global::MainSample.Droid.Resource.Layout.ContentItem;
+			global::Morphous.Native.Droid.Resource.Layout.ContentItem_Summary = global::MainSample.Droid.Resource.Layout.ContentItem_Summary;
 			global::Morphous.Native.Droid.Resource.Layout.fragment_content_item = global::MainSample.Droid.Resource.Layout.fragment_content_item;
 			global::Morphous.Native.Droid.Resource.Layout.notification_action = global::MainSample.Droid.Resource.Layout.notification_action;
 			global::Morphous.Native.Droid.Resource.Layout.notification_action_tombstone = global::MainSample.Droid.Resource.Layout.notification_action_tombstone;
@@ -3162,11 +3163,11 @@ namespace MainSample.Droid
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f06005c
-			public const int Content = 2131099740;
+			// aapt resource value: 0x7f060060
+			public const int Content = 2131099744;
 			
-			// aapt resource value: 0x7f06005b
-			public const int Header = 2131099739;
+			// aapt resource value: 0x7f06005f
+			public const int Header = 2131099743;
 			
 			// aapt resource value: 0x7f060061
 			public const int Meta = 2131099745;
@@ -3279,17 +3280,17 @@ namespace MainSample.Droid
 			// aapt resource value: 0x7f06001f
 			public const int collapseActionView = 2131099679;
 			
-			// aapt resource value: 0x7f06005f
-			public const int commonPart_createdDate = 2131099743;
-			
 			// aapt resource value: 0x7f06005d
-			public const int commonPart_id = 2131099741;
+			public const int commonPart_createdDate = 2131099741;
 			
-			// aapt resource value: 0x7f060060
-			public const int commonPart_publishedDate = 2131099744;
+			// aapt resource value: 0x7f06005b
+			public const int commonPart_id = 2131099739;
 			
 			// aapt resource value: 0x7f06005e
-			public const int commonPart_resourceUrl = 2131099742;
+			public const int commonPart_publishedDate = 2131099742;
+			
+			// aapt resource value: 0x7f06005c
+			public const int commonPart_resourceUrl = 2131099740;
 			
 			// aapt resource value: 0x7f060062
 			public const int contentItem_container = 2131099746;
@@ -3675,13 +3676,13 @@ namespace MainSample.Droid
 			public const int BooleanField = 2130903069;
 			
 			// aapt resource value: 0x7f03001e
-			public const int childcontentitem = 2130903070;
+			public const int CommonPart = 2130903070;
 			
 			// aapt resource value: 0x7f03001f
-			public const int CommonPart = 2130903071;
+			public const int ContentItem = 2130903071;
 			
 			// aapt resource value: 0x7f030020
-			public const int ContentItem = 2130903072;
+			public const int ContentItem_Summary = 2130903072;
 			
 			// aapt resource value: 0x7f030021
 			public const int fragment_content_item = 2130903073;

@@ -145,6 +145,9 @@
     <AndroidResource Include="Resources\Layout\fragment_content_item.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
+    <AndroidResource Include="Resources\Layout\ContentItem_Summary.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\Values\Strings.xml" />
