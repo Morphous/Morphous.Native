@@ -27,13 +27,13 @@ namespace Morphous.Native.Droid.UI.Elements
         {
             base.BindView(view);
 
-            var linearLayoutParams = Container.LayoutParameters as LinearLayout.LayoutParams;
+            //var linearLayoutParams = Container.LayoutParameters as LinearLayout.LayoutParams;
 
-            if (linearLayoutParams != null)
-            {
-                linearLayoutParams.Height = 0;
-                linearLayoutParams.Weight = 1;
-            }
+            //if (linearLayoutParams != null)
+            //{
+            //    linearLayoutParams.Height = 0;
+            //    linearLayoutParams.Weight = 1;
+            //}
 
             _recyclerView = view.FindViewById<RecyclerView>(Resource.Id.recycler_view);
             _recyclerView.SetAdapter(new TermAdapater(Inflater, Element.ContentItems));
@@ -54,7 +54,7 @@ namespace Morphous.Native.Droid.UI.Elements
 
             public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
             {
-                var itemView = _inflater.Inflate(Resource.Layout.ChildContentItem, parent, false);
+                var itemView = _inflater.Inflate(Resource.Layout.view_content_item, parent, false);
                 var viewHolder = new ContentItemHolder(itemView);
                 
                 return viewHolder;

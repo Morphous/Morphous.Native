@@ -61,9 +61,15 @@ namespace Morphous.Native.Droid.Bindings
             var context = view.Context;
             var inflater = LayoutInflater.From(context);
 
+            var contentItemContainer = view.FindViewById<ViewGroup>(Resource.Id.contentItem_container);
+            if (contentItemContainer == null)
+                throw new ArgumentException("ContentItemBinding requires a view that contains a ViewGroup with id contentItem_container");
+            
+            var contentItemView = inflater.Inflate(Resource.Layout.ContentItem, contentItemContainer, true);
+
             foreach (var zone in contentItem.Zones)
             {
-                var zoneLayout = view.FindViewById<ViewGroup>(context.Resources.GetIdentifier(zone.Name, "id", context.PackageName));
+                var zoneLayout = contentItemView.FindViewById<ViewGroup>(context.Resources.GetIdentifier(zone.Name, "id", context.PackageName));
 
                 if (zoneLayout != null)
                 {
