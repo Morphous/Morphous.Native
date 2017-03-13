@@ -1917,8 +1917,8 @@ namespace Morphous.Native.Droid
 			// aapt resource value: 0x7f060041
 			public static int radio = 2131099713;
 			
-			// aapt resource value: 0x7f06007b
-			public static int recycler_view = 2131099771;
+			// aapt resource value: 0x7f06007c
+			public static int recycler_view = 2131099772;
 			
 			// aapt resource value: 0x7f060072
 			public static int right_icon = 2131099762;
@@ -2010,6 +2010,9 @@ namespace Morphous.Native.Droid
 			// aapt resource value: 0x7f06000c
 			public static int tabMode = 2131099660;
 			
+			// aapt resource value: 0x7f06007b
+			public static int taxonomyItem_title = 2131099771;
+			
 			// aapt resource value: 0x7f060079
 			public static int text = 2131099769;
 			
@@ -2031,8 +2034,8 @@ namespace Morphous.Native.Droid
 			// aapt resource value: 0x7f06003d
 			public static int titleDividerNoCustom = 2131099709;
 			
-			// aapt resource value: 0x7f06007c
-			public static int titlePart_title = 2131099772;
+			// aapt resource value: 0x7f06007d
+			public static int titlePart_title = 2131099773;
 			
 			// aapt resource value: 0x7f06003b
 			public static int title_template = 2131099707;
@@ -2253,16 +2256,22 @@ namespace Morphous.Native.Droid
 			public static int support_simple_spinner_dropdown_item = 2130903092;
 			
 			// aapt resource value: 0x7f030035
-			public static int TermPart = 2130903093;
+			public static int TaxonomyItem = 2130903093;
 			
 			// aapt resource value: 0x7f030036
-			public static int TitlePart = 2130903094;
+			public static int TaxonomyPart = 2130903094;
 			
 			// aapt resource value: 0x7f030037
-			public static int TitlePart_Summary = 2130903095;
+			public static int TermPart = 2130903095;
 			
 			// aapt resource value: 0x7f030038
-			public static int view_content_item = 2130903096;
+			public static int TitlePart = 2130903096;
+			
+			// aapt resource value: 0x7f030039
+			public static int TitlePart_Summary = 2130903097;
+			
+			// aapt resource value: 0x7f03003a
+			public static int view_content_item = 2130903098;
 			
 			static Layout()
 			{

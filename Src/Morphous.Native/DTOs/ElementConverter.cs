@@ -42,6 +42,9 @@ namespace Morphous.Native.DTOs
                 case "TermPart":
                     result = new TermPartDto();
                     break;
+                case "TaxonomyPart":
+                    result = new TaxonomyPartDto();
+                    break;
                 case "BooleanField":
                     result = new BooleanFieldDto();
                     break;

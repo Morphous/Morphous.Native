@@ -97,6 +97,10 @@ namespace Morphous.Native.Factories
             {
                 contentPart = CreateTermPart(contentPartDto as TermPartDto);
             }
+            else if (contentPartDto is TaxonomyPartDto)
+            {
+                contentPart = CreateTaxonomyPart(contentPartDto as TaxonomyPartDto);
+            }
             else
             {
                 throw new NotSupportedException("No mapping from element dto " + contentPartDto.Type + " to element model.");
@@ -126,6 +130,32 @@ namespace Morphous.Native.Factories
             }
 
             return termPart;
+        }
+
+        private ContentPart CreateTaxonomyPart(TaxonomyPartDto taxonomyPartDto)
+        {
+            var taxonomyPart = new TaxonomyPart();
+            taxonomyPart.Terms = CreateTaxonomyItems(taxonomyPartDto.Terms);
+            
+            return taxonomyPart;
+        }
+
+        private IList<ITaxonomyItem> CreateTaxonomyItems(IList<TaxonomyItemDto> itemDtos)
+        {
+            var items = new List<ITaxonomyItem>();
+
+            foreach (var itemDto in itemDtos)
+            {
+                var taxonomyItem = new TaxonomyItem();
+                taxonomyItem.Id = itemDto.Id;
+                taxonomyItem.Title = itemDto.Title;
+                taxonomyItem.DisplayUrl = itemDto.DisplayUrl;
+                taxonomyItem.Terms = CreateTaxonomyItems(itemDto.Terms);
+
+                items.Add(taxonomyItem);
+            }
+
+            return items;
         }
 
         // Fields

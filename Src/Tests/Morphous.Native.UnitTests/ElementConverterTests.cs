@@ -65,6 +65,18 @@ namespace Morphous.Native.UnitTests
         }
 
         [Test]
+        public void Converts_TaxonomyPart_Json_to_TaxonomyPartDto()
+        {
+            var json = "{\"type\": \"TaxonomyPart\",\"terms\": [{\"id\": 16,\"title\": \"Sport\",\"displayUrl\": \"/api/Contents/Item/16?displayType=Detail\",\"terms\": []},{\"id\": 15,\"title\": \"UK\",\"displayUrl\": \"/api/Contents/Item/15?displayType=Detail\",\"terms\": []},{\"id\": 14,\"title\": \"Top Stories\",\"displayUrl\": \"/api/Contents/Item/14?displayType=Detail\",\"terms\": []}]}";
+            var elementDto = JsonConvert.DeserializeObject<ContentElementDto>(json);
+
+            elementDto.Should().BeOfType<TaxonomyPartDto>();
+            var taxonomyPartDto = elementDto as TaxonomyPartDto;
+            taxonomyPartDto.Terms.Should().HaveCount(3);
+            taxonomyPartDto.Terms.Should().NotContainNulls();
+        }
+
+        [Test]
         public void Converts_BooleanField_Json_to_BooleanFieldDto()
         {
             var json = "{\"type\":\"BooleanField\",\"name\":\"TestBool\",\"value\":true}";

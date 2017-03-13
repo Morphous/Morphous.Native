@@ -109,6 +109,7 @@
     <Compile Include="UI\Elements\BooleanFieldViewHolder.cs" />
     <Compile Include="UI\Elements\CommonPartViewHolder.cs" />
     <Compile Include="UI\Elements\ElementViewHolder.cs" />
+    <Compile Include="UI\Elements\TaxonomyPartViewHolder.cs" />
     <Compile Include="UI\Elements\TermPartViewHolder.cs" />
     <Compile Include="UI\Elements\TitlePartViewHolder.cs" />
     <Compile Include="UI\MphExtras.cs" />
@@ -147,6 +148,12 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\Layout\ContentItem_Summary.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\TaxonomyPart.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\TaxonomyItem.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

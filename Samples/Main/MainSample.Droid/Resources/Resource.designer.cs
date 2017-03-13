@@ -661,6 +661,7 @@ namespace MainSample.Droid
 			global::Morphous.Native.Droid.Resource.Id.submenuarrow = global::MainSample.Droid.Resource.Id.submenuarrow;
 			global::Morphous.Native.Droid.Resource.Id.submit_area = global::MainSample.Droid.Resource.Id.submit_area;
 			global::Morphous.Native.Droid.Resource.Id.tabMode = global::MainSample.Droid.Resource.Id.tabMode;
+			global::Morphous.Native.Droid.Resource.Id.taxonomyItem_title = global::MainSample.Droid.Resource.Id.taxonomyItem_title;
 			global::Morphous.Native.Droid.Resource.Id.text = global::MainSample.Droid.Resource.Id.text;
 			global::Morphous.Native.Droid.Resource.Id.text2 = global::MainSample.Droid.Resource.Id.text2;
 			global::Morphous.Native.Droid.Resource.Id.textSpacerNoButtons = global::MainSample.Droid.Resource.Id.textSpacerNoButtons;
@@ -733,6 +734,8 @@ namespace MainSample.Droid
 			global::Morphous.Native.Droid.Resource.Layout.select_dialog_multichoice_material = global::MainSample.Droid.Resource.Layout.select_dialog_multichoice_material;
 			global::Morphous.Native.Droid.Resource.Layout.select_dialog_singlechoice_material = global::MainSample.Droid.Resource.Layout.select_dialog_singlechoice_material;
 			global::Morphous.Native.Droid.Resource.Layout.support_simple_spinner_dropdown_item = global::MainSample.Droid.Resource.Layout.support_simple_spinner_dropdown_item;
+			global::Morphous.Native.Droid.Resource.Layout.TaxonomyItem = global::MainSample.Droid.Resource.Layout.TaxonomyItem;
+			global::Morphous.Native.Droid.Resource.Layout.TaxonomyPart = global::MainSample.Droid.Resource.Layout.TaxonomyPart;
 			global::Morphous.Native.Droid.Resource.Layout.TermPart = global::MainSample.Droid.Resource.Layout.TermPart;
 			global::Morphous.Native.Droid.Resource.Layout.TitlePart = global::MainSample.Droid.Resource.Layout.TitlePart;
 			global::Morphous.Native.Droid.Resource.Layout.TitlePart_Summary = global::MainSample.Droid.Resource.Layout.TitlePart_Summary;
@@ -3409,8 +3412,8 @@ namespace MainSample.Droid
 			// aapt resource value: 0x7f060041
 			public const int radio = 2131099713;
 			
-			// aapt resource value: 0x7f06007e
-			public const int recycler_view = 2131099774;
+			// aapt resource value: 0x7f06007f
+			public const int recycler_view = 2131099775;
 			
 			// aapt resource value: 0x7f060075
 			public const int right_icon = 2131099765;
@@ -3502,6 +3505,9 @@ namespace MainSample.Droid
 			// aapt resource value: 0x7f06000c
 			public const int tabMode = 2131099660;
 			
+			// aapt resource value: 0x7f06007e
+			public const int taxonomyItem_title = 2131099774;
+			
 			// aapt resource value: 0x7f06007c
 			public const int text = 2131099772;
 			
@@ -3523,8 +3529,8 @@ namespace MainSample.Droid
 			// aapt resource value: 0x7f06003d
 			public const int titleDividerNoCustom = 2131099709;
 			
-			// aapt resource value: 0x7f06007f
-			public const int titlePart_title = 2131099775;
+			// aapt resource value: 0x7f060080
+			public const int titlePart_title = 2131099776;
 			
 			// aapt resource value: 0x7f06003b
 			public const int title_template = 2131099707;
@@ -3748,16 +3754,22 @@ namespace MainSample.Droid
 			public const int support_simple_spinner_dropdown_item = 2130903093;
 			
 			// aapt resource value: 0x7f030036
-			public const int TermPart = 2130903094;
+			public const int TaxonomyItem = 2130903094;
 			
 			// aapt resource value: 0x7f030037
-			public const int TitlePart = 2130903095;
+			public const int TaxonomyPart = 2130903095;
 			
 			// aapt resource value: 0x7f030038
-			public const int TitlePart_Summary = 2130903096;
+			public const int TermPart = 2130903096;
 			
 			// aapt resource value: 0x7f030039
-			public const int view_content_item = 2130903097;
+			public const int TitlePart = 2130903097;
+			
+			// aapt resource value: 0x7f03003a
+			public const int TitlePart_Summary = 2130903098;
+			
+			// aapt resource value: 0x7f03003b
+			public const int view_content_item = 2130903099;
 			
 			static Layout()
 			{

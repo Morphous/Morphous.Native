@@ -39,7 +39,7 @@ namespace MainSample.Droid
         private void TermButtonClick(object sender, System.EventArgs e)
         {
             var intent = new Intent(this, typeof(ContentItemActivity));
-            intent.PutExtra(MphExtras.ContentItemId, 14);
+            intent.PutExtra(MphExtras.ContentItemId, 13);
             StartActivity(intent);
         }
 

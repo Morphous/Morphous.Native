@@ -1,4 +1,6 @@
-﻿using NUnit.Framework;
+﻿using Morphous.Native.Factories;
+using Morphous.Native.Services;
+using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,9 +12,13 @@ namespace Morphous.Native.IntegrationTests
     public class TestBed
     {
         [Test]
-        public void Run_TestBed()
+        public async Task Run_TestBed()
         {
+            var contentRequester = new ContentRequester();
+            var contentItemFactory = new ContentItemFactory();
 
+            var contentItemDto = await contentRequester.GetContentItem("http://localhost:96/api/Contents/Item/13");
+            var contentItem = contentItemFactory.Create(contentItemDto);
         }
     }
 }

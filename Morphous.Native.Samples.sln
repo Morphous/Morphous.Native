@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26228.4
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{76F5215C-0B30-4B19-8FED-D24E063370E7}"
 EndProject
@@ -593,8 +593,8 @@ Global
 		{037B9BF9-DC3B-4053-838B-B26BC3BE1759}.Release|x64.Build.0 = Release|Any CPU
 		{037B9BF9-DC3B-4053-838B-B26BC3BE1759}.Release|x86.ActiveCfg = Release|Any CPU
 		{037B9BF9-DC3B-4053-838B-B26BC3BE1759}.Release|x86.Build.0 = Release|Any CPU
-		{037B9BF9-DC3B-4053-838B-B26BC3BE1759}.Test|Any CPU.ActiveCfg = Release|Any CPU
-		{037B9BF9-DC3B-4053-838B-B26BC3BE1759}.Test|Any CPU.Build.0 = Release|Any CPU
+		{037B9BF9-DC3B-4053-838B-B26BC3BE1759}.Test|Any CPU.ActiveCfg = Debug|Any CPU
+		{037B9BF9-DC3B-4053-838B-B26BC3BE1759}.Test|Any CPU.Build.0 = Debug|Any CPU
 		{037B9BF9-DC3B-4053-838B-B26BC3BE1759}.Test|ARM.ActiveCfg = Release|Any CPU
 		{037B9BF9-DC3B-4053-838B-B26BC3BE1759}.Test|ARM.Build.0 = Release|Any CPU
 		{037B9BF9-DC3B-4053-838B-B26BC3BE1759}.Test|iPhone.ActiveCfg = Release|Any CPU
