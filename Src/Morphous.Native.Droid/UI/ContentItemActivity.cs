@@ -3,12 +3,22 @@ using System;
 using Android.App;
 using Android.OS;
 using Android.Support.V7.App;
+using GalaSoft.MvvmLight.Messaging;
+using Morphous.Native.Droid.Events;
+using Android.Content;
 
 namespace Morphous.Native.Droid.UI
 {
     [Activity(Label = "Content Item")]
     public class ContentItemActivity : AppCompatActivity
     {
+        private IMessenger _messenger;
+        private IMessenger Messenger
+        {
+            get { return _messenger ?? (_messenger = GalaSoft.MvvmLight.Messaging.Messenger.Default); }
+            set { _messenger = value; }
+        }
+
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
@@ -23,6 +33,30 @@ namespace Morphous.Native.Droid.UI
             SupportFragmentManager.BeginTransaction()
                 .Add(Resource.Id.frameLayout, ContentItemFragment.Create(contentItemId), null)
                 .Commit();
+        }
+
+        protected override void OnResume()
+        {
+            base.OnResume();
+            Messenger.Register<ContentItemSelectedMessage>(this, ContentItemSelected);
+        }
+
+        protected override void OnPause()
+        {
+            base.OnPause();
+            Messenger.Unregister<ContentItemSelectedMessage>(this);
+        }
+
+        private void ContentItemSelected(ContentItemSelectedMessage obj)
+        {
+            var id = obj.ContentItem.Id;
+
+            if (id.HasValue)
+            {
+                var intent = new Intent(this, typeof(ContentItemActivity));
+                intent.PutExtra(MphExtras.ContentItemId, id.Value);
+                StartActivity(intent);
+            }
         }
     }
 }

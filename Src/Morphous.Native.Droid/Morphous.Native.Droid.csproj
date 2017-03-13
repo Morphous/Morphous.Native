@@ -98,6 +98,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bindings\ContentItemBinding.cs" />
+    <Compile Include="Events\ContentItemSelectedMessage.cs" />
     <Compile Include="Factories\DefaultElementViewHolderFactory.cs" />
     <Compile Include="Factories\IElementViewHolderFactory.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
