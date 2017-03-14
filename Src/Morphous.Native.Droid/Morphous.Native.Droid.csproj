@@ -112,7 +112,8 @@
     <Compile Include="UI\Elements\TaxonomyPartViewHolder.cs" />
     <Compile Include="UI\Elements\TermPartViewHolder.cs" />
     <Compile Include="UI\Elements\TitlePartViewHolder.cs" />
-    <Compile Include="UI\MphExtras.cs" />
+    <Compile Include="MphExtras.cs" />
+    <Compile Include="UI\SimpleDivider.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -40,6 +40,7 @@ namespace Morphous.Native.Droid.UI.Elements
             adapter.ChildItemSelected += Adapter_ChildItemSelected;
 
             _recyclerView = view.FindViewById<RecyclerView>(Resource.Id.recycler_view);
+            _recyclerView.AddItemDecoration(new SimpleDivider(Context));
             _recyclerView.SetAdapter(adapter);
         }
 

@@ -10,7 +10,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 
-namespace Morphous.Native.Droid.UI
+namespace Morphous.Native.Droid
 {
     public static class MphExtras
     {
