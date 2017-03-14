@@ -20,7 +20,12 @@ namespace Morphous.Native.DTOs
             reader.DateParseHandling = DateParseHandling.None;
 
             JToken token = JToken.ReadFrom(reader);
-            string type = token["type"].Value<string>();
+            var typeToken = token["type"];
+
+            if (typeToken == null)
+                return null;
+
+            string type = typeToken.Value<string>();
 
             ContentElementDto result;
             switch (type)
@@ -33,6 +38,12 @@ namespace Morphous.Native.DTOs
                     break;
                 case "BodyPart":
                     result = new BodyPartDto();
+                    break;
+                case "TermPart":
+                    result = new TermPartDto();
+                    break;
+                case "TaxonomyPart":
+                    result = new TaxonomyPartDto();
                     break;
                 case "BooleanField":
                     result = new BooleanFieldDto();

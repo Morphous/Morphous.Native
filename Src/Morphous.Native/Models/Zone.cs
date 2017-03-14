@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace Morphous.Native.Models
 {
-    public interface IZone
+    public interface IContentZone
     {
         string Name { get; }
         IContentItem ContentItem { get; }
         IList<IContentElement> Elements { get; }
     }
 
-    public class Zone : ObservableObject, IZone
+    public class ContentZone : ObservableObject, IContentZone
     {
         public string Name { get; set; }
         public IContentItem ContentItem { get; internal set; }

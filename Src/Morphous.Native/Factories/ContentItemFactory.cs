@@ -32,23 +32,26 @@ namespace Morphous.Native.Factories
         }
 
         // Zone
-        private Zone CreateZone(ZoneDto zoneDto, IContentItem contentItem)
+        private ContentZone CreateZone(ZoneDto zoneDto, IContentItem contentItem)
         {
-            var zone = new Zone();
+            var zone = new ContentZone();
             zone.Name = zoneDto.Name;
             zone.ContentItem = contentItem;
 
             foreach (var elementDto in zoneDto.Elements)
             {
-                var element = CreateElement(elementDto, zone);
-                zone.Elements.Add(element);
+                if (elementDto != null)
+                {
+                    var element = CreateElement(elementDto, zone);
+                    zone.Elements.Add(element);
+                }
             }
 
             return zone;
         }
 
         // Elements
-        private ContentElement CreateElement(ContentElementDto elementDto, IZone zone)
+        private ContentElement CreateElement(ContentElementDto elementDto, IContentZone zone)
         {
             ContentElement element;
 
@@ -90,6 +93,14 @@ namespace Morphous.Native.Factories
                 var bodyPartDto = contentPartDto as BodyPartDto;
                 contentPart = new BodyPart { Html = bodyPartDto.Html};
             }
+            else if (contentPartDto is TermPartDto)
+            {
+                contentPart = CreateTermPart(contentPartDto as TermPartDto);
+            }
+            else if (contentPartDto is TaxonomyPartDto)
+            {
+                contentPart = CreateTaxonomyPart(contentPartDto as TaxonomyPartDto);
+            }
             else
             {
                 throw new NotSupportedException("No mapping from element dto " + contentPartDto.Type + " to element model.");
@@ -107,6 +118,44 @@ namespace Morphous.Native.Factories
             commonPart.PublishedDate = DateTime.Parse(commonPartDto.PublishedUtc);
 
             return commonPart;
+        }
+
+        private ContentPart CreateTermPart(TermPartDto termPartDto)
+        {
+            var termPart = new TermPart();
+
+            foreach (var contentItemDto in termPartDto.ContentItems)
+            {
+                termPart.ContentItems.Add(Create(contentItemDto));
+            }
+
+            return termPart;
+        }
+
+        private ContentPart CreateTaxonomyPart(TaxonomyPartDto taxonomyPartDto)
+        {
+            var taxonomyPart = new TaxonomyPart();
+            taxonomyPart.Terms = CreateTaxonomyItems(taxonomyPartDto.Terms);
+            
+            return taxonomyPart;
+        }
+
+        private IList<ITaxonomyItem> CreateTaxonomyItems(IList<TaxonomyItemDto> itemDtos)
+        {
+            var items = new List<ITaxonomyItem>();
+
+            foreach (var itemDto in itemDtos)
+            {
+                var taxonomyItem = new TaxonomyItem();
+                taxonomyItem.Id = itemDto.Id;
+                taxonomyItem.Title = itemDto.Title;
+                taxonomyItem.DisplayUrl = itemDto.DisplayUrl;
+                taxonomyItem.Terms = CreateTaxonomyItems(itemDto.Terms);
+
+                items.Add(taxonomyItem);
+            }
+
+            return items;
         }
 
         // Fields

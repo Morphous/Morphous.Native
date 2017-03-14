@@ -35,22 +35,24 @@ namespace Morphous.Native.ViewModels
 
 
         private readonly IContentService _contentService;
+        private readonly int _contentItemId;
 
-        public static IContentItemViewModel Create()
+        public static IContentItemViewModel Create(int contentItemId)
         {
-            return new ContentItemViewModel(ContentService.Instance);
+            return new ContentItemViewModel(ContentService.Instance, contentItemId);
         }
 
-        public ContentItemViewModel(IContentService contentService)
+        public ContentItemViewModel(IContentService contentService, int contentItemId)
         {
             _contentService = contentService;
+            _contentItemId = contentItemId;
             Init();
         }
 
         private async void Init()
         {
             Loading = true;
-            ContentItem = await _contentService.GetContentItem("http://192.168.0.13:98", 12);
+            ContentItem = await _contentService.GetContentItem("http://192.168.0.22:96", _contentItemId);
             Loading = false;
         }
     }

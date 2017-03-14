@@ -35,6 +35,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Container.cs" />
+    <Compile Include="DTOs\TaxonomyPartDto.cs" />
+    <Compile Include="DTOs\TermPartDto.cs" />
     <Compile Include="DTOs\BodyPartDto.cs" />
     <Compile Include="DTOs\BooleanFieldDto.cs" />
     <Compile Include="DTOs\CommonPartDto.cs" />
@@ -53,6 +55,8 @@
     <Compile Include="Models\ContentField.cs" />
     <Compile Include="Models\ContentItem.cs" />
     <Compile Include="Models\ContentPart.cs" />
+    <Compile Include="Models\TaxonomyPart.cs" />
+    <Compile Include="Models\TermPart.cs" />
     <Compile Include="Models\TitlePart.cs" />
     <Compile Include="Models\Zone.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
