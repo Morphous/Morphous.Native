@@ -35,7 +35,6 @@ namespace Morphous.Native.Droid.UI.Elements
             base.BindView(view);
 
             var imageView = view.FindViewById<ImageViewAsync>(Resource.Id.imagePart_image);
-            imageView.ScaleToFit = true;
 
             if (Element.Zone.ContentItem.DisplayType == "Summary")
             {
