@@ -101,6 +101,11 @@ namespace Morphous.Native.Factories
             {
                 contentPart = CreateTaxonomyPart(contentPartDto as TaxonomyPartDto);
             }
+            else if (contentPartDto is ImagePartDto)
+            {
+                var imagePartDto = contentPartDto as ImagePartDto;
+                contentPart = new ImagePart { Url = imagePartDto.Url, AlternateText = imagePartDto.AlternateText, Width = imagePartDto.Width, Height = imagePartDto.Height };
+            }
             else
             {
                 throw new NotSupportedException("No mapping from element dto " + contentPartDto.Type + " to element model.");
@@ -168,6 +173,19 @@ namespace Morphous.Native.Factories
                 var booleanFieldDto = contentFieldDto as BooleanFieldDto;
                 contentField = new BooleanField { Value = booleanFieldDto.Value };
             }
+            else if (contentFieldDto is MediaFieldDto)
+            {
+                var mediaFieldDto = contentFieldDto as MediaFieldDto;
+
+                if (mediaFieldDto.Media.Count > 1)
+                {
+                    contentField = CreateMultiMediaField(mediaFieldDto);
+                }
+                else
+                {
+                    contentField = CreateMediaField(mediaFieldDto);
+                }
+            }
             else
             {
                 throw new NotSupportedException("No mapping from element dto " + contentFieldDto.Type + " to element model.");
@@ -177,5 +195,31 @@ namespace Morphous.Native.Factories
 
             return contentField;
         }
+
+        private ContentField CreateMediaField(MediaFieldDto mediaFieldDto)
+        {
+            var mediaField = new MediaField();
+            var mediaItemDto = mediaFieldDto.Media.FirstOrDefault();
+
+            if (mediaItemDto != null)
+            {
+                mediaField.Media = Create(mediaItemDto);
+            }
+
+            return mediaField;
+        }
+
+        private ContentField CreateMultiMediaField(MediaFieldDto mediaFieldDto)
+        {
+            var multiMediaField = new MultiMediaField();
+
+            foreach (var mediaItemDto in mediaFieldDto.Media)
+            {
+                multiMediaField.Media.Add(Create(mediaItemDto));
+            }
+
+            return multiMediaField;
+        }
     }
 }
+ 

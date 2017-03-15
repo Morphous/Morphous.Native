@@ -17,7 +17,7 @@ namespace Morphous.Native.IntegrationTests
             var contentRequester = new ContentRequester();
             var contentItemFactory = new ContentItemFactory();
 
-            var contentItemDto = await contentRequester.GetContentItem("http://localhost:96/api/Contents/Item/13");
+            var contentItemDto = await contentRequester.GetContentItem("http://localhost:96/api/Contents/Item/12");
             var contentItem = contentItemFactory.Create(contentItemDto);
         }
     }

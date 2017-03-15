@@ -38,6 +38,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FFImageLoading, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xamarin.FFImageLoading.2.2.9\lib\MonoAndroid10\FFImageLoading.dll</HintPath>
+    </Reference>
+    <Reference Include="FFImageLoading.Platform, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xamarin.FFImageLoading.2.2.9\lib\MonoAndroid10\FFImageLoading.Platform.dll</HintPath>
+    </Reference>
     <Reference Include="GalaSoft.MvvmLight, Version=5.3.0.19026, Culture=neutral, PublicKeyToken=e7570ab207bcb616, processorArchitecture=MSIL">
       <HintPath>..\..\packages\MvvmLightLibs.5.3.0.0\lib\monoandroid1\GalaSoft.MvvmLight.dll</HintPath>
       <Private>True</Private>
@@ -109,6 +115,8 @@
     <Compile Include="UI\Elements\BooleanFieldViewHolder.cs" />
     <Compile Include="UI\Elements\CommonPartViewHolder.cs" />
     <Compile Include="UI\Elements\ElementViewHolder.cs" />
+    <Compile Include="UI\Elements\ImagePartViewHolder.cs" />
+    <Compile Include="UI\Elements\MediaFieldViewHolder.cs" />
     <Compile Include="UI\Elements\TaxonomyPartViewHolder.cs" />
     <Compile Include="UI\Elements\TermPartViewHolder.cs" />
     <Compile Include="UI\Elements\TitlePartViewHolder.cs" />
@@ -155,6 +163,15 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\Layout\TaxonomyItem.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\MediaField.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\ImagePart.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\ContentItem_Image_Summary.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
