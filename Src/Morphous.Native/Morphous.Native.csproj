@@ -35,6 +35,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Container.cs" />
+    <Compile Include="DTOs\ImagePartDto.cs" />
+    <Compile Include="DTOs\MediaFieldDto.cs" />
     <Compile Include="DTOs\TaxonomyPartDto.cs" />
     <Compile Include="DTOs\TermPartDto.cs" />
     <Compile Include="DTOs\BodyPartDto.cs" />
@@ -55,6 +57,9 @@
     <Compile Include="Models\ContentField.cs" />
     <Compile Include="Models\ContentItem.cs" />
     <Compile Include="Models\ContentPart.cs" />
+    <Compile Include="Models\ImagePart.cs" />
+    <Compile Include="Models\MediaField.cs" />
+    <Compile Include="Models\MultiMediaField.cs" />
     <Compile Include="Models\TaxonomyPart.cs" />
     <Compile Include="Models\TermPart.cs" />
     <Compile Include="Models\TitlePart.cs" />

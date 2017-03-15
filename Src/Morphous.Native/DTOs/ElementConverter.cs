@@ -45,8 +45,14 @@ namespace Morphous.Native.DTOs
                 case "TaxonomyPart":
                     result = new TaxonomyPartDto();
                     break;
+                case "ImagePart":
+                    result = new ImagePartDto();
+                    break;
                 case "BooleanField":
                     result = new BooleanFieldDto();
+                    break;
+                case "MediaLibraryPickerField":
+                    result = new MediaFieldDto();
                     break;
                 default:
                     result = new ContentElementDto();
