@@ -11,11 +11,12 @@ using Android.Views;
 using Android.Widget;
 using Morphous.Native.Models;
 using Morphous.Native.Droid.UI.Elements;
+using GalaSoft.MvvmLight.Messaging;
 
 namespace Morphous.Native.Droid.Factories
 {
     public interface IElementViewHolderFactory
     {
-        ElementViewHolder Create(Context context, LayoutInflater inflater, ViewGroup zoneLayout, IContentElement element);
+        ElementViewHolder Create(Context context, LayoutInflater inflater, ViewGroup zoneLayout, IContentElement element, IMessenger messenger);
     }
 }

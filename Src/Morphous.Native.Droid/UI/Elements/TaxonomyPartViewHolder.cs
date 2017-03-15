@@ -24,10 +24,6 @@ namespace Morphous.Native.Droid.UI.Elements
 
         private RecyclerView _recyclerView;
 
-        public TaxonomyPartViewHolder(Context context, LayoutInflater inflater, ViewGroup container, ITaxonomyPart element) : this(context, inflater, container, element, null)
-        {
-        }
-
         public TaxonomyPartViewHolder(Context context, LayoutInflater inflater, ViewGroup container, ITaxonomyPart element, IMessenger messenger) : base(context, inflater, container, element)
         {
             _messenger = messenger ?? GalaSoft.MvvmLight.Messaging.Messenger.Default;

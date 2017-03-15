@@ -11,6 +11,7 @@ using Android.Views;
 using Android.Widget;
 using Morphous.Native.Droid.UI.Elements;
 using Morphous.Native.Models;
+using GalaSoft.MvvmLight.Messaging;
 
 namespace Morphous.Native.Droid.Factories
 {
@@ -19,7 +20,7 @@ namespace Morphous.Native.Droid.Factories
         private static IElementViewHolderFactory _instance;
         public static IElementViewHolderFactory Instance => _instance ?? (_instance = new DefaultElementViewHolderFactory());
 
-        public ElementViewHolder Create(Context context, LayoutInflater inflater, ViewGroup zoneLayout, IContentElement element)
+        public ElementViewHolder Create(Context context, LayoutInflater inflater, ViewGroup zoneLayout, IContentElement element, IMessenger messenger)
         {
             if (element is ICommonPart)
             {
@@ -39,7 +40,7 @@ namespace Morphous.Native.Droid.Factories
             }
             else if (element is ITaxonomyPart)
             {
-                return new TaxonomyPartViewHolder(context, inflater, zoneLayout, element as ITaxonomyPart);
+                return new TaxonomyPartViewHolder(context, inflater, zoneLayout, element as ITaxonomyPart, messenger);
             }
             else if (element is IImagePart)
             {

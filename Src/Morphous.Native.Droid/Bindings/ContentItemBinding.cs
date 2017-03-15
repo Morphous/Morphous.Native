@@ -3,6 +3,8 @@ using Android.Content;
 using Android.Views;
 using Android.Widget;
 using GalaSoft.MvvmLight.Helpers;
+using GalaSoft.MvvmLight.Messaging;
+using Morphous.Native.Droid.Events;
 using Morphous.Native.Droid.Factories;
 using Morphous.Native.Droid.UI.Elements;
 using Morphous.Native.Models;
@@ -29,13 +31,15 @@ namespace Morphous.Native.Droid.Bindings
         private readonly Func<View> _targetPropertyFunc;
         private readonly List<ElementViewHolder> _elementViewHolders = new List<ElementViewHolder>();
         private readonly IElementViewHolderFactory _elementViewHolderFactory;
+        private readonly IMessenger _messenger;
 
 
         public ContentItemBinding(
             object source,
             Expression<Func<IContentItem>> sourcePropertyExpression,
             Expression<Func<View>> targetPropertyExpression,
-            IElementViewHolderFactory elementViewHolderFactory = null)
+            IElementViewHolderFactory elementViewHolderFactory = null,
+            IMessenger messenger = null)
             : base(
                 source,
                 sourcePropertyExpression,
@@ -48,6 +52,7 @@ namespace Morphous.Native.Droid.Bindings
             _sourcePropertyFunc = sourcePropertyExpression.Compile();
             _targetPropertyFunc = targetPropertyExpression.Compile();
             _elementViewHolderFactory = elementViewHolderFactory ?? DefaultElementViewHolderFactory.Instance;
+            _messenger = messenger ?? Messenger.Default;
             this.WhenSourceChanges(Update);
         }
 
@@ -62,7 +67,7 @@ namespace Morphous.Native.Droid.Bindings
             var contentItemContainer = view.FindViewById<ViewGroup>(Resource.Id.contentItem_container);
             if (contentItemContainer == null)
                 throw new ArgumentException("ContentItemBinding requires a view with a ViewGroup with id contentItem_container");
-            
+
             var context = view.Context;
             var inflater = LayoutInflater.From(context);
 
@@ -77,11 +82,16 @@ namespace Morphous.Native.Droid.Bindings
                 {
                     foreach (var element in zone.Elements)
                     {
-                        var elementViewHolder = _elementViewHolderFactory.Create(context, inflater, zoneLayout, element);
+                        var elementViewHolder = _elementViewHolderFactory.Create(context, inflater, zoneLayout, element, _messenger);
                         _elementViewHolders.Add(elementViewHolder);
                         zoneLayout.AddView(elementViewHolder.View);
                     }
                 }
+            }
+
+            if (contentItem.DisplayType == "Summary")
+            {
+                contentItemView.Click += (object sender, EventArgs e) => _messenger.Send(new ContentItemSelectedMessage(contentItem));
             }
         }
 
