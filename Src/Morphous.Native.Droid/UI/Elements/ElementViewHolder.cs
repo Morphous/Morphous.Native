@@ -56,9 +56,14 @@ namespace Morphous.Native.Droid.UI.Elements
                 if (layout != null)
                     return layout;
             }
-            
+
+            //var view = new View(Context);
+            //view.LayoutParameters = new ViewGroup.LayoutParams(0, 0);
+            //return view;
+
             var view = new View(Context);
-            view.LayoutParameters = new ViewGroup.LayoutParams(0, 0);
+            view.SetBackgroundResource(Android.Resource.Color.HoloRedDark);
+            view.LayoutParameters = new ViewGroup.LayoutParams(20, 20);
             return view;
         }
 

@@ -41,9 +41,17 @@ namespace Morphous.Native.Droid.Factories
             {
                 return new TaxonomyPartViewHolder(context, inflater, zoneLayout, element as ITaxonomyPart);
             }
+            else if (element is IImagePart)
+            {
+                return new ImagePartViewHolder(context, inflater, zoneLayout, element as IImagePart);
+            }
             else if (element is IBooleanField)
             {
                 return new BooleanFieldViewHolder(context, inflater, zoneLayout, element as IBooleanField);
+            }
+            else if (element is IMediaField)
+            {
+                return new MediaFieldViewHolder(context, inflater, zoneLayout, element as IMediaField);
             }
             else
             {
