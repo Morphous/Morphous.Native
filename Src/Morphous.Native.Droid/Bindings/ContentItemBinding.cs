@@ -89,7 +89,7 @@ namespace Morphous.Native.Droid.Bindings
                 }
             }
 
-            if (contentItem.DisplayType == "Summary")
+            if (contentItem.DisplayType == "Summary" && contentItemView.Clickable)
             {
                 contentItemView.Click += (object sender, EventArgs e) => _messenger.Send(new ContentItemSelectedMessage(contentItem));
             }

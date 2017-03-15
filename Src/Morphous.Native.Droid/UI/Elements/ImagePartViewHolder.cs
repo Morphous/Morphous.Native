@@ -19,7 +19,7 @@ namespace Morphous.Native.Droid.UI.Elements
 {
     public class ImagePartViewHolder : ElementViewHolder<IImagePart>
     {
-        public ImagePartViewHolder(Context context, LayoutInflater inflater, ViewGroup container, IImagePart element) : this(context, inflater, container, element, null)
+        public ImagePartViewHolder(Context context, LayoutInflater inflater, ViewGroup container, IImagePart element) : base(context, inflater, container, element)
         {
         }
 
@@ -28,7 +28,7 @@ namespace Morphous.Native.Droid.UI.Elements
             base.BindView(view);
             var imageView = view.FindViewById<ImageViewAsync>(Resource.Id.imagePart_image);
 
-            ImageService.Instance.LoadUrl($"http://192.168.0.22:96{Element.Url}")
+            ImageService.Instance.LoadUrl($"{Mph.BaseUrl}{Element.Url}")
                 .Retry(3, 200)
                 .Into(imageView);
         }

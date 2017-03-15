@@ -52,7 +52,7 @@ namespace Morphous.Native.ViewModels
         private async void Init()
         {
             Loading = true;
-            ContentItem = await _contentService.GetContentItem("http://192.168.0.22:96", _contentItemId);
+            ContentItem = await _contentService.GetContentItem(Mph.BaseUrl, _contentItemId);
             Loading = false;
         }
     }

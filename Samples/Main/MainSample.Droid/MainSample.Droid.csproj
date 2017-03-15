@@ -118,6 +118,10 @@
       <Project>{6a778528-14d9-4270-96e2-66e7b1077806}</Project>
       <Name>Morphous.Native.Droid</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\Src\Morphous.Native\Morphous.Native.csproj">
+      <Project>{659A865A-2F90-4CC8-9B30-347A7E66ECAF}</Project>
+      <Name>Morphous.Native</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\Styles.xml" />

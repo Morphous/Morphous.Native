@@ -9,6 +9,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using Morphous.Native;
 
 namespace MainSample.Droid
 {
@@ -20,6 +21,12 @@ namespace MainSample.Droid
 
         public MainApplication(IntPtr handle, JniHandleOwnership ownerShip) : base(handle, ownerShip)
         {
+        }
+
+        public override void OnCreate()
+        {
+            base.OnCreate();
+            Mph.BaseUrl = "http://192.168.0.22:96";
         }
 
         public void SetObject(object someObject)
