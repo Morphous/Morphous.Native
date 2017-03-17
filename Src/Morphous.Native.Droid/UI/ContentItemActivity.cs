@@ -19,19 +19,29 @@ namespace Morphous.Native.Droid.UI
             set { _messenger = value; }
         }
 
+        public virtual int ContentItemId
+        {
+            get
+            {
+                var contentItemId = Intent.GetIntExtra(MphExtras.ContentItemId, -1);
+
+                if (contentItemId == -1)
+                    throw new ArgumentException("ContentItemActivity must be started with an int extra for the content item id.");
+                
+                return contentItemId;
+            }
+        }
+
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.activity_content_item);
 
-            var contentItemId = Intent.GetIntExtra(MphExtras.ContentItemId, -1);
-            if (contentItemId == -1)
-            {
-                throw new ArgumentException("ContentItemActivity must be started with an int extra for the content item id.");
-            }
+            if (bundle != null)
+                return;
 
             SupportFragmentManager.BeginTransaction()
-                .Add(Resource.Id.frameLayout, ContentItemFragment.Create(contentItemId), null)
+                .Add(Resource.Id.frameLayout, ContentItemFragment.Create(ContentItemId), null)
                 .Commit();
         }
 
