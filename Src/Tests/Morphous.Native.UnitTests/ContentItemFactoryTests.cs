@@ -28,6 +28,25 @@ namespace Morphous.Native.UnitTests
         }
 
         [Test]
+        public void Create_adds_alternates()
+        {
+            var contentItemFactory = new ContentItemFactory();
+            var contentItemDto = CreateContentItemDto();
+            var expectedAlternates = new List<string>
+            {
+                "ContentItem_10",
+                "ContentItem_TestContentType_TestDisplayType",
+                "ContentItem_TestContentType",
+                "ContentItem_TestDisplayType",
+                "ContentItem",
+            };
+
+            var contentItem = contentItemFactory.Create(contentItemDto);
+
+            contentItem.Alternates.ShouldBeEquivalentTo(expectedAlternates);
+        }
+
+        [Test]
         public void Create_maps_parent_relationships()
         {
             var contentItemFactory = new ContentItemFactory();
@@ -50,7 +69,7 @@ namespace Morphous.Native.UnitTests
 
         private static IContentItem CreateContentItem()
         {
-            var contentItem = new FakeContentItem { Id = 10, ContentType = "test1", DisplayType = "test2" };
+            var contentItem = new FakeContentItem { Id = 10, ContentType = "TestContentType", DisplayType = "TestDisplayType" };
             
 
             var zone1 = new FakeZone { Name = "zone1", ContentItem = contentItem };
@@ -77,7 +96,7 @@ namespace Morphous.Native.UnitTests
         }
         private static ContentItemDto CreateContentItemDto()
         {
-            var contentItem = new ContentItemDto { ContentType = "test1", DisplayType = "test2" };
+            var contentItem = new ContentItemDto { ContentType = "TestContentType", DisplayType = "TestDisplayType" };
             contentItem.Zones = new List<ZoneDto>();
 
 
@@ -114,6 +133,8 @@ namespace Morphous.Native.UnitTests
             public int? Id { get; set; }
 
             public IList<IContentZone> Zones { get; } = new List<IContentZone>();
+
+            public IList<string> Alternates => new List<string>();
 
             public TElement As<TElement>() where TElement : IContentElement
             {

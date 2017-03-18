@@ -28,6 +28,16 @@ namespace Morphous.Native.Factories
                 contentItem.Zones.Add(zone);
             }
 
+            if (contentItem.Id != null)
+            {
+                contentItem.Alternates.Add($"ContentItem_{contentItem.Id}");
+            }
+
+            contentItem.Alternates.Add($"ContentItem_{contentItem.ContentType}_{contentItem.DisplayType}");
+            contentItem.Alternates.Add($"ContentItem_{contentItem.ContentType}");
+            contentItem.Alternates.Add($"ContentItem_{contentItem.DisplayType}");
+            contentItem.Alternates.Add($"ContentItem");
+
             return contentItem;
         }
 

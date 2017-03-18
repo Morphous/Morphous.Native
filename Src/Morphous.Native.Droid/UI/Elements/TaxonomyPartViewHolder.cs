@@ -125,6 +125,8 @@ namespace Morphous.Native.Droid.UI.Elements
 
             public IList<IContentZone> Zones => throw new NotImplementedException();
 
+            public IList<string> Alternates => throw new NotImplementedException();
+
             public TElement As<TElement>() where TElement : IContentElement
             {
                 throw new NotImplementedException();

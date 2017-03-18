@@ -71,7 +71,7 @@ namespace Morphous.Native.Droid.Bindings
             var context = view.Context;
             var inflater = LayoutInflater.From(context);
 
-            var contentItemView = GetTemplate(context, inflater, contentItemContainer, contentItem);
+            var contentItemView = GetTemplate(context, inflater, contentItemContainer, contentItem.Alternates);
             contentItemContainer.AddView(contentItemView);
 
             foreach (var zone in contentItem.Zones)
@@ -95,24 +95,11 @@ namespace Morphous.Native.Droid.Bindings
             }
         }
 
-        private static View GetTemplate(Context context, LayoutInflater inflater, ViewGroup parent, IContentItem contentItem)
+        private static View GetTemplate(Context context, LayoutInflater inflater, ViewGroup parent, IList<string> alternates)
         {
-            var id = contentItem.Id;
-            var contentType = contentItem.ContentType.ToLower();
-            var displayType = contentItem.DisplayType.ToLower();
-
-            var alternates = new string[]
-            {
-                $"contentitem_{id}",
-                $"contentitem_{contentType}_{displayType}",
-                $"contentitem_{contentType}",
-                $"contentitem_{displayType}",
-                $"contentitem",
-            };
-
             foreach (var alternate in alternates)
             {
-                var layoutId = Application.Context.Resources.GetIdentifier(alternate, "layout", context.PackageName);
+                var layoutId = Application.Context.Resources.GetIdentifier(alternate.ToLower(), "layout", context.PackageName);
                 if (layoutId > 0)
                 {
                     return inflater.Inflate(layoutId, parent, false);
