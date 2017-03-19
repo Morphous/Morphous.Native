@@ -5,11 +5,13 @@ using System.Text;
 
 using Android.App;
 using Android.Content;
-using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Morphous.Native;
+using GalaSoft.MvvmLight.Messaging;
+using Morphous.Native.Messges;
+using Morphous.Native.Models;
 
 namespace MainSample.Droid
 {
@@ -24,6 +26,17 @@ namespace MainSample.Droid
         {
             base.OnCreate();
             Mph.BaseUrl = "http://192.168.1.25:96";
+
+            Messenger.Default.Register<ContentItemCreatedMessage>(this, message =>
+            {
+                if (message.ContentItem.ContentType == "Article" && message.ContentItem.DisplayType == "Detail")
+                {
+                    var mediaContent = message.ContentItem.As<MediaField>().Media;
+
+                    mediaContent.Alternates.Insert(0, "ArticleMedia");
+                    mediaContent.As<ImagePart>().Alternates.Insert(0, "ArticleImage");
+                }
+            });
         }
     }
 }

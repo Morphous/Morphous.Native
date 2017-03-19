@@ -6,6 +6,7 @@ using GalaSoft.MvvmLight.Helpers;
 using GalaSoft.MvvmLight.Messaging;
 using Morphous.Native.Droid.Events;
 using Morphous.Native.Droid.Factories;
+using Morphous.Native.Droid.UI;
 using Morphous.Native.Droid.UI.Elements;
 using Morphous.Native.Models;
 using System;
@@ -31,15 +32,14 @@ namespace Morphous.Native.Droid.Bindings
         private readonly Func<View> _targetPropertyFunc;
         private readonly List<ElementViewHolder> _elementViewHolders = new List<ElementViewHolder>();
         private readonly IElementViewHolderFactory _elementViewHolderFactory;
-        private readonly IMessenger _messenger;
 
+        private ContentItemViewHolder _contentItemViewHolder;
 
         public ContentItemBinding(
             object source,
             Expression<Func<IContentItem>> sourcePropertyExpression,
             Expression<Func<View>> targetPropertyExpression,
-            IElementViewHolderFactory elementViewHolderFactory = null,
-            IMessenger messenger = null)
+            IElementViewHolderFactory elementViewHolderFactory = null)
             : base(
                 source,
                 sourcePropertyExpression,
@@ -51,8 +51,7 @@ namespace Morphous.Native.Droid.Bindings
         {
             _sourcePropertyFunc = sourcePropertyExpression.Compile();
             _targetPropertyFunc = targetPropertyExpression.Compile();
-            _elementViewHolderFactory = elementViewHolderFactory ?? DefaultElementViewHolderFactory.Instance;
-            _messenger = messenger ?? Messenger.Default;
+            _elementViewHolderFactory = elementViewHolderFactory ?? new DefaultElementViewHolderFactory(Messenger.Default);
             this.WhenSourceChanges(Update);
         }
 
@@ -71,51 +70,15 @@ namespace Morphous.Native.Droid.Bindings
             var context = view.Context;
             var inflater = LayoutInflater.From(context);
 
-            var contentItemView = GetTemplate(context, inflater, contentItemContainer, contentItem.Alternates);
-            contentItemContainer.AddView(contentItemView);
-
-            foreach (var zone in contentItem.Zones)
-            {
-                var zoneLayout = contentItemView.FindViewById<ViewGroup>(context.Resources.GetIdentifier(zone.Name, "id", context.PackageName));
-
-                if (zoneLayout != null)
-                {
-                    foreach (var element in zone.Elements)
-                    {
-                        var elementViewHolder = _elementViewHolderFactory.Create(context, inflater, zoneLayout, element, _messenger);
-                        _elementViewHolders.Add(elementViewHolder);
-                        zoneLayout.AddView(elementViewHolder.View);
-                    }
-                }
-            }
-
-            if (contentItem.DisplayType == "Summary" && contentItemView.Clickable)
-            {
-                contentItemView.Click += (object sender, EventArgs e) => _messenger.Send(new ContentItemSelectedMessage(contentItem));
-            }
-        }
-
-        private static View GetTemplate(Context context, LayoutInflater inflater, ViewGroup parent, IList<string> alternates)
-        {
-            foreach (var alternate in alternates)
-            {
-                var layoutId = Application.Context.Resources.GetIdentifier(alternate.ToLower(), "layout", context.PackageName);
-                if (layoutId > 0)
-                {
-                    return inflater.Inflate(layoutId, parent, false);
-                }
-            }
-
-            throw new InflateException("Couldn't find any content item templates to inflate.");
+            _contentItemViewHolder = _elementViewHolderFactory.CreateContentItemViewHolder(context, inflater, contentItemContainer, contentItem);
+            
+            contentItemContainer.AddView(_contentItemViewHolder.View);
         }
 
         public override void Detach()
         {
             base.Detach();
-            foreach (var elementViewHolder in _elementViewHolders)
-            {
-                elementViewHolder.Dispose();
-            }
+            _contentItemViewHolder?.Dispose();
         }
     }
 }
