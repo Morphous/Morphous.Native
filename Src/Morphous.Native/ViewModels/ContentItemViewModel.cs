@@ -3,13 +3,14 @@ using Morphous.Native.Models;
 using Morphous.Native.Services;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Morphous.Native.ViewModels
 {
-    public interface IContentItemViewModel
+    public interface IContentItemViewModel : INotifyPropertyChanged
     {
         bool Loading { get; }
         IContentItem ContentItem { get; }

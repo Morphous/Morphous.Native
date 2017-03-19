@@ -23,7 +23,6 @@
             app:expandedTitleMarginStart="48dp"
             app:expandedTitleMarginEnd="48dp">
             <FrameLayout
-                android:background="#ff0000"
                 android:id="@+id/HeroImage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

@@ -75,7 +75,11 @@ namespace Morphous.Native.Factories
                 element = new ContentElement();
             }
 
-            element.Type = elementDto.Type;
+            if (element.Type == null)
+            {
+                element.Type = elementDto.Type;
+            }
+
             element.Zone = parentZone;
 
             
@@ -216,6 +220,8 @@ namespace Morphous.Native.Factories
         private ContentField CreateMediaField(MediaFieldDto mediaFieldDto)
         {
             var mediaField = new MediaField();
+            mediaField.Type = nameof(MediaField);
+
             var mediaItemDto = mediaFieldDto.Media.FirstOrDefault();
 
             if (mediaItemDto != null)

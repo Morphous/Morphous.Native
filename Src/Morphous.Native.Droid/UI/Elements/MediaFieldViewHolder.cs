@@ -26,10 +26,14 @@ namespace Morphous.Native.Droid.UI.Elements
             _viewHolderFactory = viewHolderFactory;
         }
 
-        protected override View CreateView()
+        protected override void BindView(View view)
         {
+            base.BindView(view);
+            var mediaContainer = view.FindViewById<ViewGroup>(Resource.Id.mediaField_media);
+
             _contentItemViewHolder = _viewHolderFactory.CreateContentItemViewHolder(Context, Inflater, Container, Element.Media);
-            return _contentItemViewHolder.View;
+
+            mediaContainer.AddView(_contentItemViewHolder.View);
         }
 
         public override void Dispose()
