@@ -32,8 +32,6 @@ namespace MainSample.Droid
                 if (message.ContentItem.ContentType == "Article" && message.ContentItem.DisplayType == "Detail")
                 {
                     var mediaContent = message.ContentItem.As<MediaField>().Media;
-
-                    mediaContent.Alternates.Insert(0, "ArticleMedia");
                     mediaContent.As<ImagePart>().Alternates.Insert(0, "ArticleImage");
                 }
             });
