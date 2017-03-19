@@ -9,7 +9,7 @@ namespace Morphous.Native.Models
 {
     public interface IContentItem
     {
-        int? Id { get; }
+        int Id { get; }
 
         string ContentType { get; }
 
@@ -24,11 +24,11 @@ namespace Morphous.Native.Models
 
     public class ContentItem : ObservableObject, IContentItem
     {
-        public int? Id => As<ICommonPart>()?.Id;
+        public int Id { get; internal set; }
 
-        public string ContentType { get; set; }
+        public string ContentType { get; internal set; }
         
-        public string DisplayType { get;  set; }
+        public string DisplayType { get; internal set; }
 
         public IList<string> Alternates { get; } = new List<string>();
 

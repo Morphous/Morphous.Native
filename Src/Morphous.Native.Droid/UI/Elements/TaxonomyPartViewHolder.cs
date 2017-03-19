@@ -117,7 +117,7 @@ namespace Morphous.Native.Droid.UI.Elements
 
         public class TermWrapper : IContentItem
         {
-            public int? Id { get; set; }
+            public int Id { get; set; }
 
             public string ContentType => throw new NotImplementedException();
 

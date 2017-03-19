@@ -59,14 +59,9 @@ namespace Morphous.Native.Droid.UI
 
         private void ContentItemSelected(ContentItemSelectedMessage obj)
         {
-            var id = obj.ContentItem.Id;
-
-            if (id.HasValue)
-            {
-                var intent = new Intent(this, typeof(ContentItemActivity));
-                intent.PutExtra(MphExtras.ContentItemId, id.Value);
-                StartActivity(intent);
-            }
+            var intent = new Intent(this, typeof(ContentItemActivity));
+            intent.PutExtra(MphExtras.ContentItemId, obj.ContentItem.Id);
+            StartActivity(intent);
         }
     }
 }

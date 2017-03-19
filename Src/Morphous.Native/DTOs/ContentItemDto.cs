@@ -11,6 +11,9 @@ namespace Morphous.Native.DTOs
     [DataContract]
     public class ContentItemDto
     {
+        [DataMember(Name = "id")]
+        public int Id { get; set; }
+
         [DataMember(Name = "contentType")]
         public string ContentType { get; set; }
 
