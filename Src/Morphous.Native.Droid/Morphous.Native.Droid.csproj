@@ -104,13 +104,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bindings\ContentItemBinding.cs" />
-    <Compile Include="Events\ContentItemSelectedMessage.cs" />
-    <Compile Include="Factories\DefaultElementViewHolderFactory.cs" />
-    <Compile Include="Factories\IElementViewHolderFactory.cs" />
+    <Compile Include="Messages\ContentItemSelectedMessage.cs" />
+    <Compile Include="Factories\DefaultViewHolderFactory.cs" />
+    <Compile Include="Factories\IViewHolderFactory.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UI\ContentItemActivity.cs" />
     <Compile Include="UI\ContentItemFragment.cs" />
+    <Compile Include="UI\ContentItemViewHolder.cs" />
     <Compile Include="UI\Elements\BodyPartViewHolder.cs" />
     <Compile Include="UI\Elements\BooleanFieldViewHolder.cs" />
     <Compile Include="UI\Elements\CommonPartViewHolder.cs" />
@@ -172,6 +173,9 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\Layout\ContentItem_Image_Summary.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\BodyPart_Summary.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

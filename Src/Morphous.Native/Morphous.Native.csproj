@@ -49,6 +49,7 @@
     <Compile Include="DTOs\TitlePartDto.cs" />
     <Compile Include="DTOs\ZoneDto.cs" />
     <Compile Include="Factories\ContentItemFactory.cs" />
+    <Compile Include="Messges\ContentItemCreatedMessage.cs" />
     <Compile Include="Models\BodyPart.cs" />
     <Compile Include="Models\BooleanField.cs" />
     <Compile Include="Models\CommonPart.cs" />

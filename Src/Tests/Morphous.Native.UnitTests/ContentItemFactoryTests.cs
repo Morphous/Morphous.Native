@@ -16,15 +16,57 @@ namespace Morphous.Native.UnitTests
     public class ContentItemFactoryTests
     {
         [Test]
-        public void Create_maps_all_properties_from_DTO()
+        public void Create_maps_ContentItem_properties_from_DTO()
         {
             var contentItemFactory = new ContentItemFactory();
             var contentItemDto = CreateContentItemDto();
-            var expectedContentItem = CreateContentItem();
 
             var contentItem = contentItemFactory.Create(contentItemDto);
 
-            contentItem.ShouldBeEquivalentTo(expectedContentItem, options => options.IgnoringCyclicReferences());
+            contentItem.Id.Should().Be(10);
+            contentItem.ContentType.Should().Be("TestContentType");
+            contentItem.DisplayType.Should().Be("TestDisplayType");
+        }
+
+        [Test]
+        public void Create_adds_alternates()
+        {
+            var contentItemFactory = new ContentItemFactory();
+            var contentItemDto = CreateContentItemDto();
+            var expectedAlternates = new List<string>
+            {
+                "ContentItem_10",
+                "ContentItem_TestContentType_TestDisplayType",
+                "ContentItem_TestContentType",
+                "ContentItem_TestDisplayType",
+                "ContentItem",
+            };
+
+            var contentItem = contentItemFactory.Create(contentItemDto);
+
+            contentItem.Alternates.ShouldBeEquivalentTo(expectedAlternates);
+        }
+
+        [Test]
+        public void Create_adds_Element_alternates()
+        {
+            var contentItemFactory = new ContentItemFactory();
+            var contentItemDto = CreateContentItemDto();
+            var expectedAlternates = new List<string>
+            {
+                "TitlePart_10",
+                "TitlePart_TestContentType_TestDisplayType_zone1",
+                "TitlePart_TestContentType_TestDisplayType",
+                "TitlePart_TestContentType",
+                "TitlePart_TestDisplayType_zone1",
+                "TitlePart_TestDisplayType",
+                "TitlePart_zone1",
+                "TitlePart",
+            };
+
+            var contentItem = contentItemFactory.Create(contentItemDto);
+
+            contentItem.As<TitlePart>().Alternates.ShouldBeEquivalentTo(expectedAlternates);
         }
 
         [Test]
@@ -50,7 +92,7 @@ namespace Morphous.Native.UnitTests
 
         private static IContentItem CreateContentItem()
         {
-            var contentItem = new FakeContentItem { Id = 10, ContentType = "test1", DisplayType = "test2" };
+            var contentItem = new FakeContentItem { Id = 10, ContentType = "TestContentType", DisplayType = "TestDisplayType" };
             
 
             var zone1 = new FakeZone { Name = "zone1", ContentItem = contentItem };
@@ -77,7 +119,7 @@ namespace Morphous.Native.UnitTests
         }
         private static ContentItemDto CreateContentItemDto()
         {
-            var contentItem = new ContentItemDto { ContentType = "test1", DisplayType = "test2" };
+            var contentItem = new ContentItemDto { Id = 10, ContentType = "TestContentType", DisplayType = "TestDisplayType" };
             contentItem.Zones = new List<ZoneDto>();
 
 
@@ -88,7 +130,7 @@ namespace Morphous.Native.UnitTests
             var commonPart = new CommonPartDto { Id = 10, ResourceUrl = "resourceUrl", CreatedUtc = "2017-02-08T21:18:41.8420836Z", PublishedUtc = "2017-02-08T21:18:41.8420836Z" };
             zone1.Elements.Add(commonPart);
 
-            var titlePart = new TitlePartDto { Title = "title1" };
+            var titlePart = new TitlePartDto { Title = "title1", Type = "TitlePart" };
             zone1.Elements.Add(titlePart);
             
 
@@ -108,12 +150,13 @@ namespace Morphous.Native.UnitTests
 
         private class FakeContentItem : IContentItem
         {
+            public int Id { get; set; }
             public string ContentType { get; set; }
             public string DisplayType { get; set; }
-
-            public int? Id { get; set; }
-
+            
             public IList<IContentZone> Zones { get; } = new List<IContentZone>();
+
+            public IList<string> Alternates => new List<string>();
 
             public TElement As<TElement>() where TElement : IContentElement
             {
@@ -128,36 +171,35 @@ namespace Morphous.Native.UnitTests
             public IContentItem ContentItem { get; set; }
         }
 
-        private class FakeTitlePart : ITitlePart
+        private class FakeElement : IContentElement
         {
-            public string Title { get; set; }
             public string Type { get; set; }
             public IContentZone Zone { get; set; }
+            public IList<string> Alternates { get; } = new List<string>();
         }
 
-        private class FakeCommonPart : ICommonPart
+        private class FakeTitlePart : FakeElement, ITitlePart
+        {
+            public string Title { get; set; }
+        }
+
+        private class FakeCommonPart : FakeElement, ICommonPart
         {
             public DateTime CreatedDate { get; set; }
             public int Id { get; set; }
             public DateTime PublishedDate { get; set; }
             public string ResourceUrl { get; set; }
-            public string Type { get; set; }
-            public IContentZone Zone { get; set; }
         }
 
-        private class FakeBodyPart : IBodyPart
+        private class FakeBodyPart : FakeElement, IBodyPart
         {
             public string Html { get; set; }
-            public string Type { get; set; }
-            public IContentZone Zone { get; set; }
         }
 
-        private class FakeBooleanField : IBooleanField
+        private class FakeBooleanField : FakeElement, IBooleanField
         {
             public string Name { get; set; }
-            public string Type { get; set; }
             public bool Value { get; set; }
-            public IContentZone Zone { get; set; }
         }
     }
 }

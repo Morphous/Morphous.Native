@@ -29,29 +29,11 @@ namespace Morphous.Native.Droid.UI.Elements
 
         protected override View CreateView()
         {
-            var elementType = Element.Type.ToLower();
-            var id = Element.Zone.ContentItem.Id;
-            var contentType = Element.Zone.ContentItem.ContentType.ToLower();
-            var displayType = Element.Zone.ContentItem.DisplayType.ToLower();
-            var zoneName = Element.Zone.Name.ToLower();
-
-            var alternates = new string[]
-            {
-                $"{elementType}_{id}",
-                $"{elementType}_{contentType}_{displayType}_{zoneName}",
-                $"{elementType}_{contentType}_{displayType}",
-                $"{elementType}_{contentType}",
-                $"{elementType}_{displayType}_{zoneName}",
-                $"{elementType}_{displayType}",
-                $"{elementType}_{zoneName}",
-                $"{elementType}",
-            };
-
             View layout = null;
 
-            foreach (var alternate in alternates)
+            foreach (var alternate in Element.Alternates)
             {
-                layout = GetLayout(alternate);
+                layout = GetLayout(alternate.ToLower());
 
                 if (layout != null)
                     return layout;

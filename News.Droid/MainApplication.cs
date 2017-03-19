@@ -5,20 +5,19 @@ using System.Text;
 
 using Android.App;
 using Android.Content;
-using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Morphous.Native;
+using GalaSoft.MvvmLight.Messaging;
+using Morphous.Native.Messges;
+using Morphous.Native.Models;
 
 namespace MainSample.Droid
 {
     [Application(Theme = "@style/MyTheme")]
     public class MainApplication : Application
     {
-
-        private List<WeakReference<object>> _weakObjects = new List<WeakReference<object>>();
-
         public MainApplication(IntPtr handle, JniHandleOwnership ownerShip) : base(handle, ownerShip)
         {
         }
@@ -27,27 +26,15 @@ namespace MainSample.Droid
         {
             base.OnCreate();
             Mph.BaseUrl = "http://192.168.1.25:96";
-        }
 
-        public void SetObject(object someObject)
-        {
-            _weakObjects.Add(new WeakReference<object>(someObject));
-        }
-
-        public void GarbageCollect()
-        {
-            object someObject;
-
-            foreach(var weakObject in _weakObjects)
+            Messenger.Default.Register<ContentItemCreatedMessage>(this, message =>
             {
-                if (!weakObject.TryGetTarget(out someObject))
+                if (message.ContentItem.ContentType == "Article" && message.ContentItem.DisplayType == "Detail")
                 {
-                    Console.WriteLine("its gone");
+                    var mediaContent = message.ContentItem.As<MediaField>().Media;
+                    mediaContent.As<ImagePart>().Alternates.Insert(0, "ArticleImage");
                 }
-            }
-
-
-            GC.Collect();
+            });
         }
     }
 }

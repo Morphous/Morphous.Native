@@ -4,7 +4,7 @@ using Android.App;
 using Android.OS;
 using Android.Support.V7.App;
 using GalaSoft.MvvmLight.Messaging;
-using Morphous.Native.Droid.Events;
+using Morphous.Native.Droid.Messages;
 using Android.Content;
 
 namespace Morphous.Native.Droid.UI
@@ -19,19 +19,29 @@ namespace Morphous.Native.Droid.UI
             set { _messenger = value; }
         }
 
+        public virtual int ContentItemId
+        {
+            get
+            {
+                var contentItemId = Intent.GetIntExtra(MphExtras.ContentItemId, -1);
+
+                if (contentItemId == -1)
+                    throw new ArgumentException("ContentItemActivity must be started with an int extra for the content item id.");
+                
+                return contentItemId;
+            }
+        }
+
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.activity_content_item);
 
-            var contentItemId = Intent.GetIntExtra(MphExtras.ContentItemId, -1);
-            if (contentItemId == -1)
-            {
-                throw new ArgumentException("ContentItemActivity must be started with an int extra for the content item id.");
-            }
+            if (bundle != null)
+                return;
 
             SupportFragmentManager.BeginTransaction()
-                .Add(Resource.Id.frameLayout, ContentItemFragment.Create(contentItemId), null)
+                .Add(Resource.Id.frameLayout, ContentItemFragment.Create(ContentItemId), null)
                 .Commit();
         }
 
@@ -49,14 +59,9 @@ namespace Morphous.Native.Droid.UI
 
         private void ContentItemSelected(ContentItemSelectedMessage obj)
         {
-            var id = obj.ContentItem.Id;
-
-            if (id.HasValue)
-            {
-                var intent = new Intent(this, typeof(ContentItemActivity));
-                intent.PutExtra(MphExtras.ContentItemId, id.Value);
-                StartActivity(intent);
-            }
+            var intent = new Intent(this, typeof(ContentItemActivity));
+            intent.PutExtra(MphExtras.ContentItemId, obj.ContentItem.Id);
+            StartActivity(intent);
         }
     }
 }

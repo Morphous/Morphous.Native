@@ -11,10 +11,9 @@ using Android.Views;
 using Android.Widget;
 using Morphous.Native.Models;
 using Android.Support.V7.Widget;
-using Morphous.Native.Droid.Bindings;
 using GalaSoft.MvvmLight.Messaging;
-using Morphous.Native.Droid.Events;
 using GalaSoft.MvvmLight.Helpers;
+using Morphous.Native.Droid.Messages;
 
 namespace Morphous.Native.Droid.UI.Elements
 {
@@ -117,13 +116,15 @@ namespace Morphous.Native.Droid.UI.Elements
 
         public class TermWrapper : IContentItem
         {
-            public int? Id { get; set; }
+            public int Id { get; set; }
 
             public string ContentType => throw new NotImplementedException();
 
             public string DisplayType => throw new NotImplementedException();
 
             public IList<IContentZone> Zones => throw new NotImplementedException();
+
+            public IList<string> Alternates => throw new NotImplementedException();
 
             public TElement As<TElement>() where TElement : IContentElement
             {

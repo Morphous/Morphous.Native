@@ -12,15 +12,25 @@ using Android.Widget;
 using Morphous.Native.Droid.UI.Elements;
 using Morphous.Native.Models;
 using GalaSoft.MvvmLight.Messaging;
+using Morphous.Native.Droid.UI;
 
 namespace Morphous.Native.Droid.Factories
 {
-    public class DefaultElementViewHolderFactory : IElementViewHolderFactory
+    public class DefaultViewHolderFactory : IViewHolderFactory
     {
-        private static IElementViewHolderFactory _instance;
-        public static IElementViewHolderFactory Instance => _instance ?? (_instance = new DefaultElementViewHolderFactory());
+        private readonly IMessenger _messenger;
 
-        public ElementViewHolder Create(Context context, LayoutInflater inflater, ViewGroup zoneLayout, IContentElement element, IMessenger messenger)
+        public DefaultViewHolderFactory(IMessenger messenger)
+        {
+            _messenger = messenger;
+        }
+        
+        public ContentItemViewHolder CreateContentItemViewHolder(Context context, LayoutInflater inflater, ViewGroup container, IContentItem contentItem)
+        {
+            return new ContentItemViewHolder(context, inflater, container, this, _messenger, contentItem);
+        }
+
+        public ElementViewHolder CreateElementViewHolder(Context context, LayoutInflater inflater, ViewGroup zoneLayout, IContentElement element)
         {
             if (element is ICommonPart)
             {
@@ -40,7 +50,7 @@ namespace Morphous.Native.Droid.Factories
             }
             else if (element is ITaxonomyPart)
             {
-                return new TaxonomyPartViewHolder(context, inflater, zoneLayout, element as ITaxonomyPart, messenger);
+                return new TaxonomyPartViewHolder(context, inflater, zoneLayout, element as ITaxonomyPart, _messenger);
             }
             else if (element is IImagePart)
             {
@@ -52,7 +62,7 @@ namespace Morphous.Native.Droid.Factories
             }
             else if (element is IMediaField)
             {
-                return new MediaFieldViewHolder(context, inflater, zoneLayout, element as IMediaField);
+                return new MediaFieldViewHolder(context, inflater, zoneLayout, this, element as IMediaField);
             }
             else
             {

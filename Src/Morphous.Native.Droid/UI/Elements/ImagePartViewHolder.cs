@@ -12,8 +12,6 @@ using Android.Widget;
 using Morphous.Native.Models;
 using FFImageLoading.Views;
 using FFImageLoading;
-using GalaSoft.MvvmLight.Messaging;
-using Morphous.Native.Droid.Events;
 
 namespace Morphous.Native.Droid.UI.Elements
 {

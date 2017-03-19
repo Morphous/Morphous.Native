@@ -19,6 +19,7 @@ namespace Morphous.Native.Factories
         public IContentItem Create(ContentItemDto contentItemDto)
         {
             var contentItem = new ContentItem();
+            contentItem.Id = contentItemDto.Id;
             contentItem.ContentType = contentItemDto.ContentType;
             contentItem.DisplayType = contentItemDto.DisplayType;
             
@@ -27,22 +28,28 @@ namespace Morphous.Native.Factories
                 var zone = CreateZone(zoneDto, contentItem);
                 contentItem.Zones.Add(zone);
             }
+            
+            contentItem.Alternates.Add($"ContentItem_{contentItem.Id}");
+            contentItem.Alternates.Add($"ContentItem_{contentItem.ContentType}_{contentItem.DisplayType}");
+            contentItem.Alternates.Add($"ContentItem_{contentItem.ContentType}");
+            contentItem.Alternates.Add($"ContentItem_{contentItem.DisplayType}");
+            contentItem.Alternates.Add($"ContentItem");
 
             return contentItem;
         }
 
         // Zone
-        private ContentZone CreateZone(ZoneDto zoneDto, IContentItem contentItem)
+        private ContentZone CreateZone(ZoneDto zoneDto, IContentItem parentItem)
         {
             var zone = new ContentZone();
             zone.Name = zoneDto.Name;
-            zone.ContentItem = contentItem;
+            zone.ContentItem = parentItem;
 
             foreach (var elementDto in zoneDto.Elements)
             {
                 if (elementDto != null)
                 {
-                    var element = CreateElement(elementDto, zone);
+                    var element = CreateElement(elementDto, zone, parentItem);
                     zone.Elements.Add(element);
                 }
             }
@@ -51,7 +58,7 @@ namespace Morphous.Native.Factories
         }
 
         // Elements
-        private ContentElement CreateElement(ContentElementDto elementDto, IContentZone zone)
+        private ContentElement CreateElement(ContentElementDto elementDto, IContentZone parentZone, IContentItem parentItem)
         {
             ContentElement element;
 
@@ -68,8 +75,22 @@ namespace Morphous.Native.Factories
                 element = new ContentElement();
             }
 
-            element.Type = elementDto.Type;
-            element.Zone = zone;
+            if (element.Type == null)
+            {
+                element.Type = elementDto.Type;
+            }
+
+            element.Zone = parentZone;
+
+            
+            element.Alternates.Add($"{element.Type}_{element.Zone.ContentItem.Id}");
+            element.Alternates.Add($"{element.Type}_{parentItem.ContentType}_{parentItem.DisplayType}_{parentZone.Name}");
+            element.Alternates.Add($"{element.Type}_{parentItem.ContentType}_{parentItem.DisplayType}");
+            element.Alternates.Add($"{element.Type}_{parentItem.ContentType}");
+            element.Alternates.Add($"{element.Type}_{parentItem.DisplayType}_{parentZone.Name}");
+            element.Alternates.Add($"{element.Type}_{parentItem.DisplayType}");
+            element.Alternates.Add($"{element.Type}_{parentZone.Name}");
+            element.Alternates.Add($"{element.Type}");
 
             return element;
         }
@@ -199,6 +220,8 @@ namespace Morphous.Native.Factories
         private ContentField CreateMediaField(MediaFieldDto mediaFieldDto)
         {
             var mediaField = new MediaField();
+            mediaField.Type = nameof(MediaField);
+
             var mediaItemDto = mediaFieldDto.Media.FirstOrDefault();
 
             if (mediaItemDto != null)
