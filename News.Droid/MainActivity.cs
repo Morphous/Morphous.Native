@@ -15,6 +15,7 @@ using GalaSoft.MvvmLight.Messaging;
 using Android.Support.V7.Widget;
 using Android.Content;
 using Morphous.Native.Droid;
+using Android.Support.V4.Widget;
 
 namespace News.Droid
 {
@@ -40,6 +41,15 @@ namespace News.Droid
             
             ViewModel = ContentItemViewModel.Create(12);
             ViewModel.PropertyChanged += ViewModel_PropertyChanged;
+
+            var swipeRefreshLayout = FindViewById<SwipeRefreshLayout>(Resource.Id.swipeRefreshLayout);
+            swipeRefreshLayout.Refresh += SwipeRefreshLayout_Refresh;
+        }
+
+        private void SwipeRefreshLayout_Refresh(object sender, EventArgs e)
+        {
+            (sender as SwipeRefreshLayout).Refreshing = false;
+            ViewModel.Refresh.Execute(null);
         }
 
         private void ViewModel_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)

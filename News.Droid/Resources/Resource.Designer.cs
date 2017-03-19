@@ -3662,8 +3662,8 @@ namespace News.Droid
 			// aapt resource value: 0x7f0a007e
 			public const int Meta = 2131361918;
 			
-			// aapt resource value: 0x7f0a0098
-			public const int action0 = 2131361944;
+			// aapt resource value: 0x7f0a0099
+			public const int action0 = 2131361945;
 			
 			// aapt resource value: 0x7f0a0064
 			public const int action_bar = 2131361892;
@@ -3686,17 +3686,17 @@ namespace News.Droid
 			// aapt resource value: 0x7f0a0041
 			public const int action_bar_title = 2131361857;
 			
-			// aapt resource value: 0x7f0a0095
-			public const int action_container = 2131361941;
+			// aapt resource value: 0x7f0a0096
+			public const int action_container = 2131361942;
 			
 			// aapt resource value: 0x7f0a0065
 			public const int action_context_bar = 2131361893;
 			
-			// aapt resource value: 0x7f0a009c
-			public const int action_divider = 2131361948;
+			// aapt resource value: 0x7f0a009d
+			public const int action_divider = 2131361949;
 			
-			// aapt resource value: 0x7f0a0096
-			public const int action_image = 2131361942;
+			// aapt resource value: 0x7f0a0097
+			public const int action_image = 2131361943;
 			
 			// aapt resource value: 0x7f0a0005
 			public const int action_menu_divider = 2131361797;
@@ -3713,11 +3713,11 @@ namespace News.Droid
 			// aapt resource value: 0x7f0a0043
 			public const int action_mode_close_button = 2131361859;
 			
-			// aapt resource value: 0x7f0a0097
-			public const int action_text = 2131361943;
+			// aapt resource value: 0x7f0a0098
+			public const int action_text = 2131361944;
 			
-			// aapt resource value: 0x7f0a00a5
-			public const int actions = 2131361957;
+			// aapt resource value: 0x7f0a00a6
+			public const int actions = 2131361958;
 			
 			// aapt resource value: 0x7f0a0044
 			public const int activity_chooser_view_content = 2131361860;
@@ -3758,8 +3758,8 @@ namespace News.Droid
 			// aapt resource value: 0x7f0a004b
 			public const int buttonPanel = 2131361867;
 			
-			// aapt resource value: 0x7f0a0099
-			public const int cancel_action = 2131361945;
+			// aapt resource value: 0x7f0a009a
+			public const int cancel_action = 2131361946;
 			
 			// aapt resource value: 0x7f0a0016
 			public const int center = 2131361814;
@@ -3773,8 +3773,8 @@ namespace News.Droid
 			// aapt resource value: 0x7f0a005b
 			public const int checkbox = 2131361883;
 			
-			// aapt resource value: 0x7f0a00a1
-			public const int chronometer = 2131361953;
+			// aapt resource value: 0x7f0a00a2
+			public const int chronometer = 2131361954;
 			
 			// aapt resource value: 0x7f0a0022
 			public const int clip_horizontal = 2131361826;
@@ -3845,8 +3845,8 @@ namespace News.Droid
 			// aapt resource value: 0x7f0a0019
 			public const int end = 2131361817;
 			
-			// aapt resource value: 0x7f0a00ab
-			public const int end_padder = 2131361963;
+			// aapt resource value: 0x7f0a00ac
+			public const int end_padder = 2131361964;
 			
 			// aapt resource value: 0x7f0a000f
 			public const int enterAlways = 2131361807;
@@ -3887,8 +3887,8 @@ namespace News.Droid
 			// aapt resource value: 0x7f0a0049
 			public const int icon = 2131361865;
 			
-			// aapt resource value: 0x7f0a00a6
-			public const int icon_group = 2131361958;
+			// aapt resource value: 0x7f0a00a7
+			public const int icon_group = 2131361959;
 			
 			// aapt resource value: 0x7f0a003e
 			public const int ifRoom = 2131361854;
@@ -3899,8 +3899,8 @@ namespace News.Droid
 			// aapt resource value: 0x7f0a0074
 			public const int imagePart_image = 2131361908;
 			
-			// aapt resource value: 0x7f0a00a2
-			public const int info = 2131361954;
+			// aapt resource value: 0x7f0a00a3
+			public const int info = 2131361955;
 			
 			// aapt resource value: 0x7f0a000e
 			public const int item_touch_helper_previous_elevation = 2131361806;
@@ -3911,11 +3911,11 @@ namespace News.Droid
 			// aapt resource value: 0x7f0a001b
 			public const int left = 2131361819;
 			
-			// aapt resource value: 0x7f0a00a7
-			public const int line1 = 2131361959;
+			// aapt resource value: 0x7f0a00a8
+			public const int line1 = 2131361960;
 			
-			// aapt resource value: 0x7f0a00a9
-			public const int line3 = 2131361961;
+			// aapt resource value: 0x7f0a00aa
+			public const int line3 = 2131361962;
 			
 			// aapt resource value: 0x7f0a0030
 			public const int listMode = 2131361840;
@@ -3923,14 +3923,14 @@ namespace News.Droid
 			// aapt resource value: 0x7f0a0048
 			public const int list_item = 2131361864;
 			
-			// aapt resource value: 0x7f0a00b0
-			public const int masked = 2131361968;
+			// aapt resource value: 0x7f0a00b1
+			public const int masked = 2131361969;
 			
-			// aapt resource value: 0x7f0a0094
-			public const int mediaField_media = 2131361940;
+			// aapt resource value: 0x7f0a0095
+			public const int mediaField_media = 2131361941;
 			
-			// aapt resource value: 0x7f0a009b
-			public const int media_actions = 2131361947;
+			// aapt resource value: 0x7f0a009c
+			public const int media_actions = 2131361948;
 			
 			// aapt resource value: 0x7f0a003b
 			public const int middle = 2131361851;
@@ -3953,14 +3953,14 @@ namespace News.Droid
 			// aapt resource value: 0x7f0a0028
 			public const int normal = 2131361832;
 			
-			// aapt resource value: 0x7f0a00a4
-			public const int notification_background = 2131361956;
+			// aapt resource value: 0x7f0a00a5
+			public const int notification_background = 2131361957;
+			
+			// aapt resource value: 0x7f0a009f
+			public const int notification_main_column = 2131361951;
 			
 			// aapt resource value: 0x7f0a009e
-			public const int notification_main_column = 2131361950;
-			
-			// aapt resource value: 0x7f0a009d
-			public const int notification_main_column_container = 2131361949;
+			public const int notification_main_column_container = 2131361950;
 			
 			// aapt resource value: 0x7f0a0020
 			public const int parallax = 2131361824;
@@ -3983,17 +3983,17 @@ namespace News.Droid
 			// aapt resource value: 0x7f0a005d
 			public const int radio = 2131361885;
 			
-			// aapt resource value: 0x7f0a00ad
-			public const int recycler_view = 2131361965;
+			// aapt resource value: 0x7f0a00ae
+			public const int recycler_view = 2131361966;
 			
 			// aapt resource value: 0x7f0a001c
 			public const int right = 2131361820;
 			
-			// aapt resource value: 0x7f0a00a3
-			public const int right_icon = 2131361955;
+			// aapt resource value: 0x7f0a00a4
+			public const int right_icon = 2131361956;
 			
-			// aapt resource value: 0x7f0a009f
-			public const int right_side = 2131361951;
+			// aapt resource value: 0x7f0a00a0
+			public const int right_side = 2131361952;
 			
 			// aapt resource value: 0x7f0a002c
 			public const int screen = 2131361836;
@@ -4088,8 +4088,8 @@ namespace News.Droid
 			// aapt resource value: 0x7f0a001d
 			public const int start = 2131361821;
 			
-			// aapt resource value: 0x7f0a009a
-			public const int status_bar_latest_event_content = 2131361946;
+			// aapt resource value: 0x7f0a009b
+			public const int status_bar_latest_event_content = 2131361947;
 			
 			// aapt resource value: 0x7f0a005e
 			public const int submenuarrow = 2131361886;
@@ -4097,20 +4097,23 @@ namespace News.Droid
 			// aapt resource value: 0x7f0a006f
 			public const int submit_area = 2131361903;
 			
+			// aapt resource value: 0x7f0a0093
+			public const int swipeRefreshLayout = 2131361939;
+			
 			// aapt resource value: 0x7f0a0092
 			public const int tabLayout = 2131361938;
 			
 			// aapt resource value: 0x7f0a0031
 			public const int tabMode = 2131361841;
 			
-			// aapt resource value: 0x7f0a00ac
-			public const int taxonomyItem_title = 2131361964;
+			// aapt resource value: 0x7f0a00ad
+			public const int taxonomyItem_title = 2131361965;
 			
-			// aapt resource value: 0x7f0a00aa
-			public const int text = 2131361962;
+			// aapt resource value: 0x7f0a00ab
+			public const int text = 2131361963;
 			
-			// aapt resource value: 0x7f0a00a8
-			public const int text2 = 2131361960;
+			// aapt resource value: 0x7f0a00a9
+			public const int text2 = 2131361961;
 			
 			// aapt resource value: 0x7f0a0052
 			public const int textSpacerNoButtons = 2131361874;
@@ -4127,8 +4130,8 @@ namespace News.Droid
 			// aapt resource value: 0x7f0a0001
 			public const int textinput_error = 2131361793;
 			
-			// aapt resource value: 0x7f0a00a0
-			public const int time = 2131361952;
+			// aapt resource value: 0x7f0a00a1
+			public const int time = 2131361953;
 			
 			// aapt resource value: 0x7f0a004a
 			public const int title = 2131361866;
@@ -4136,8 +4139,8 @@ namespace News.Droid
 			// aapt resource value: 0x7f0a0059
 			public const int titleDividerNoCustom = 2131361881;
 			
-			// aapt resource value: 0x7f0a00ae
-			public const int titlePart_title = 2131361966;
+			// aapt resource value: 0x7f0a00af
+			public const int titlePart_title = 2131361967;
 			
 			// aapt resource value: 0x7f0a0057
 			public const int title_template = 2131361879;
@@ -4166,14 +4169,14 @@ namespace News.Droid
 			// aapt resource value: 0x7f0a0037
 			public const int useLogo = 2131361847;
 			
-			// aapt resource value: 0x7f0a0093
-			public const int viewPager = 2131361939;
+			// aapt resource value: 0x7f0a0094
+			public const int viewPager = 2131361940;
 			
 			// aapt resource value: 0x7f0a0002
 			public const int view_offset_helper = 2131361794;
 			
-			// aapt resource value: 0x7f0a00af
-			public const int visible = 2131361967;
+			// aapt resource value: 0x7f0a00b0
+			public const int visible = 2131361968;
 			
 			// aapt resource value: 0x7f0a0040
 			public const int withText = 2131361856;

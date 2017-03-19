@@ -1,4 +1,5 @@
 ﻿using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Command;
 using Morphous.Native.Models;
 using Morphous.Native.Services;
 using System;
@@ -7,6 +8,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace Morphous.Native.ViewModels
 {
@@ -14,6 +16,7 @@ namespace Morphous.Native.ViewModels
     {
         bool Loading { get; }
         IContentItem ContentItem { get; }
+        ICommand Refresh { get; }
     }
 
     public class ContentItemViewModel : ViewModelBase, IContentItemViewModel
@@ -32,6 +35,9 @@ namespace Morphous.Native.ViewModels
             get { return _contentItem; }
             private set { Set(ref _contentItem, value); }
         }
+
+        private ICommand _refresh;
+        public ICommand Refresh => _refresh ?? (_refresh = new RelayCommand(LoadContentItem));
         #endregion
 
 
@@ -47,10 +53,10 @@ namespace Morphous.Native.ViewModels
         {
             _contentService = contentService;
             _contentItemId = contentItemId;
-            Init();
+            LoadContentItem();
         }
 
-        private async void Init()
+        private async void LoadContentItem()
         {
             Loading = true;
             ContentItem = await _contentService.GetContentItem(Mph.BaseUrl, _contentItemId);
