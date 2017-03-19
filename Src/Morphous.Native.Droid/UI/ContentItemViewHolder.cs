@@ -10,7 +10,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Morphous.Native.Models;
-using Morphous.Native.Droid.Events;
+using Morphous.Native.Droid.Messages;
 using Morphous.Native.Droid.Factories;
 using GalaSoft.MvvmLight.Messaging;
 using Morphous.Native.Droid.UI.Elements;
@@ -24,7 +24,7 @@ namespace Morphous.Native.Droid.UI
         protected Context Context { get; }
         protected LayoutInflater Inflater { get; }
         protected ViewGroup Container { get; }
-        protected IElementViewHolderFactory ElementViewHolderFactory { get; }
+        protected IViewHolderFactory ViewHolderFactory { get; }
         protected IMessenger Messenger { get; }
         protected IContentItem ContentItem { get; }
 
@@ -32,14 +32,14 @@ namespace Morphous.Native.Droid.UI
             Context context, 
             LayoutInflater inflater, 
             ViewGroup container, 
-            IElementViewHolderFactory elementViewHolderFactory,
+            IViewHolderFactory viewHolderFactory,
             IMessenger messenger,
             IContentItem contentItem)
         {
             Context = context;
             Inflater = inflater;
             Container = container;
-            ElementViewHolderFactory = elementViewHolderFactory;
+            ViewHolderFactory = viewHolderFactory;
             Messenger = messenger;
             ContentItem = contentItem;
         }
@@ -70,7 +70,7 @@ namespace Morphous.Native.Droid.UI
                 {
                     foreach (var element in zone.Elements)
                     {
-                        var elementViewHolder = ElementViewHolderFactory.Create(Context, Inflater, zoneLayout, element);
+                        var elementViewHolder = ViewHolderFactory.CreateElementViewHolder(Context, Inflater, zoneLayout, element);
                         _elementViewHolders.Add(elementViewHolder);
                         zoneLayout.AddView(elementViewHolder.View);
                     }

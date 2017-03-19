@@ -16,9 +16,9 @@ using Morphous.Native.Droid.UI;
 
 namespace Morphous.Native.Droid.Factories
 {
-    public interface IElementViewHolderFactory
+    public interface IViewHolderFactory
     {
         ContentItemViewHolder CreateContentItemViewHolder(Context context, LayoutInflater inflater, ViewGroup zoneLayout, IContentItem contentItem);
-        ElementViewHolder Create(Context context, LayoutInflater inflater, ViewGroup zoneLayout, IContentElement element);
+        ElementViewHolder CreateElementViewHolder(Context context, LayoutInflater inflater, ViewGroup zoneLayout, IContentElement element);
     }
 }

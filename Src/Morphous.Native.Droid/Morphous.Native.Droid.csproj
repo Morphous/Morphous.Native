@@ -104,9 +104,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bindings\ContentItemBinding.cs" />
-    <Compile Include="Events\ContentItemSelectedMessage.cs" />
-    <Compile Include="Factories\DefaultElementViewHolderFactory.cs" />
-    <Compile Include="Factories\IElementViewHolderFactory.cs" />
+    <Compile Include="Messages\ContentItemSelectedMessage.cs" />
+    <Compile Include="Factories\DefaultViewHolderFactory.cs" />
+    <Compile Include="Factories\IViewHolderFactory.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UI\ContentItemActivity.cs" />

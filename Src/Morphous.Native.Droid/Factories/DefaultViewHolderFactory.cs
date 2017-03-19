@@ -16,14 +16,11 @@ using Morphous.Native.Droid.UI;
 
 namespace Morphous.Native.Droid.Factories
 {
-    public class DefaultElementViewHolderFactory : IElementViewHolderFactory
+    public class DefaultViewHolderFactory : IViewHolderFactory
     {
-        //private static IElementViewHolderFactory _instance;
-        //public static IElementViewHolderFactory Instance => _instance ?? (_instance = new DefaultElementViewHolderFactory());
-
         private readonly IMessenger _messenger;
 
-        public DefaultElementViewHolderFactory(IMessenger messenger)
+        public DefaultViewHolderFactory(IMessenger messenger)
         {
             _messenger = messenger;
         }
@@ -33,7 +30,7 @@ namespace Morphous.Native.Droid.Factories
             return new ContentItemViewHolder(context, inflater, container, this, _messenger, contentItem);
         }
 
-        public ElementViewHolder Create(Context context, LayoutInflater inflater, ViewGroup zoneLayout, IContentElement element)
+        public ElementViewHolder CreateElementViewHolder(Context context, LayoutInflater inflater, ViewGroup zoneLayout, IContentElement element)
         {
             if (element is ICommonPart)
             {

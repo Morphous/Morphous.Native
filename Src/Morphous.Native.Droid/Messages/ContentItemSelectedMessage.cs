@@ -11,7 +11,7 @@ using Android.Views;
 using Android.Widget;
 using Morphous.Native.Models;
 
-namespace Morphous.Native.Droid.Events
+namespace Morphous.Native.Droid.Messages
 {
     public class ContentItemSelectedMessage
     {

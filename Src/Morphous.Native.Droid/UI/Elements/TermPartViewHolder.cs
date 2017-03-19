@@ -12,8 +12,6 @@ using Android.Widget;
 using Morphous.Native.Models;
 using Android.Support.V7.Widget;
 using Morphous.Native.Droid.Bindings;
-using GalaSoft.MvvmLight.Messaging;
-using Morphous.Native.Droid.Events;
 using GalaSoft.MvvmLight.Helpers;
 
 namespace Morphous.Native.Droid.UI.Elements

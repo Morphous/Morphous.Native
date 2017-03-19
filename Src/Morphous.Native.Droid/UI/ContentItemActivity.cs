@@ -4,7 +4,7 @@ using Android.App;
 using Android.OS;
 using Android.Support.V7.App;
 using GalaSoft.MvvmLight.Messaging;
-using Morphous.Native.Droid.Events;
+using Morphous.Native.Droid.Messages;
 using Android.Content;
 
 namespace Morphous.Native.Droid.UI

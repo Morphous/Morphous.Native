@@ -4,7 +4,6 @@ using Android.Views;
 using Android.Widget;
 using GalaSoft.MvvmLight.Helpers;
 using GalaSoft.MvvmLight.Messaging;
-using Morphous.Native.Droid.Events;
 using Morphous.Native.Droid.Factories;
 using Morphous.Native.Droid.UI;
 using Morphous.Native.Droid.UI.Elements;
@@ -22,7 +21,7 @@ namespace Morphous.Native.Droid.Bindings
             Expression<Func<IContentItem>> sourcePropertyExpression,
             Expression<Func<View>> targetPropertyExpression)
         {
-            return new ContentItemBinding(source, sourcePropertyExpression, targetPropertyExpression);
+            return new ContentItemBinding(source, sourcePropertyExpression, targetPropertyExpression, new DefaultViewHolderFactory(Messenger.Default));
         }
     }
 
@@ -31,7 +30,7 @@ namespace Morphous.Native.Droid.Bindings
         private readonly Func<IContentItem> _sourcePropertyFunc;
         private readonly Func<View> _targetPropertyFunc;
         private readonly List<ElementViewHolder> _elementViewHolders = new List<ElementViewHolder>();
-        private readonly IElementViewHolderFactory _elementViewHolderFactory;
+        private readonly IViewHolderFactory _viewHolderFactory;
 
         private ContentItemViewHolder _contentItemViewHolder;
 
@@ -39,7 +38,7 @@ namespace Morphous.Native.Droid.Bindings
             object source,
             Expression<Func<IContentItem>> sourcePropertyExpression,
             Expression<Func<View>> targetPropertyExpression,
-            IElementViewHolderFactory elementViewHolderFactory = null)
+            IViewHolderFactory viewHolderFactory)
             : base(
                 source,
                 sourcePropertyExpression,
@@ -51,7 +50,7 @@ namespace Morphous.Native.Droid.Bindings
         {
             _sourcePropertyFunc = sourcePropertyExpression.Compile();
             _targetPropertyFunc = targetPropertyExpression.Compile();
-            _elementViewHolderFactory = elementViewHolderFactory ?? new DefaultElementViewHolderFactory(Messenger.Default);
+            _viewHolderFactory = viewHolderFactory;
             this.WhenSourceChanges(Update);
         }
 
@@ -70,7 +69,7 @@ namespace Morphous.Native.Droid.Bindings
             var context = view.Context;
             var inflater = LayoutInflater.From(context);
 
-            _contentItemViewHolder = _elementViewHolderFactory.CreateContentItemViewHolder(context, inflater, contentItemContainer, contentItem);
+            _contentItemViewHolder = _viewHolderFactory.CreateContentItemViewHolder(context, inflater, contentItemContainer, contentItem);
             
             contentItemContainer.AddView(_contentItemViewHolder.View);
         }
