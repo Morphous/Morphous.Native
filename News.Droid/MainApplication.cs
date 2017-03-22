@@ -14,7 +14,7 @@ using Morphous.Native.Messges;
 using Morphous.Native.Models;
 using Morphous.Native.Droid.Messages;
 
-namespace MainSample.Droid
+namespace News.Droid
 {
     [Application(Theme = "@style/MyTheme")]
     public class MainApplication : Application
@@ -39,10 +39,10 @@ namespace MainSample.Droid
 
             Messenger.Default.Register<ContentItemDisplayingMessage>(this, message =>
             {
-                if (message.DisplayContext.RootContentItem.ContentType == "Article")
+                if (message.DisplayContext.RootContentItem.ContentType == "Article" && message.DisplayContext.RootContentItem.DisplayType == "Detail")
                 {
+                    message.DisplayContext.ViewHolderFactory = new ArticleViewHolderFactory(message.DisplayContext);
                 }
-                var test = message.DisplayContext.RootContentItem.ContentType;
             });
         }
     }

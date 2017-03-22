@@ -108,10 +108,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ArticleViewHolderFactory.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="MainApplication.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WebViewBodyPartViewHolder.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="GettingStarted.Xamarin" />
@@ -131,6 +133,9 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\ContentItem_Article_Summary.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\BodyPart.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
