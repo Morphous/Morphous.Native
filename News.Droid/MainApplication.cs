@@ -12,6 +12,7 @@ using Morphous.Native;
 using GalaSoft.MvvmLight.Messaging;
 using Morphous.Native.Messges;
 using Morphous.Native.Models;
+using Morphous.Native.Droid.Messages;
 
 namespace MainSample.Droid
 {
@@ -34,6 +35,14 @@ namespace MainSample.Droid
                     var mediaContent = message.ContentItem.As<MediaField>().Media;
                     mediaContent.As<ImagePart>().Alternates.Insert(0, "ArticleImage");
                 }
+            });
+
+            Messenger.Default.Register<ContentItemDisplayingMessage>(this, message =>
+            {
+                if (message.DisplayContext.RootContentItem.ContentType == "Article")
+                {
+                }
+                var test = message.DisplayContext.RootContentItem.ContentType;
             });
         }
     }

@@ -5,6 +5,7 @@ using Android.Widget;
 using GalaSoft.MvvmLight.Helpers;
 using GalaSoft.MvvmLight.Messaging;
 using Morphous.Native.Droid.Factories;
+using Morphous.Native.Droid.Messages;
 using Morphous.Native.Droid.UI;
 using Morphous.Native.Droid.UI.Elements;
 using Morphous.Native.Models;
@@ -72,6 +73,8 @@ namespace Morphous.Native.Droid.Bindings
             displayContext.RootContainer = contentItemContainer;
             displayContext.RootContentItem = contentItem;
             displayContext.ViewHolderFactory = new DefaultViewHolderFactory(displayContext);
+
+            displayContext.Messenger.Send(new ContentItemDisplayingMessage(displayContext));
 
             _contentItemViewHolder = displayContext.RootContentItemViewHolder();            
             contentItemContainer.AddView(_contentItemViewHolder.View);
