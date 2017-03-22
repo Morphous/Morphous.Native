@@ -55,7 +55,7 @@ namespace Morphous.Native.Droid.UI
 
             foreach (var zone in ContentItem.Zones)
             {
-                var zoneLayout = contentItemView.FindViewById<ViewGroup>(DisplayContext.Context.Resources.GetIdentifier(zone.Name, "id", DisplayContext.Context.PackageName));
+                var zoneLayout = contentItemView.FindViewById<ViewGroup>(DisplayContext.Activity.Resources.GetIdentifier(zone.Name, "id", DisplayContext.Activity.PackageName));
 
                 if (zoneLayout != null)
                 {
@@ -63,7 +63,12 @@ namespace Morphous.Native.Droid.UI
                     {
                         var elementViewHolder = DisplayContext.ViewHolderFactory.CreateElementViewHolder(zoneLayout, element);
                         _elementViewHolders.Add(elementViewHolder);
-                        zoneLayout.AddView(elementViewHolder.View);
+
+                        if (elementViewHolder.View != null)
+                        {
+                            zoneLayout.AddView(elementViewHolder.View);
+                        }
+
                     }
                 }
             }
@@ -80,7 +85,7 @@ namespace Morphous.Native.Droid.UI
         {
             foreach (var alternate in ContentItem.Alternates)
             {
-                var layoutId = DisplayContext.Context.Resources.GetIdentifier(alternate.ToLower(), "layout", DisplayContext.Context.PackageName);
+                var layoutId = DisplayContext.Activity.Resources.GetIdentifier(alternate.ToLower(), "layout", DisplayContext.Activity.PackageName);
                 if (layoutId > 0)
                 {
                     return DisplayContext.Inflater.Inflate(layoutId, Container, false);

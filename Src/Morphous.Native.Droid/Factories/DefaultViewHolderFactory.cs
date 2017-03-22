@@ -25,12 +25,12 @@ namespace Morphous.Native.Droid.Factories
             _displayContext = displayContext;
         }
         
-        public ContentItemViewHolder CreateContentItemViewHolder(ViewGroup container, IContentItem contentItem)
+        public virtual ContentItemViewHolder CreateContentItemViewHolder(ViewGroup container, IContentItem contentItem)
         {
             return new ContentItemViewHolder(_displayContext, container, contentItem);
         }
 
-        public ElementViewHolder CreateElementViewHolder(ViewGroup container, IContentElement element)
+        public virtual ElementViewHolder CreateElementViewHolder(ViewGroup container, IContentElement element)
         {
             if (element is ICommonPart)
             {

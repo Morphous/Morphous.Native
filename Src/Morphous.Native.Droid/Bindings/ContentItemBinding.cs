@@ -18,16 +18,25 @@ namespace Morphous.Native.Droid.Bindings
     public static class ContentItemBindingExtensions
     {
         public static ContentItemBinding SetContentBinding(
-            this object source,
+            this Activity source,
             Expression<Func<IContentItem>> sourcePropertyExpression,
             Expression<Func<View>> targetPropertyExpression)
         {
-            return new ContentItemBinding(source, sourcePropertyExpression, targetPropertyExpression);
+            return new ContentItemBinding(source, source, sourcePropertyExpression, targetPropertyExpression);
+        }
+
+        public static ContentItemBinding SetContentBinding(
+            this Android.Support.V4.App.Fragment source,
+            Expression<Func<IContentItem>> sourcePropertyExpression,
+            Expression<Func<View>> targetPropertyExpression)
+        {
+            return new ContentItemBinding(source, source.Activity, sourcePropertyExpression, targetPropertyExpression);
         }
     }
 
     public class ContentItemBinding : Binding<IContentItem, View>
     {
+        private readonly Activity _activity;
         private readonly Func<IContentItem> _sourcePropertyFunc;
         private readonly Func<View> _targetPropertyFunc;
         private readonly List<ElementViewHolder> _elementViewHolders = new List<ElementViewHolder>();
@@ -36,6 +45,7 @@ namespace Morphous.Native.Droid.Bindings
 
         public ContentItemBinding(
             object source,
+            Activity activity,
             Expression<Func<IContentItem>> sourcePropertyExpression,
             Expression<Func<View>> targetPropertyExpression)
             : base(
@@ -47,6 +57,7 @@ namespace Morphous.Native.Droid.Bindings
                 null,
                 null)
         {
+            _activity = activity;
             _sourcePropertyFunc = sourcePropertyExpression.Compile();
             _targetPropertyFunc = targetPropertyExpression.Compile();
             this.WhenSourceChanges(Update);
@@ -67,8 +78,8 @@ namespace Morphous.Native.Droid.Bindings
                 throw new ArgumentException("ContentItemBinding requires a view with a ViewGroup with id contentItem_container");
             
             var displayContext = new DisplayContext();
-            displayContext.Context = view.Context;
-            displayContext.Inflater = LayoutInflater.From(view.Context);
+            displayContext.Activity = _activity;
+            displayContext.Inflater = _activity.LayoutInflater;
             displayContext.Messenger = Messenger.Default;
             displayContext.RootContainer = contentItemContainer;
             displayContext.RootContentItem = contentItem;

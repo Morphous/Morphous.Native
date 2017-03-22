@@ -11,6 +11,7 @@ using Android.Views;
 using Android.Widget;
 using Morphous.Native.Models;
 using GalaSoft.MvvmLight.Helpers;
+using Android.Support.V7.App;
 
 namespace Morphous.Native.Droid.UI.Elements
 {
@@ -22,11 +23,30 @@ namespace Morphous.Native.Droid.UI.Elements
         {
         }
 
+        protected override View CreateView()
+        {
+            var toolbar = Container as Android.Support.V7.Widget.Toolbar;
+            var appCompatActivity = DisplayContext.Activity as AppCompatActivity;
+
+            if (toolbar != null && appCompatActivity != null)
+            {
+                appCompatActivity.Title = Element.Title;
+                appCompatActivity.SetSupportActionBar(toolbar);
+                return null;
+            }
+
+            return base.CreateView();
+        }
+
         protected override void BindView(View view)
         {
             base.BindView(view);
-            _textView = view.FindViewById<TextView>(Resource.Id.titlePart_title);
-            Bindings.Add(this.SetBinding(() => Element.Title, () => _textView.Text));
+
+            if (view != null)
+            {
+                _textView = view.FindViewById<TextView>(Resource.Id.titlePart_title);
+                Bindings.Add(this.SetBinding(() => Element.Title, () => _textView.Text));
+            }
         }
     }
 }

@@ -18,7 +18,7 @@ namespace Morphous.Native.Droid
 {
     public class DisplayContext
     {
-        public Context Context { get; set; }
+        public Activity Activity { get; set; }
         public LayoutInflater Inflater { get; set; }
         public ViewGroup RootContainer { get; set; }
         public IMessenger Messenger { get; set; }

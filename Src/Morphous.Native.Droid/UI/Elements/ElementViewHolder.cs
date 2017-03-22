@@ -39,7 +39,7 @@ namespace Morphous.Native.Droid.UI.Elements
             //view.LayoutParameters = new ViewGroup.LayoutParams(0, 0);
             //return view;
 
-            var view = new View(DisplayContext.Context);
+            var view = new View(DisplayContext.Activity);
             view.SetBackgroundResource(Android.Resource.Color.HoloRedDark);
             view.LayoutParameters = new ViewGroup.LayoutParams(20, 20);
             return view;
@@ -47,7 +47,7 @@ namespace Morphous.Native.Droid.UI.Elements
 
         private View GetLayout(string layoutName)
         {
-            var layoutId = DisplayContext.Context.Resources.GetIdentifier(layoutName, "layout", DisplayContext.Context.PackageName);
+            var layoutId = DisplayContext.Activity.Resources.GetIdentifier(layoutName, "layout", DisplayContext.Activity.PackageName);
             if (layoutId > 0)
             {
                 return DisplayContext.Inflater.Inflate(layoutId, Container, false);
