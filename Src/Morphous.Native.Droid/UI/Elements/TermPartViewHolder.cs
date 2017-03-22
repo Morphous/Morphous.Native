@@ -20,17 +20,17 @@ namespace Morphous.Native.Droid.UI.Elements
     {
         private RecyclerView _recyclerView;
 
-        public TermPartViewHolder(Context context, LayoutInflater inflater, ViewGroup container, ITermPart element) : base(context, inflater, container, element)
+        public TermPartViewHolder(DisplayContext displayContext, ViewGroup container, ITermPart element) : base(displayContext, container, element)
         {
         }
 
         protected override void BindView(View view)
         {
             base.BindView(view);
-            var adapter = new TermAdapater(Inflater, Element.ContentItems);
+            var adapter = new TermAdapater(DisplayContext.Inflater, Element.ContentItems);
 
             _recyclerView = view.FindViewById<RecyclerView>(Resource.Id.recycler_view);
-            _recyclerView.AddItemDecoration(new SimpleDivider(Context));
+            _recyclerView.AddItemDecoration(new SimpleDivider(DisplayContext.Context));
             _recyclerView.SetAdapter(adapter);
         }
 

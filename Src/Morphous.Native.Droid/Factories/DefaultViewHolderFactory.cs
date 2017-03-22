@@ -18,55 +18,55 @@ namespace Morphous.Native.Droid.Factories
 {
     public class DefaultViewHolderFactory : IViewHolderFactory
     {
-        private readonly IMessenger _messenger;
+        private readonly DisplayContext _displayContext;
 
-        public DefaultViewHolderFactory(IMessenger messenger)
+        public DefaultViewHolderFactory(DisplayContext displayContext)
         {
-            _messenger = messenger;
+            _displayContext = displayContext;
         }
         
-        public ContentItemViewHolder CreateContentItemViewHolder(Context context, LayoutInflater inflater, ViewGroup container, IContentItem contentItem)
+        public ContentItemViewHolder CreateContentItemViewHolder(ViewGroup container, IContentItem contentItem)
         {
-            return new ContentItemViewHolder(context, inflater, container, this, _messenger, contentItem);
+            return new ContentItemViewHolder(_displayContext, container, contentItem);
         }
 
-        public ElementViewHolder CreateElementViewHolder(Context context, LayoutInflater inflater, ViewGroup zoneLayout, IContentElement element)
+        public ElementViewHolder CreateElementViewHolder(ViewGroup container, IContentElement element)
         {
             if (element is ICommonPart)
             {
-                return new CommonPartViewHolder(context, inflater, zoneLayout, element as ICommonPart);
+                return new CommonPartViewHolder(_displayContext, container, element as ICommonPart);
             }
             else if (element is ITitlePart)
             {
-                return new TitlePartViewHolder(context, inflater, zoneLayout, element as ITitlePart);
+                return new TitlePartViewHolder(_displayContext, container, element as ITitlePart);
             }
             else if (element is IBodyPart)
             {
-                return new BodyPartViewHolder(context, inflater, zoneLayout, element as IBodyPart);
+                return new BodyPartViewHolder(_displayContext, container, element as IBodyPart);
             }
             else if (element is ITermPart)
             {
-                return new TermPartViewHolder(context, inflater, zoneLayout, element as ITermPart);
+                return new TermPartViewHolder(_displayContext, container, element as ITermPart);
             }
             else if (element is ITaxonomyPart)
             {
-                return new TaxonomyPartViewHolder(context, inflater, zoneLayout, element as ITaxonomyPart, _messenger);
+                return new TaxonomyPartViewHolder(_displayContext, container, element as ITaxonomyPart);
             }
             else if (element is IImagePart)
             {
-                return new ImagePartViewHolder(context, inflater, zoneLayout, element as IImagePart);
+                return new ImagePartViewHolder(_displayContext, container, element as IImagePart);
             }
             else if (element is IBooleanField)
             {
-                return new BooleanFieldViewHolder(context, inflater, zoneLayout, element as IBooleanField);
+                return new BooleanFieldViewHolder(_displayContext, container, element as IBooleanField);
             }
             else if (element is IMediaField)
             {
-                return new MediaFieldViewHolder(context, inflater, zoneLayout, this, element as IMediaField);
+                return new MediaFieldViewHolder(_displayContext, container, element as IMediaField);
             }
             else
             {
-                return new ElementViewHolder<IContentElement>(context, inflater, zoneLayout, element);
+                return new ElementViewHolder<IContentElement>(_displayContext, container, element);
             }
         }
     }

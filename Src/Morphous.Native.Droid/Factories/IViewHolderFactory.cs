@@ -18,7 +18,7 @@ namespace Morphous.Native.Droid.Factories
 {
     public interface IViewHolderFactory
     {
-        ContentItemViewHolder CreateContentItemViewHolder(Context context, LayoutInflater inflater, ViewGroup zoneLayout, IContentItem contentItem);
-        ElementViewHolder CreateElementViewHolder(Context context, LayoutInflater inflater, ViewGroup zoneLayout, IContentElement element);
+        ContentItemViewHolder CreateContentItemViewHolder(ViewGroup container, IContentItem contentItem);
+        ElementViewHolder CreateElementViewHolder(ViewGroup container, IContentElement element);
     }
 }

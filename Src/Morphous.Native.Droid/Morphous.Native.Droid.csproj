@@ -104,6 +104,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bindings\ContentItemBinding.cs" />
+    <Compile Include="DisplayContext.cs" />
     <Compile Include="Messages\ContentItemSelectedMessage.cs" />
     <Compile Include="Factories\DefaultViewHolderFactory.cs" />
     <Compile Include="Factories\IViewHolderFactory.cs" />

@@ -18,7 +18,7 @@ namespace Morphous.Native.Droid.UI.Elements
     {
         private TextView _textView;
 
-        public TitlePartViewHolder(Context context, LayoutInflater inflater, ViewGroup container, ITitlePart element) : base(context, inflater, container, element)
+        public TitlePartViewHolder(DisplayContext displayContext, ViewGroup container, ITitlePart element) : base(displayContext, container, element)
         {
         }
 

@@ -21,7 +21,7 @@ namespace Morphous.Native.Droid.UI.Elements
         private TextView _createdDateTextView;
         private TextView _publishedDateTextView;
 
-        public CommonPartViewHolder(Context context, LayoutInflater inflater, ViewGroup container, ICommonPart element) : base(context, inflater, container, element)
+        public CommonPartViewHolder(DisplayContext displayContext, ViewGroup container, ICommonPart element) : base(displayContext, container, element)
         {
         }
 

@@ -17,7 +17,7 @@ namespace Morphous.Native.Droid.UI.Elements
 {
     public class ImagePartViewHolder : ElementViewHolder<IImagePart>
     {
-        public ImagePartViewHolder(Context context, LayoutInflater inflater, ViewGroup container, IImagePart element) : base(context, inflater, container, element)
+        public ImagePartViewHolder(DisplayContext displayContext, ViewGroup container, IImagePart element) : base(displayContext, container, element)
         {
         }
 

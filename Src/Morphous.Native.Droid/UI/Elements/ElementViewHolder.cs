@@ -16,14 +16,10 @@ namespace Morphous.Native.Droid.UI.Elements
 {
     public class ElementViewHolder<TElement> : ElementViewHolder where TElement : class, IContentElement
     {
-        protected LayoutInflater Inflater { get; }
-        protected ViewGroup Container { get; }
         protected TElement Element { get; }
 
-        public ElementViewHolder(Context context, LayoutInflater inflater, ViewGroup container, TElement element) : base(context)
+        public ElementViewHolder(DisplayContext displayContext, ViewGroup container, TElement element) : base(displayContext, container)
         {
-            Inflater = inflater;
-            Container = container;
             Element = element;
         }
 
@@ -43,7 +39,7 @@ namespace Morphous.Native.Droid.UI.Elements
             //view.LayoutParameters = new ViewGroup.LayoutParams(0, 0);
             //return view;
 
-            var view = new View(Context);
+            var view = new View(DisplayContext.Context);
             view.SetBackgroundResource(Android.Resource.Color.HoloRedDark);
             view.LayoutParameters = new ViewGroup.LayoutParams(20, 20);
             return view;
@@ -51,10 +47,10 @@ namespace Morphous.Native.Droid.UI.Elements
 
         private View GetLayout(string layoutName)
         {
-            var layoutId = Context.Resources.GetIdentifier(layoutName, "layout", Context.PackageName);
+            var layoutId = DisplayContext.Context.Resources.GetIdentifier(layoutName, "layout", DisplayContext.Context.PackageName);
             if (layoutId > 0)
             {
-                return Inflater.Inflate(layoutId, Container, false);
+                return DisplayContext.Inflater.Inflate(layoutId, Container, false);
             }
 
             return null;
@@ -63,12 +59,15 @@ namespace Morphous.Native.Droid.UI.Elements
 
     public abstract class ElementViewHolder : IDisposable
     {
-        protected Context Context { get; }
         protected IList<Binding> Bindings { get; } = new List<Binding>();
 
-        public ElementViewHolder(Context context)
+        protected DisplayContext DisplayContext { get; }
+        protected ViewGroup Container { get; }
+
+        public ElementViewHolder(DisplayContext displayContext, ViewGroup container)
         {
-            Context = context;
+            DisplayContext = displayContext;
+            Container = container;
         }
 
         private View _view;

@@ -25,7 +25,7 @@ namespace MainSample.Droid
         public override void OnCreate()
         {
             base.OnCreate();
-            Mph.BaseUrl = "http://192.168.1.25:96";
+            Mph.BaseUrl = "http://192.168.0.13:96";
 
             Messenger.Default.Register<ContentItemCreatedMessage>(this, message =>
             {

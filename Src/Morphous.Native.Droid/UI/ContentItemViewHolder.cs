@@ -21,26 +21,17 @@ namespace Morphous.Native.Droid.UI
     {
         private readonly List<ElementViewHolder> _elementViewHolders = new List<ElementViewHolder>();
 
-        protected Context Context { get; }
-        protected LayoutInflater Inflater { get; }
+        protected DisplayContext DisplayContext { get; }
         protected ViewGroup Container { get; }
-        protected IViewHolderFactory ViewHolderFactory { get; }
-        protected IMessenger Messenger { get; }
         protected IContentItem ContentItem { get; }
 
         public ContentItemViewHolder(
-            Context context, 
-            LayoutInflater inflater, 
-            ViewGroup container, 
-            IViewHolderFactory viewHolderFactory,
-            IMessenger messenger,
+            DisplayContext displayContext,
+            ViewGroup container,
             IContentItem contentItem)
         {
-            Context = context;
-            Inflater = inflater;
+            DisplayContext = displayContext;
             Container = container;
-            ViewHolderFactory = viewHolderFactory;
-            Messenger = messenger;
             ContentItem = contentItem;
         }
 
@@ -64,13 +55,13 @@ namespace Morphous.Native.Droid.UI
 
             foreach (var zone in ContentItem.Zones)
             {
-                var zoneLayout = contentItemView.FindViewById<ViewGroup>(Context.Resources.GetIdentifier(zone.Name, "id", Context.PackageName));
+                var zoneLayout = contentItemView.FindViewById<ViewGroup>(DisplayContext.Context.Resources.GetIdentifier(zone.Name, "id", DisplayContext.Context.PackageName));
 
                 if (zoneLayout != null)
                 {
                     foreach (var element in zone.Elements)
                     {
-                        var elementViewHolder = ViewHolderFactory.CreateElementViewHolder(Context, Inflater, zoneLayout, element);
+                        var elementViewHolder = DisplayContext.ViewHolderFactory.CreateElementViewHolder(zoneLayout, element);
                         _elementViewHolders.Add(elementViewHolder);
                         zoneLayout.AddView(elementViewHolder.View);
                     }
@@ -79,7 +70,7 @@ namespace Morphous.Native.Droid.UI
 
             if (ContentItem.DisplayType == "Summary" && contentItemView.Clickable)
             {
-                contentItemView.Click += (object sender, EventArgs e) => Messenger.Send(new ContentItemSelectedMessage(ContentItem));
+                contentItemView.Click += (object sender, EventArgs e) => DisplayContext.Messenger.Send(new ContentItemSelectedMessage(ContentItem));
             }
 
             return contentItemView;
@@ -89,10 +80,10 @@ namespace Morphous.Native.Droid.UI
         {
             foreach (var alternate in ContentItem.Alternates)
             {
-                var layoutId = Context.Resources.GetIdentifier(alternate.ToLower(), "layout", Context.PackageName);
+                var layoutId = DisplayContext.Context.Resources.GetIdentifier(alternate.ToLower(), "layout", DisplayContext.Context.PackageName);
                 if (layoutId > 0)
                 {
-                    return Inflater.Inflate(layoutId, Container, false);
+                    return DisplayContext.Inflater.Inflate(layoutId, Container, false);
                 }
             }
 

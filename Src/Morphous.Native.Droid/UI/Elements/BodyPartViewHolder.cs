@@ -20,7 +20,7 @@ namespace Morphous.Native.Droid.UI.Elements
     {
         private TextView _htmlTextView;
 
-        public BodyPartViewHolder(Context context, LayoutInflater inflater, ViewGroup container, IBodyPart element) : base(context, inflater, container, element)
+        public BodyPartViewHolder(DisplayContext displayContext, ViewGroup container, IBodyPart element) : base(displayContext, container, element)
         {
         }
 

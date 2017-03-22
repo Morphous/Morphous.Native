@@ -19,30 +19,27 @@ namespace Morphous.Native.Droid.UI.Elements
 {
     public class TaxonomyPartViewHolder : ElementViewHolder<ITaxonomyPart>
     {
-        private readonly IMessenger _messenger;
-
         private RecyclerView _recyclerView;
 
-        public TaxonomyPartViewHolder(Context context, LayoutInflater inflater, ViewGroup container, ITaxonomyPart element, IMessenger messenger) : base(context, inflater, container, element)
+        public TaxonomyPartViewHolder(DisplayContext displayContext, ViewGroup container, ITaxonomyPart element) : base(displayContext, container, element)
         {
-            _messenger = messenger ?? GalaSoft.MvvmLight.Messaging.Messenger.Default;
         }
 
         protected override void BindView(View view)
         {
             base.BindView(view);
-            var adapter = new TermsAdapater(Inflater, Element.Terms);
+            var adapter = new TermsAdapater(DisplayContext.Inflater, Element.Terms);
             adapter.TermSelected += Adapter_TermSelected;
 
             _recyclerView = view.FindViewById<RecyclerView>(Resource.Id.recycler_view);
-            _recyclerView.AddItemDecoration(new SimpleDivider(Context));
+            _recyclerView.AddItemDecoration(new SimpleDivider(DisplayContext.Context));
             _recyclerView.SetAdapter(adapter);
         }
 
         private void Adapter_TermSelected(object sender, ITaxonomyItem e)
         {
             var termWrapper = new TermWrapper { Id = e.Id };
-            _messenger.Send(new ContentItemSelectedMessage(termWrapper));
+            DisplayContext.Messenger.Send(new ContentItemSelectedMessage(termWrapper));
         }
 
         public override void Dispose()

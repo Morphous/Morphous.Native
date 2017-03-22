@@ -19,7 +19,7 @@ namespace Morphous.Native.Droid.UI.Elements
         private TextView _nameTextView;
         private TextView _valueTextView;
 
-        public BooleanFieldViewHolder(Context context, LayoutInflater inflater, ViewGroup container, IBooleanField element) : base(context, inflater, container, element)
+        public BooleanFieldViewHolder(DisplayContext displayContext, ViewGroup container, IBooleanField element) : base(displayContext, container, element)
         {
         }
 

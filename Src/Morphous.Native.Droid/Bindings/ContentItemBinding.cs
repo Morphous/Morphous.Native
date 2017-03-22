@@ -21,7 +21,7 @@ namespace Morphous.Native.Droid.Bindings
             Expression<Func<IContentItem>> sourcePropertyExpression,
             Expression<Func<View>> targetPropertyExpression)
         {
-            return new ContentItemBinding(source, sourcePropertyExpression, targetPropertyExpression, new DefaultViewHolderFactory(Messenger.Default));
+            return new ContentItemBinding(source, sourcePropertyExpression, targetPropertyExpression);
         }
     }
 
@@ -30,15 +30,13 @@ namespace Morphous.Native.Droid.Bindings
         private readonly Func<IContentItem> _sourcePropertyFunc;
         private readonly Func<View> _targetPropertyFunc;
         private readonly List<ElementViewHolder> _elementViewHolders = new List<ElementViewHolder>();
-        private readonly IViewHolderFactory _viewHolderFactory;
 
         private ContentItemViewHolder _contentItemViewHolder;
 
         public ContentItemBinding(
             object source,
             Expression<Func<IContentItem>> sourcePropertyExpression,
-            Expression<Func<View>> targetPropertyExpression,
-            IViewHolderFactory viewHolderFactory)
+            Expression<Func<View>> targetPropertyExpression)
             : base(
                 source,
                 sourcePropertyExpression,
@@ -50,7 +48,6 @@ namespace Morphous.Native.Droid.Bindings
         {
             _sourcePropertyFunc = sourcePropertyExpression.Compile();
             _targetPropertyFunc = targetPropertyExpression.Compile();
-            _viewHolderFactory = viewHolderFactory;
             this.WhenSourceChanges(Update);
         }
 
@@ -62,15 +59,21 @@ namespace Morphous.Native.Droid.Bindings
             if (contentItem == null || view == null)
                 return;
 
+            _contentItemViewHolder?.Dispose();
+
             var contentItemContainer = view.FindViewById<ViewGroup>(Resource.Id.contentItem_container);
             if (contentItemContainer == null)
                 throw new ArgumentException("ContentItemBinding requires a view with a ViewGroup with id contentItem_container");
-
-            var context = view.Context;
-            var inflater = LayoutInflater.From(context);
-
-            _contentItemViewHolder = _viewHolderFactory.CreateContentItemViewHolder(context, inflater, contentItemContainer, contentItem);
             
+            var displayContext = new DisplayContext();
+            displayContext.Context = view.Context;
+            displayContext.Inflater = LayoutInflater.From(view.Context);
+            displayContext.Messenger = Messenger.Default;
+            displayContext.RootContainer = contentItemContainer;
+            displayContext.RootContentItem = contentItem;
+            displayContext.ViewHolderFactory = new DefaultViewHolderFactory(displayContext);
+
+            _contentItemViewHolder = displayContext.RootContentItemViewHolder();            
             contentItemContainer.AddView(_contentItemViewHolder.View);
         }
 
