@@ -106,5 +106,17 @@
   <ItemGroup>
     <Content Include="Entitlements.plist" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Src\Morphous.Native.iOS\Morphous.Native.iOS.csproj">
+      <Project>{77955ab1-40ea-4634-a047-0bdf3c480f33}</Project>
+      <Name>Morphous.Native.iOS</Name>
+      <IsAppExtension>false</IsAppExtension>
+      <IsWatchApp>false</IsWatchApp>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Src\Morphous.Native\Morphous.Native.csproj">
+      <Project>{659a865a-2f90-4cc8-9b30-347a7e66ecaf}</Project>
+      <Name>Morphous.Native</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

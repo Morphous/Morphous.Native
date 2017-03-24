@@ -40,8 +40,21 @@
     <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="UI\ContentItemView.cs" />
+    <Compile Include="UI\ContentItemView.designer.cs">
+      <DependentUpon>ContentItemView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ContentItemViewController.cs" />
+    <Compile Include="UI\ContentItemViewController.designer.cs">
+      <DependentUpon>ContentItemViewController.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterfaceDefinition Include="UI\Content.storyboard" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterfaceDefinition Include="UI\ContentItem_.xib" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>
