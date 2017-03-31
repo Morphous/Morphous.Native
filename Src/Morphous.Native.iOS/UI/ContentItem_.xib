@@ -11,11 +11,27 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="jht-h9-ebC" customClass="ContentItemView">
+        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" id="jEg-0c-dye" customClass="ContentItemView">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-            <point key="canvasLocation" x="115" y="31"/>
-        </view>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="0Lz-Zs-cZm">
+                    <rect key="frame" x="0.0" y="0.0" width="360" height="109"/>
+                    <color key="backgroundColor" red="0.88080429876917843" green="1" blue="0.22506365349556112" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="0.23463867255686333" blue="0.25908377182766451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="0Lz-Zs-cZm" secondAttribute="trailing" id="2ob-pE-TIc"/>
+                <constraint firstItem="0Lz-Zs-cZm" firstAttribute="leading" secondItem="jEg-0c-dye" secondAttribute="leading" id="P5g-p2-NY1"/>
+                <constraint firstItem="0Lz-Zs-cZm" firstAttribute="top" secondItem="jEg-0c-dye" secondAttribute="top" id="Pwu-dL-07E"/>
+                <constraint firstAttribute="bottom" secondItem="0Lz-Zs-cZm" secondAttribute="bottom" id="Smf-zI-N8a"/>
+                <constraint firstItem="0Lz-Zs-cZm" firstAttribute="centerX" secondItem="jEg-0c-dye" secondAttribute="centerX" id="t1l-Ti-6Gc"/>
+            </constraints>
+            <connections>
+                <outlet property="Header" destination="0Lz-Zs-cZm" id="dg6-sX-AfU"/>
+            </connections>
+            <point key="canvasLocation" x="155" y="49"/>
+        </scrollView>
     </objects>
 </document>

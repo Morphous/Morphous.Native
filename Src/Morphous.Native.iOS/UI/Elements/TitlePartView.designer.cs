@@ -7,20 +7,14 @@
 using Foundation;
 using System.CodeDom.Compiler;
 
-namespace Morphous.Native.iOS.UI
+namespace Morphous.Native.iOS.UI.Elements
 {
-	[Register ("ContentItemView")]
-	partial class ContentItemView
+	[Register ("TitlePartView")]
+	partial class TitlePartView
 	{
-		[Outlet]
-		UIKit.UIStackView Header { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
-			if (Header != null) {
-				Header.Dispose ();
-				Header = null;
-			}
 		}
 	}
 }
