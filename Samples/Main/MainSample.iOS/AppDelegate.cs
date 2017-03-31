@@ -1,4 +1,6 @@
 ﻿using Foundation;
+using Morphous.Native.iOS;
+using Morphous.Native.iOS.UI;
 using UIKit;
 
 namespace MainSample.iOS
@@ -15,6 +17,12 @@ namespace MainSample.iOS
         {
             get;
             set;
+        }
+
+        [Preserve]
+        private void Include(ContentItemViewController contentItemViewController)
+        {
+
         }
 
         public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
