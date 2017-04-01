@@ -37,16 +37,18 @@ namespace Morphous.Native.iOS.Factories
                 if (path != null)
                 {
                     var arr = NSBundle.MainBundle.LoadNib(element.Type, null, null);
-                    var elementView = Runtime.GetNSObject<UIView>(arr.ValueAt(0));
+                    var view = Runtime.GetNSObject<UIView>(arr.ValueAt(0));
 
-                    elementView.TranslatesAutoresizingMaskIntoConstraints = false;
+                    view.TranslatesAutoresizingMaskIntoConstraints = false;
 
-                    if (elementView is ElementView)
+                    if (view is ElementView)
                     {
-                        ((ElementView)elementView).SetElement(element);
+                        var elementView = (ElementView)view;
+                        elementView.DisplayContext = _displayContext;
+                        elementView.SetElement(element);
                     }
 
-                    return elementView;
+                    return view;
                 }
             }
 

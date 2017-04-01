@@ -28,6 +28,8 @@ namespace Morphous.Native.iOS
 
     public abstract class ElementView : UIView
     {
+        public DisplayContext DisplayContext { get; set; }
+
         public ElementView(IntPtr handle) : base (handle)
         {
         }
