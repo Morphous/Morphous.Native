@@ -13,7 +13,6 @@ namespace Morphous.Native.iOS.UI
         public override void AwakeFromNib()
         {
             base.AwakeFromNib();
-            var test = Header;
         }
     }
 }

@@ -4,6 +4,7 @@ using UIKit;
 using ObjCRuntime;
 using Morphous.Native.ViewModels;
 using GalaSoft.MvvmLight.Helpers;
+using Morphous.Native.iOS.Bindings;
 
 namespace Morphous.Native.iOS.UI
 {
@@ -22,18 +23,17 @@ namespace Morphous.Native.iOS.UI
             base.ViewDidLoad();
             ViewModel = ContentItemViewModel.Create(16);
 
-            var arr = NSBundle.MainBundle.LoadNib("ContentItem_", null, null);
-            _contentItemView = Runtime.GetNSObject<ContentItemView>(arr.ValueAt(0));
+            //var arr = NSBundle.MainBundle.LoadNib("ContentItem_", null, null);
+            //_contentItemView = Runtime.GetNSObject<ContentItemView>(arr.ValueAt(0));
 
-            _contentItemView.TranslatesAutoresizingMaskIntoConstraints = false;
+            //_contentItemView.TranslatesAutoresizingMaskIntoConstraints = false;
 
-            View.AddSubview(_contentItemView);
-            View.AddConstraints(ContentConstraints(_contentItemView));
+            //View.AddSubview(_contentItemView);
+            //View.AddConstraints(ContentConstraints(_contentItemView));
 
-            this.AutomaticallyAdjustsScrollViewInsets = false;
-            this.AutomaticallyAdjustsScrollViewInsets = true;
+            this.SetContentBinding(() => ViewModel.ContentItem, () => this.View);
 
-            this.SetBinding(() => ViewModel.ContentItem).WhenSourceChanges(Update);
+            //this.SetBinding(() => ViewModel.ContentItem).WhenSourceChanges(Update);
         }
 
         private void Update()

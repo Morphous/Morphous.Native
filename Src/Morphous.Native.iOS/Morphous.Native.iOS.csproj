@@ -51,6 +51,8 @@
   <ItemGroup>
     <Folder Include="Resources\" />
     <Folder Include="UI\Elements\" />
+    <Folder Include="Bindings\" />
+    <Folder Include="Factories\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -66,6 +68,10 @@
     <Compile Include="UI\Elements\TitlePartView.designer.cs">
       <DependentUpon>TitlePartView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Bindings\ContentItemBinding.cs" />
+    <Compile Include="DisplayContext.cs" />
+    <Compile Include="Factories\IViewFactory.cs" />
+    <Compile Include="Factories\DefaultViewFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="UI\ContentItem_.xib" />
