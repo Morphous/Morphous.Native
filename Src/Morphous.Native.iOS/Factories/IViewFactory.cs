@@ -7,5 +7,6 @@ namespace Morphous.Native.iOS.Factories
     public interface IViewFactory
     {
         UIView CreateContentItemView(IContentItem contentItem);
+        UIView CreateElementView(IContentElement element);
     }
 }

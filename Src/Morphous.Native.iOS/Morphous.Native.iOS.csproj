@@ -81,6 +81,7 @@
     <InterfaceDefinition Include="UI\ContentItem_.xib" />
     <InterfaceDefinition Include="UI\Content.storyboard" />
     <InterfaceDefinition Include="UI\Elements\TitlePart.xib" />
+    <InterfaceDefinition Include="UI\Elements\BodyPart.xib" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Morphous.Native\Morphous.Native.csproj">

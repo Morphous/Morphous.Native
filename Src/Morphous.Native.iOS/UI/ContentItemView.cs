@@ -14,6 +14,8 @@ namespace Morphous.Native.iOS.UI
         {
         }
 
+        public DisplayContext DisplayContext { get; set; }
+
         private IContentItem _contentItem;
         public IContentItem ContentItem
         {
@@ -36,18 +38,18 @@ namespace Morphous.Native.iOS.UI
                 {
                     foreach (var element in zone.Elements)
                     {
-                        var arr = NSBundle.MainBundle.LoadNib("TitlePart", null, null);
-                        var elementView = Runtime.GetNSObject<UIView>(arr.ValueAt(0));
+                        var elementView = DisplayContext.ViewFactory.CreateElementView(element);
 
-                        elementView.TranslatesAutoresizingMaskIntoConstraints = false;
-
-                        if (zoneView is UIStackView)
+                        if (elementView != null)
                         {
-                            ((UIStackView)zoneView).AddArrangedSubview(elementView);
-                        }
-                        else
-                        {
-                            zoneView.AddSubview(elementView);
+                            if (zoneView is UIStackView)
+                            {
+                                ((UIStackView)zoneView).AddArrangedSubview(elementView);
+                            }
+                            else
+                            {
+                                zoneView.AddSubview(elementView);
+                            }
                         }
                     }
                 }
