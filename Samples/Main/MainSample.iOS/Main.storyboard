@@ -28,7 +28,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="rSP-mz-wVr" kind="show" id="1ct-bG-y6C"/>
+                                    <action selector="ButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cSn-xR-lP4"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -39,14 +39,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="320" y="-9"/>
-        </scene>
-        <!--Content-->
-        <scene sceneID="WGS-VT-dkW">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Content" id="rSP-mz-wVr" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cWH-Ib-EU0" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="860" y="-123"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="12">

@@ -1,5 +1,5 @@
 ﻿using System;
-
+using Foundation;
 using UIKit;
 
 namespace MainSample.iOS
@@ -14,6 +14,14 @@ namespace MainSample.iOS
         {
             base.ViewDidLoad();
             // Perform any additional setup after loading the view, typically from a nib.
+        }
+
+        partial void ButtonClicked(NSObject sender)
+        {
+            var contentStoryboard = UIStoryboard.FromName("Content", NSBundle.MainBundle);
+            var contentViewController = contentStoryboard.InstantiateInitialViewController();
+
+            ShowViewController(contentViewController, this);
         }
     }
 }

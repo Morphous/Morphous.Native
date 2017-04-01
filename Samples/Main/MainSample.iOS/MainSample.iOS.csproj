@@ -89,6 +89,10 @@
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <None Include="packages.config" />
+    <Compile Include="Views\MyContentItem.cs" />
+    <Compile Include="Views\MyContentItem.designer.cs">
+      <DependentUpon>MyContentItem.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ViewController.designer.cs">
@@ -97,6 +101,7 @@
     <Compile Include="ViewController.cs" />
     <InterfaceDefinition Include="Main.storyboard" />
     <InterfaceDefinition Include="Resources\LaunchScreen.xib" />
+    <InterfaceDefinition Include="Views\ContentItem.xib" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -130,6 +135,9 @@
       <Project>{659a865a-2f90-4cc8-9b30-347a7e66ecaf}</Project>
       <Name>Morphous.Native</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

@@ -18,14 +18,31 @@ namespace Morphous.Native.iOS.Factories
 
         public UIView CreateContentItemView(IContentItem contentItem)
         {
-            var arr = NSBundle.MainBundle.LoadNib("ContentItem_", null, null);
-            var contentItemView = Runtime.GetNSObject<ContentItemView>(arr.ValueAt(0));
+            foreach (var alternate in contentItem.Alternates)
+            {
+                var locatedAlternate = alternate;
+                var path = NSBundle.MainBundle.PathForResource(locatedAlternate, "nib");
 
-            contentItemView.TranslatesAutoresizingMaskIntoConstraints = false;
-            contentItemView.DisplayContext = _displayContext;
-            contentItemView.ContentItem = contentItem;
+                if (path == null)
+                {
+                    locatedAlternate += "_";
+                    path = NSBundle.MainBundle.PathForResource(locatedAlternate, "nib");
+                }
 
-            return contentItemView;
+                if (path != null)
+                {
+                    var arr = NSBundle.MainBundle.LoadNib(locatedAlternate, null, null);
+                    var contentItemView = Runtime.GetNSObject<ContentItemView>(arr.ValueAt(0));
+
+                    contentItemView.TranslatesAutoresizingMaskIntoConstraints = false;
+                    contentItemView.DisplayContext = _displayContext;
+                    contentItemView.ContentItem = contentItem;
+
+                    return contentItemView;
+                }
+            }
+
+            return null;
         }
 
         public UIView CreateElementView(IContentElement element)
