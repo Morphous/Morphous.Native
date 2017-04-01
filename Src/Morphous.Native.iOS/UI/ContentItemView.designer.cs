@@ -12,15 +12,9 @@ namespace Morphous.Native.iOS.UI
 	[Register ("ContentItemView")]
 	partial class ContentItemView
 	{
-		[Outlet]
-		UIKit.UIStackView Header { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
-			if (Header != null) {
-				Header.Dispose ();
-				Header = null;
-			}
 		}
 	}
 }

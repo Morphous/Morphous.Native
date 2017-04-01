@@ -31,7 +31,7 @@ namespace Morphous.Native.iOS.UI
             //View.AddSubview(_contentItemView);
             //View.AddConstraints(ContentConstraints(_contentItemView));
 
-            this.SetContentBinding(() => ViewModel.ContentItem, () => this.View);
+            this.SetContentBinding(() => ViewModel.ContentItem, () => this.ScrollView);
 
             //this.SetBinding(() => ViewModel.ContentItem).WhenSourceChanges(Update);
         }

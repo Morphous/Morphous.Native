@@ -111,6 +111,14 @@ namespace Morphous.Native.iOS.Bindings
                     NSLayoutRelation.Equal,
                     container,
                     NSLayoutAttribute.Bottom,
+                    1, 0),
+
+                NSLayoutConstraint.Create (
+                    contentItemView,
+                    NSLayoutAttribute.CenterX,
+                    NSLayoutRelation.Equal,
+                    container,
+                    NSLayoutAttribute.CenterX,
                     1, 0)
             };
         }
