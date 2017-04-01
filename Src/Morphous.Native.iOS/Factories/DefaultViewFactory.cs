@@ -41,6 +41,11 @@ namespace Morphous.Native.iOS.Factories
 
                     elementView.TranslatesAutoresizingMaskIntoConstraints = false;
 
+                    if (elementView is ElementView)
+                    {
+                        ((ElementView)elementView).SetElement(element);
+                    }
+
                     return elementView;
                 }
             }

@@ -3,14 +3,21 @@
 using System;
 
 using Foundation;
+using Morphous.Native.Models;
 using UIKit;
 
 namespace Morphous.Native.iOS.UI.Elements
 {
-	public partial class TitlePartView : UIView
+    public partial class TitlePartView : ElementView<ITitlePart>
 	{
 		public TitlePartView (IntPtr handle) : base (handle)
 		{
 		}
+
+        protected override void Bind()
+        {
+            base.Bind();
+            TitleLabel.Text = Element.Title;
+        }
 	}
 }

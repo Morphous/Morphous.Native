@@ -12,9 +12,15 @@ namespace Morphous.Native.iOS.UI.Elements
 	[Register ("TitlePartView")]
 	partial class TitlePartView
 	{
+		[Outlet]
+		UIKit.UILabel TitleLabel { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
+			if (TitleLabel != null) {
+				TitleLabel.Dispose ();
+				TitleLabel = null;
+			}
 		}
 	}
 }

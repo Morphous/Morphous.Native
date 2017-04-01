@@ -76,6 +76,7 @@
     <Compile Include="UI\DefaultContentItemView.designer.cs">
       <DependentUpon>DefaultContentItemView.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Elements\ElementView.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="UI\ContentItem_.xib" />

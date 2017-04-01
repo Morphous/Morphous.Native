@@ -30,6 +30,9 @@
                 <constraint firstAttribute="trailing" secondItem="21w-ec-C5F" secondAttribute="trailing" constant="16" id="pIY-4I-QZj"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="TitleLabel" destination="21w-ec-C5F" id="Opi-Xp-GsL"/>
+            </connections>
             <point key="canvasLocation" x="-10.5" y="-202.5"/>
         </view>
     </objects>
