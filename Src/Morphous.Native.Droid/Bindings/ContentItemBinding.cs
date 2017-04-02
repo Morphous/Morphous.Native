@@ -39,7 +39,6 @@ namespace Morphous.Native.Droid.Bindings
         private readonly Activity _activity;
         private readonly Func<IContentItem> _sourcePropertyFunc;
         private readonly Func<View> _targetPropertyFunc;
-        private readonly List<ElementViewHolder> _elementViewHolders = new List<ElementViewHolder>();
 
         private ContentItemViewHolder _contentItemViewHolder;
 
