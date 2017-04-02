@@ -114,6 +114,7 @@
     <Compile Include="UI\Elements\TermPartView.designer.cs">
       <DependentUpon>TermPartView.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\ContentItemCell.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="UI\ContentItem_.xib" />
