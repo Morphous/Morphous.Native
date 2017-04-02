@@ -49,11 +49,18 @@ namespace Morphous.Native.iOS.Factories
         {
             foreach (var alternate in element.Alternates)
             {
-                var path = NSBundle.MainBundle.PathForResource(alternate, "nib");
+                var locatedAlternate = alternate;
+                var path = NSBundle.MainBundle.PathForResource(locatedAlternate, "nib");
+
+                if (path == null)
+                {
+                    locatedAlternate += "_";
+                    path = NSBundle.MainBundle.PathForResource(locatedAlternate, "nib");
+                }
 
                 if (path != null)
                 {
-                    var arr = NSBundle.MainBundle.LoadNib(element.Type, null, null);
+                    var arr = NSBundle.MainBundle.LoadNib(locatedAlternate, null, null);
                     var view = Runtime.GetNSObject<UIView>(arr.ValueAt(0));
 
                     view.TranslatesAutoresizingMaskIntoConstraints = false;

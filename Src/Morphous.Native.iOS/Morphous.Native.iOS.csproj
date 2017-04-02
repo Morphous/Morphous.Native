@@ -77,17 +77,22 @@
       <DependentUpon>DefaultContentItemView.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Elements\ElementView.cs" />
-    <Compile Include="UI\Elements\BodyPart.cs" />
-    <Compile Include="UI\Elements\BodyPart.designer.cs">
-      <DependentUpon>BodyPart.cs</DependentUpon>
+    <Compile Include="UI\Elements\BodyPartView.cs" />
+    <Compile Include="UI\Elements\BodyPartView.designer.cs">
+      <DependentUpon>BodyPartView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Elements\MediaFieldView.cs" />
+    <Compile Include="UI\Elements\MediaFieldView.designer.cs">
+      <DependentUpon>MediaFieldView.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="UI\ContentItem_.xib" />
     <InterfaceDefinition Include="UI\Content.storyboard" />
-    <InterfaceDefinition Include="UI\Elements\TitlePart.xib" />
-    <InterfaceDefinition Include="UI\Elements\BodyPart.xib" />
+    <InterfaceDefinition Include="UI\Elements\TitlePart_.xib" />
+    <InterfaceDefinition Include="UI\Elements\BodyPart_.xib" />
     <InterfaceDefinition Include="UI\Elements\temp.storyboard" />
+    <InterfaceDefinition Include="UI\Elements\MediaField_.xib" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Morphous.Native\Morphous.Native.csproj">

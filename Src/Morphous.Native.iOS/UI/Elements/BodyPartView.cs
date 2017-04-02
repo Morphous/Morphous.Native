@@ -8,9 +8,9 @@ using UIKit;
 
 namespace Morphous.Native.iOS
 {
-    public partial class BodyPart : ElementView<IBodyPart>
+    public partial class BodyPartView : ElementView<IBodyPart>
 	{
-		public BodyPart (IntPtr handle) : base (handle)
+		public BodyPartView (IntPtr handle) : base (handle)
 		{
 		}
 

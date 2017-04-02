@@ -9,8 +9,8 @@ using System.CodeDom.Compiler;
 
 namespace Morphous.Native.iOS
 {
-	[Register ("BodyPart")]
-	partial class BodyPart
+	[Register ("BodyPartView")]
+	partial class BodyPartView
 	{
 		[Outlet]
 		UIKit.UILabel HtmlLabel { get; set; }
