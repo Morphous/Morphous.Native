@@ -19,7 +19,15 @@ namespace MainSample.iOS
         partial void ButtonClicked(NSObject sender)
         {
             var contentStoryboard = UIStoryboard.FromName("Content", NSBundle.MainBundle);
-            var contentViewController = contentStoryboard.InstantiateInitialViewController();
+            var contentViewController = contentStoryboard.InstantiateViewController("ContentItemViewController");
+
+            ShowViewController(contentViewController, this);
+        }
+
+        partial void TermButtonClicked(NSObject sender)
+        {
+            var contentStoryboard = UIStoryboard.FromName("Content", NSBundle.MainBundle);
+            var contentViewController = contentStoryboard.InstantiateViewController("TableContentItemViewController");
 
             ShowViewController(contentViewController, this);
         }

@@ -106,6 +106,14 @@
     <Compile Include="UI\Elements\CommonPartView.designer.cs">
       <DependentUpon>CommonPartView.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\TableContentItemViewController.cs" />
+    <Compile Include="UI\TableContentItemViewController.designer.cs">
+      <DependentUpon>TableContentItemViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Elements\TermPartView.cs" />
+    <Compile Include="UI\Elements\TermPartView.designer.cs">
+      <DependentUpon>TermPartView.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="UI\ContentItem_.xib" />
@@ -117,6 +125,7 @@
     <InterfaceDefinition Include="UI\Elements\ImagePart_.xib" />
     <InterfaceDefinition Include="UI\ContentItem_Image_Summary_.xib" />
     <InterfaceDefinition Include="UI\Elements\CommonPart_.xib" />
+    <InterfaceDefinition Include="UI\Elements\TermPart_.xib" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Morphous.Native\Morphous.Native.csproj">

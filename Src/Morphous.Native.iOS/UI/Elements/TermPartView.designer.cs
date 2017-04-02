@@ -7,16 +7,11 @@
 using Foundation;
 using System.CodeDom.Compiler;
 
-namespace MainSample.iOS
+namespace Morphous.Native.iOS
 {
-	[Register ("ViewController")]
-	partial class ViewController
+	[Register ("TermPartView")]
+	partial class TermPartView
 	{
-		[Action ("ButtonClicked:")]
-		partial void ButtonClicked (Foundation.NSObject sender);
-
-		[Action ("TermButtonClicked:")]
-		partial void TermButtonClicked (Foundation.NSObject sender);
 		
 		void ReleaseDesignerOutlets ()
 		{
