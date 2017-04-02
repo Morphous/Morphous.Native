@@ -47,6 +47,15 @@
     <Reference Include="GalaSoft.MvvmLight.Platform">
       <HintPath>..\..\packages\MvvmLightLibs.5.3.0.0\lib\xamarin.ios10\GalaSoft.MvvmLight.Platform.dll</HintPath>
     </Reference>
+    <Reference Include="WebP.Touch">
+      <HintPath>..\..\packages\WebP.Touch.1.0.3\lib\Xamarin.iOS10\WebP.Touch.dll</HintPath>
+    </Reference>
+    <Reference Include="FFImageLoading">
+      <HintPath>..\..\packages\Xamarin.FFImageLoading.2.2.9\lib\Xamarin.iOS10\FFImageLoading.dll</HintPath>
+    </Reference>
+    <Reference Include="FFImageLoading.Platform">
+      <HintPath>..\..\packages\Xamarin.FFImageLoading.2.2.9\lib\Xamarin.iOS10\FFImageLoading.Platform.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
@@ -85,6 +94,14 @@
     <Compile Include="UI\Elements\MediaFieldView.designer.cs">
       <DependentUpon>MediaFieldView.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Elements\ImagePartView.cs" />
+    <Compile Include="UI\Elements\ImagePartView.designer.cs">
+      <DependentUpon>ImagePartView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ContentItemImageSummaryView.cs" />
+    <Compile Include="UI\ContentItemImageSummaryView.designer.cs">
+      <DependentUpon>ContentItemImageSummaryView.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="UI\ContentItem_.xib" />
@@ -93,6 +110,8 @@
     <InterfaceDefinition Include="UI\Elements\BodyPart_.xib" />
     <InterfaceDefinition Include="UI\Elements\temp.storyboard" />
     <InterfaceDefinition Include="UI\Elements\MediaField_.xib" />
+    <InterfaceDefinition Include="UI\Elements\ImagePart_.xib" />
+    <InterfaceDefinition Include="UI\ContentItem_Image_Summary_.xib" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Morphous.Native\Morphous.Native.csproj">

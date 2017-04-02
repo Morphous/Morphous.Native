@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="S05-nW-Joi" customClass="ImagePartView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rSt-ME-7EL">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="rSt-ME-7EL" secondAttribute="bottom" id="L42-OX-hst"/>
+                <constraint firstItem="rSt-ME-7EL" firstAttribute="leading" secondItem="S05-nW-Joi" secondAttribute="leading" id="clC-gd-8WD"/>
+                <constraint firstItem="rSt-ME-7EL" firstAttribute="top" secondItem="S05-nW-Joi" secondAttribute="top" id="ovK-3h-elC"/>
+                <constraint firstAttribute="trailing" secondItem="rSt-ME-7EL" secondAttribute="trailing" id="q8y-YB-ver"/>
+            </constraints>
+            <connections>
+                <outlet property="ImageView" destination="rSt-ME-7EL" id="mXy-9e-Aav"/>
+            </connections>
+            <point key="canvasLocation" x="-15.5" y="-68.5"/>
+        </view>
+    </objects>
+</document>
