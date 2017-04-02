@@ -7,16 +7,20 @@
 using Foundation;
 using System.CodeDom.Compiler;
 
-namespace MainSample.iOS
+namespace Morphous.Native.iOS
 {
-	[Register ("ViewController")]
-	partial class ViewController
+	[Register ("ImagePartView")]
+	partial class ImagePartView
 	{
-		[Action ("ButtonClicked:")]
-		partial void ButtonClicked (Foundation.NSObject sender);
+		[Outlet]
+		UIKit.UIImageView ImageView { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
+			if (ImageView != null) {
+				ImageView.Dispose ();
+				ImageView = null;
+			}
 		}
 	}
 }

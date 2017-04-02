@@ -7,13 +7,11 @@
 using Foundation;
 using System.CodeDom.Compiler;
 
-namespace MainSample.iOS
+namespace Morphous.Native.iOS
 {
-	[Register ("ViewController")]
-	partial class ViewController
+	[Register ("MediaFieldView")]
+	partial class MediaFieldView
 	{
-		[Action ("ButtonClicked:")]
-		partial void ButtonClicked (Foundation.NSObject sender);
 		
 		void ReleaseDesignerOutlets ()
 		{

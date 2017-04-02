@@ -7,16 +7,20 @@
 using Foundation;
 using System.CodeDom.Compiler;
 
-namespace MainSample.iOS
+namespace Morphous.Native.iOS.UI
 {
-	[Register ("ViewController")]
-	partial class ViewController
+	[Register ("ContentItemViewController")]
+	partial class ContentItemViewController
 	{
-		[Action ("ButtonClicked:")]
-		partial void ButtonClicked (Foundation.NSObject sender);
+		[Outlet]
+		UIKit.UIScrollView ScrollView { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
+			if (ScrollView != null) {
+				ScrollView.Dispose ();
+				ScrollView = null;
+			}
 		}
 	}
 }

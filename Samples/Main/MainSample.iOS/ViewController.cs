@@ -1,5 +1,5 @@
 ﻿using System;
-
+using Foundation;
 using UIKit;
 
 namespace MainSample.iOS
@@ -16,10 +16,12 @@ namespace MainSample.iOS
             // Perform any additional setup after loading the view, typically from a nib.
         }
 
-        public override void DidReceiveMemoryWarning()
+        partial void ButtonClicked(NSObject sender)
         {
-            base.DidReceiveMemoryWarning();
-            // Release any cached data, images, etc that aren't in use.
+            var contentStoryboard = UIStoryboard.FromName("Content", NSBundle.MainBundle);
+            var contentViewController = contentStoryboard.InstantiateInitialViewController();
+
+            ShowViewController(contentViewController, this);
         }
     }
 }

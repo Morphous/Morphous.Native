@@ -7,16 +7,20 @@
 using Foundation;
 using System.CodeDom.Compiler;
 
-namespace MainSample.iOS
+namespace Morphous.Native.iOS
 {
-	[Register ("ViewController")]
-	partial class ViewController
+	[Register ("ContentItemImageSummaryView")]
+	partial class ContentItemImageSummaryView
 	{
-		[Action ("ButtonClicked:")]
-		partial void ButtonClicked (Foundation.NSObject sender);
+		[Outlet]
+		UIKit.UIStackView Content { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
+			if (Content != null) {
+				Content.Dispose ();
+				Content = null;
+			}
 		}
 	}
 }

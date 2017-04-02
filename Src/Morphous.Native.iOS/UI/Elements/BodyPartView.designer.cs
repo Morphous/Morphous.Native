@@ -7,16 +7,20 @@
 using Foundation;
 using System.CodeDom.Compiler;
 
-namespace MainSample.iOS
+namespace Morphous.Native.iOS
 {
-	[Register ("ViewController")]
-	partial class ViewController
+	[Register ("BodyPartView")]
+	partial class BodyPartView
 	{
-		[Action ("ButtonClicked:")]
-		partial void ButtonClicked (Foundation.NSObject sender);
+		[Outlet]
+		UIKit.UILabel HtmlLabel { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
+			if (HtmlLabel != null) {
+				HtmlLabel.Dispose ();
+				HtmlLabel = null;
+			}
 		}
 	}
 }

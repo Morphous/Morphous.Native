@@ -7,13 +7,11 @@
 using Foundation;
 using System.CodeDom.Compiler;
 
-namespace MainSample.iOS
+namespace Morphous.Native.iOS.UI
 {
-	[Register ("ViewController")]
-	partial class ViewController
+	[Register ("ContentItemView")]
+	partial class ContentItemView
 	{
-		[Action ("ButtonClicked:")]
-		partial void ButtonClicked (Foundation.NSObject sender);
 		
 		void ReleaseDesignerOutlets ()
 		{
