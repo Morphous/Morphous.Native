@@ -102,6 +102,10 @@
     <Compile Include="UI\ContentItemImageSummaryView.designer.cs">
       <DependentUpon>ContentItemImageSummaryView.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Elements\CommonPartView.cs" />
+    <Compile Include="UI\Elements\CommonPartView.designer.cs">
+      <DependentUpon>CommonPartView.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="UI\ContentItem_.xib" />
@@ -112,6 +116,7 @@
     <InterfaceDefinition Include="UI\Elements\MediaField_.xib" />
     <InterfaceDefinition Include="UI\Elements\ImagePart_.xib" />
     <InterfaceDefinition Include="UI\ContentItem_Image_Summary_.xib" />
+    <InterfaceDefinition Include="UI\Elements\CommonPart_.xib" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Morphous.Native\Morphous.Native.csproj">
