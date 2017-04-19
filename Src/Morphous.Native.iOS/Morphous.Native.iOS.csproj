@@ -127,6 +127,8 @@
     <InterfaceDefinition Include="UI\ContentItem_Image_Summary_.xib" />
     <InterfaceDefinition Include="UI\Elements\CommonPart_.xib" />
     <InterfaceDefinition Include="UI\Elements\TermPart_.xib" />
+    <InterfaceDefinition Include="UI\Elements\BodyPart_Summary_.xib" />
+    <InterfaceDefinition Include="UI\ContentItem_Summary_.xib" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Morphous.Native\Morphous.Native.csproj">

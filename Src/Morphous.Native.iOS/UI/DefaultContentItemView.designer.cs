@@ -23,14 +23,14 @@ namespace Morphous.Native.iOS.UI
 		
 		void ReleaseDesignerOutlets ()
 		{
-			if (Header != null) {
-				Header.Dispose ();
-				Header = null;
-			}
-
 			if (Content != null) {
 				Content.Dispose ();
 				Content = null;
+			}
+
+			if (Header != null) {
+				Header.Dispose ();
+				Header = null;
 			}
 
 			if (Meta != null) {

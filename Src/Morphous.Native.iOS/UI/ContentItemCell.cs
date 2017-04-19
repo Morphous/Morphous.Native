@@ -6,13 +6,15 @@ namespace Morphous.Native.iOS
 {
     public class ContentItemCell : UITableViewCell
     {
+        UIView _contentItemView;
+
         public ContentItemCell(DisplayContext displayContext, IContentItem contentItem, string cellId) : base(UITableViewCellStyle.Default, cellId)
         {
-            var contentItemView = displayContext.ViewFactory.CreateContentItemView(contentItem);
-            contentItemView.TranslatesAutoresizingMaskIntoConstraints = false;
+            _contentItemView = displayContext.ViewFactory.CreateContentItemView(contentItem);
+            _contentItemView.TranslatesAutoresizingMaskIntoConstraints = false;
 
-            ContentView.AddSubview(contentItemView);
-        //    ContentView.AddConstraints(ContentConstraints(contentItemView, this));
+            ContentView.AddSubview(_contentItemView);
+            ContentView.AddConstraints(ContentConstraints(_contentItemView, ContentView));
         }
 
         private NSLayoutConstraint[] ContentConstraints(UIView contentItemView, UIView container)

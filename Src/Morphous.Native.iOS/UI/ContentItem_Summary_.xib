@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="WDg-48-gZZ" customClass="DefaultContentItemView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="EeI-13-D4v">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="W87-SF-YPp">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        </stackView>
+                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="UnG-cX-Qpx">
+                            <rect key="frame" x="0.0" y="667" width="375" height="0.0"/>
+                        </stackView>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="EeI-13-D4v" secondAttribute="bottom" id="9xd-8v-pwo"/>
+                <constraint firstItem="EeI-13-D4v" firstAttribute="leading" secondItem="WDg-48-gZZ" secondAttribute="leading" id="Kyt-ty-U9T"/>
+                <constraint firstAttribute="trailing" secondItem="EeI-13-D4v" secondAttribute="trailing" id="csZ-wn-pEM"/>
+                <constraint firstItem="EeI-13-D4v" firstAttribute="top" secondItem="WDg-48-gZZ" secondAttribute="top" id="usE-yD-CAq"/>
+            </constraints>
+            <connections>
+                <outlet property="Content" destination="UnG-cX-Qpx" id="8h4-NH-DlN"/>
+                <outlet property="Header" destination="W87-SF-YPp" id="7Zf-G2-iWl"/>
+            </connections>
+            <point key="canvasLocation" x="153.5" y="179.5"/>
+        </view>
+    </objects>
+</document>

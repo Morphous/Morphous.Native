@@ -20,12 +20,15 @@ namespace Morphous.Native.iOS
 
             var tableView = DisplayContext.RootView as UITableView;
 
-            DisplayContext.ViewController.InvokeOnMainThread(() =>
+            if (tableView == null)
             {
+                throw new InvalidCastException("The RootView of the current DisplayContext must be a UITableView for TermPart to work");
+            }
 
+            tableView.RowHeight = UITableView.AutomaticDimension;
+            tableView.EstimatedRowHeight = 200;
 
-                tableView.Source = new ItemsSource(DisplayContext, Element.ContentItems);
-            });
+            tableView.Source = new ItemsSource(DisplayContext, Element.ContentItems);
         }
 
         private class ItemsSource : UITableViewSource
