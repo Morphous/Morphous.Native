@@ -30,6 +30,12 @@ namespace Morphous.Native.iOS
             _contentItemBinding = this.SetBinding(() => ViewModel.ContentItem).WhenSourceChanges(Update);
         }
 
+        public override void ViewWillAppear(bool animated)
+        {
+            base.ViewWillAppear(animated);
+            TableView.DeselectRow(TableView.IndexPathForSelectedRow, true);
+        }
+
         void Update()
         {
             if (ViewModel.ContentItem == null)

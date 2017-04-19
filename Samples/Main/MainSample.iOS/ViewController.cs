@@ -1,5 +1,6 @@
 ﻿using System;
 using Foundation;
+using Morphous.Native.iOS.UI;
 using UIKit;
 
 namespace MainSample.iOS
@@ -19,7 +20,9 @@ namespace MainSample.iOS
         partial void ButtonClicked(NSObject sender)
         {
             var contentStoryboard = UIStoryboard.FromName("Content", NSBundle.MainBundle);
-            var contentViewController = contentStoryboard.InstantiateViewController("ContentItemViewController");
+            var contentViewController = (ContentItemViewController)contentStoryboard.InstantiateViewController("ContentItemViewController");
+
+            contentViewController.ContentItemId = 16;
 
             ShowViewController(contentViewController, this);
         }

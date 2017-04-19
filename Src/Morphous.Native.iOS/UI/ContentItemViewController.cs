@@ -14,6 +14,8 @@ namespace Morphous.Native.iOS.UI
 
         private Binding _contentItemBinding;
 
+        public int ContentItemId { get; set; }
+
         public ContentItemViewController(IntPtr handle) : base(handle)
         {
         }
@@ -21,7 +23,7 @@ namespace Morphous.Native.iOS.UI
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
-            ViewModel = ContentItemViewModel.Create(16);
+            ViewModel = ContentItemViewModel.Create(ContentItemId);
 
             _contentItemBinding = this.SetContentBinding(() => ViewModel.ContentItem, () => this.ScrollView);
         }

@@ -3,6 +3,7 @@
 using System;
 using System.Collections.Generic;
 using Foundation;
+using Morphous.Native.iOS.UI;
 using Morphous.Native.Models;
 using UIKit;
 
@@ -50,6 +51,19 @@ namespace Morphous.Native.iOS
                 var cell = new ContentItemCell(_displayContext, item, "termcellid");
 
                 return cell;
+            }
+
+            public override void RowSelected(UITableView tableView, NSIndexPath indexPath)
+            {
+                var contentItem = _items[indexPath.Row];
+
+
+                var contentStoryboard = UIStoryboard.FromName("Content", NSBundle.MainBundle);
+                var contentViewController = (ContentItemViewController)contentStoryboard.InstantiateViewController("ContentItemViewController");
+
+                contentViewController.ContentItemId = contentItem.Id;
+
+                _displayContext.ViewController.ShowViewController(contentViewController, this);
             }
         }
     }
