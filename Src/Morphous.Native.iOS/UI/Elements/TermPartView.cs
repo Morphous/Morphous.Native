@@ -57,11 +57,7 @@ namespace Morphous.Native.iOS
             {
                 var contentItem = _items[indexPath.Row];
 
-
-                var contentStoryboard = UIStoryboard.FromName("Content", NSBundle.MainBundle);
-                var contentViewController = (ContentItemViewController)contentStoryboard.InstantiateViewController("ContentItemViewController");
-
-                contentViewController.ContentItemId = contentItem.Id;
+                var contentViewController = MphIOS.ContentItemViewController(contentItem);
 
                 _displayContext.ViewController.ShowViewController(contentViewController, this);
             }

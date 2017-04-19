@@ -18,6 +18,8 @@ namespace Morphous.Native.iOS
 
         private Binding _contentItemBinding;
 
+        public int ContentItemId { get; set; }
+
 		public TableContentItemViewController (IntPtr handle) : base (handle)
 		{
 		}
@@ -25,7 +27,7 @@ namespace Morphous.Native.iOS
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
-            ViewModel = ContentItemViewModel.Create(13);
+            ViewModel = ContentItemViewModel.Create(ContentItemId);
 
             _contentItemBinding = this.SetBinding(() => ViewModel.ContentItem).WhenSourceChanges(Update);
         }

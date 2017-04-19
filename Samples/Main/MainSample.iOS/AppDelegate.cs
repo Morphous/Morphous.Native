@@ -32,6 +32,7 @@ namespace MainSample.iOS
             // If not required for your application you can safely delete this method
 
             Mph.BaseUrl = "http://192.168.0.21:96";
+            MphIOS.AddViewControllerSelector("Article", ContentItemViewControllerType.Table);
 
             return true;
         }

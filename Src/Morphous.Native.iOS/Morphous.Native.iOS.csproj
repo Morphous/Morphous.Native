@@ -115,6 +115,7 @@
       <DependentUpon>TermPartView.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\ContentItemCell.cs" />
+    <Compile Include="MphIOS.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="UI\ContentItem_.xib" />
