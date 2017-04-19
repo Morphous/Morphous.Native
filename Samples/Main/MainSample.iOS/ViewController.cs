@@ -20,7 +20,7 @@ namespace MainSample.iOS
 
         partial void ButtonClicked(NSObject sender)
         {
-            var contentViewController = MphIOS.ContentItemViewController(16);
+            var contentViewController = MphIOS.StackedContentItemViewController(16);
             ShowViewController(contentViewController, this);
         }
 

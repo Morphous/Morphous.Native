@@ -9,8 +9,8 @@ using System.CodeDom.Compiler;
 
 namespace Morphous.Native.iOS.UI
 {
-	[Register ("ContentItemViewController")]
-	partial class ContentItemViewController
+    [Register("StackedContentItemViewController")]
+	partial class StackedContentItemViewController
 	{
 		[Outlet]
 		UIKit.UIScrollView ScrollView { get; set; }

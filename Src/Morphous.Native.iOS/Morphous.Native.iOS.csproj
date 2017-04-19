@@ -65,9 +65,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UI\ContentItemViewController.cs" />
-    <Compile Include="UI\ContentItemViewController.designer.cs">
-      <DependentUpon>ContentItemViewController.cs</DependentUpon>
+    <Compile Include="UI\StackedContentItemViewController.cs" />
+    <Compile Include="UI\StackedContentItemViewController.designer.cs">
+      <DependentUpon>StackedContentItemViewController.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\ContentItemView.cs" />
     <Compile Include="UI\ContentItemView.designer.cs">

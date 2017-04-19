@@ -4,15 +4,14 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Content Item View Controller-->
+        <!--Stacked Content Item View Controller-->
         <scene sceneID="bzK-sD-Xvw">
             <objects>
-                <viewController storyboardIdentifier="ContentItemViewController" id="BkB-qw-QkE" customClass="ContentItemViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="StackedContentItemViewController" id="BkB-qw-QkE" customClass="StackedContentItemViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Qnr-eg-anv"/>
                         <viewControllerLayoutGuide type="bottom" id="5wx-QN-A8W"/>

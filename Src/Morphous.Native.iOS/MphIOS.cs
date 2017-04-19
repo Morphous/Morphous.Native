@@ -9,7 +9,7 @@ namespace Morphous.Native.iOS
 {
     public enum ContentItemViewControllerType
     {
-        Default,
+        Stacked,
         Table
     }
 
@@ -22,8 +22,8 @@ namespace Morphous.Native.iOS
         {
             switch (contentItemViewControllerType)
             {
-                case ContentItemViewControllerType.Default:
-                    AddViewControllerSelector(contentType, (id) => ContentItemViewController(id));
+                case ContentItemViewControllerType.Stacked:
+                    AddViewControllerSelector(contentType, (id) => StackedContentItemViewController(id));
                     break;
                 case ContentItemViewControllerType.Table:
                     AddViewControllerSelector(contentType, (id) => TableContentItemViewController(id));
@@ -45,7 +45,7 @@ namespace Morphous.Native.iOS
             }
             else
             {
-                return ContentItemViewController(contentItem.Id);
+                return StackedContentItemViewController(contentItem.Id);
             }
         }
 
@@ -53,14 +53,14 @@ namespace Morphous.Native.iOS
 
         public static UIStoryboard ContentStoryboard => UIStoryboard.FromName("Content", NSBundle.MainBundle);
 
-        public static ContentItemViewController ContentItemViewController()
+        public static StackedContentItemViewController StackedContentItemViewController()
         {
-            return (ContentItemViewController)ContentStoryboard.InstantiateViewController("ContentItemViewController");
+            return (StackedContentItemViewController)ContentStoryboard.InstantiateViewController("StackedContentItemViewController");
         }
 
-        public static ContentItemViewController ContentItemViewController(int contentItemId)
+        public static StackedContentItemViewController StackedContentItemViewController(int contentItemId)
         {
-            var viewController = ContentItemViewController();
+            var viewController = StackedContentItemViewController();
             viewController.ContentItemId = contentItemId;
             return viewController;
         }
