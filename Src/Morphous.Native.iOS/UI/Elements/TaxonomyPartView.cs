@@ -3,17 +3,16 @@
 using System;
 using System.Collections.Generic;
 using Foundation;
-using Morphous.Native.iOS.UI;
 using Morphous.Native.Models;
 using UIKit;
 
 namespace Morphous.Native.iOS
 {
-    public partial class TermPartView : ElementView<ITermPart>
-	{
-		public TermPartView (IntPtr handle) : base (handle)
-		{
-		}
+    public partial class TaxonomyPartView : ElementView<ITaxonomyPart>
+    {
+        public TaxonomyPartView(IntPtr handle) : base(handle)
+        {
+        }
 
         protected override void Bind()
         {
@@ -23,20 +22,22 @@ namespace Morphous.Native.iOS
 
             if (tableView == null)
             {
-                throw new InvalidCastException("The RootView of the current DisplayContext must be a UITableView for TermPart to work");
+                throw new InvalidCastException("The RootView of the current DisplayContext must be a UITableView for TaxonomyPart to work");
             }
 
-            tableView.RowHeight = UITableView.AutomaticDimension;
-            tableView.EstimatedRowHeight = 200;
-            tableView.Source = new ItemsSource(DisplayContext, Element.ContentItems);
+            tableView.RowHeight = 44;
+            tableView.RegisterClassForCellReuse(typeof(UITableViewCell), "taxonomyitem");
+            tableView.Source = new ItemsSource(DisplayContext, Element.Terms);
         }
 
         private class ItemsSource : UITableViewSource
         {
-            private readonly DisplayContext _displayContext;
-            private readonly IList<IContentItem> _items;
+            private const string _cellId = "taxonomyitem";
 
-            public ItemsSource(DisplayContext displayContext, IList<IContentItem> items)
+            private readonly DisplayContext _displayContext;
+            private readonly IList<ITaxonomyItem> _items;
+
+            public ItemsSource(DisplayContext displayContext, IList<ITaxonomyItem> items)
             {
                 _displayContext = displayContext;
                 _items = items;
@@ -46,17 +47,19 @@ namespace Morphous.Native.iOS
 
             public override UITableViewCell GetCell(UITableView tableView, NSIndexPath indexPath)
             {
+                var cell = tableView.DequeueReusableCell(_cellId, indexPath);
                 var item = _items[indexPath.Row];
-                var cell = new ContentItemCell(_displayContext, item, "termcellid");
+
+                cell.TextLabel.Text = item.Title;
 
                 return cell;
             }
 
             public override void RowSelected(UITableView tableView, NSIndexPath indexPath)
             {
-                var contentItem = _items[indexPath.Row];
+                var item = _items[indexPath.Row];
 
-                var contentViewController = MphIOS.ContentItemViewController(contentItem);
+                var contentViewController = MphIOS.TableContentItemViewController(item.Id);
 
                 _displayContext.ViewController.ShowViewController(contentViewController, this);
             }

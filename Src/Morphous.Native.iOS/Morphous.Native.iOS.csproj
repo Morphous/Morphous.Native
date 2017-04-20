@@ -116,6 +116,10 @@
     </Compile>
     <Compile Include="UI\ContentItemCell.cs" />
     <Compile Include="MphIOS.cs" />
+    <Compile Include="UI\Elements\TaxonomyPartView.cs" />
+    <Compile Include="UI\Elements\TaxonomyPartView.designer.cs">
+      <DependentUpon>TaxonomyPartView.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="UI\ContentItem_.xib" />
@@ -130,6 +134,7 @@
     <InterfaceDefinition Include="UI\Elements\TermPart_.xib" />
     <InterfaceDefinition Include="UI\Elements\BodyPart_Summary_.xib" />
     <InterfaceDefinition Include="UI\ContentItem_Summary_.xib" />
+    <InterfaceDefinition Include="UI\Elements\TaxonomyPart_.xib" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Morphous.Native\Morphous.Native.csproj">
