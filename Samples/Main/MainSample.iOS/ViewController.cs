@@ -29,5 +29,11 @@ namespace MainSample.iOS
             var contentViewController = MphIOS.TableContentItemViewController(13);
             ShowViewController(contentViewController, this);
         }
+
+        partial void TaxonomyButtonClicked(NSObject sender)
+        {
+        	var contentViewController = MphIOS.TableContentItemViewController(12);
+        	ShowViewController(contentViewController, this);
+        }
     }
 }

@@ -9,7 +9,7 @@ namespace Morphous.Native.iOS
 {
     public enum ContentItemViewControllerType
     {
-        Stacked,
+        Normal,
         Table
     }
 
@@ -22,7 +22,7 @@ namespace Morphous.Native.iOS
         {
             switch (contentItemViewControllerType)
             {
-                case ContentItemViewControllerType.Stacked:
+                case ContentItemViewControllerType.Normal:
                     AddViewControllerSelector(contentType, (id) => StackedContentItemViewController(id));
                     break;
                 case ContentItemViewControllerType.Table:
@@ -53,14 +53,14 @@ namespace Morphous.Native.iOS
 
         public static UIStoryboard ContentStoryboard => UIStoryboard.FromName("Content", NSBundle.MainBundle);
 
-        public static StackedContentItemViewController StackedContentItemViewController()
+        public static NormalContentItemViewController NormalContentItemViewController()
         {
-            return (StackedContentItemViewController)ContentStoryboard.InstantiateViewController("StackedContentItemViewController");
+            return (NormalContentItemViewController)ContentStoryboard.InstantiateViewController("NormalContentItemViewController");
         }
 
-        public static StackedContentItemViewController StackedContentItemViewController(int contentItemId)
+        public static NormalContentItemViewController StackedContentItemViewController(int contentItemId)
         {
-            var viewController = StackedContentItemViewController();
+            var viewController = NormalContentItemViewController();
             viewController.ContentItemId = contentItemId;
             return viewController;
         }

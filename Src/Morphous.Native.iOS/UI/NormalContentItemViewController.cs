@@ -8,7 +8,7 @@ using Morphous.Native.iOS.Bindings;
 
 namespace Morphous.Native.iOS.UI
 {
-    public partial class StackedContentItemViewController : UIViewController
+    public partial class NormalContentItemViewController : UIViewController
     {
         private IContentItemViewModel ViewModel { get; set; }
 
@@ -16,7 +16,7 @@ namespace Morphous.Native.iOS.UI
 
         public int ContentItemId { get; set; }
 
-        public StackedContentItemViewController(IntPtr handle) : base(handle)
+        public NormalContentItemViewController(IntPtr handle) : base(handle)
         {
         }
 

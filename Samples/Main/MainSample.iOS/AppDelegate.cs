@@ -21,7 +21,7 @@ namespace MainSample.iOS
         }
 
         [Preserve]
-        private void Include(StackedContentItemViewController contentItemViewController)
+        private void Include(NormalContentItemViewController contentItemViewController)
         {
 
         }
