@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -16,18 +16,17 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="title part" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="21w-ec-C5F">
-                    <rect key="frame" x="16" y="16" width="399" height="165"/>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                    <rect key="frame" x="8" y="8" width="415" height="181"/>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <color key="backgroundColor" red="0.17753637185395033" green="1" blue="0.21298729316988263" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="21w-ec-C5F" firstAttribute="leading" secondItem="gqZ-SZ-PdB" secondAttribute="leading" constant="16" id="Cz2-0h-hEZ"/>
-                <constraint firstItem="21w-ec-C5F" firstAttribute="top" secondItem="gqZ-SZ-PdB" secondAttribute="top" constant="16" id="dTT-jw-FND"/>
-                <constraint firstAttribute="bottom" secondItem="21w-ec-C5F" secondAttribute="bottom" constant="16" id="p8Q-8F-I8p"/>
-                <constraint firstAttribute="trailing" secondItem="21w-ec-C5F" secondAttribute="trailing" constant="16" id="pIY-4I-QZj"/>
+                <constraint firstItem="21w-ec-C5F" firstAttribute="leading" secondItem="gqZ-SZ-PdB" secondAttribute="leading" constant="8" id="Cz2-0h-hEZ"/>
+                <constraint firstItem="21w-ec-C5F" firstAttribute="top" secondItem="gqZ-SZ-PdB" secondAttribute="top" constant="8" id="dTT-jw-FND"/>
+                <constraint firstAttribute="bottom" secondItem="21w-ec-C5F" secondAttribute="bottom" constant="8" id="p8Q-8F-I8p"/>
+                <constraint firstAttribute="trailing" secondItem="21w-ec-C5F" secondAttribute="trailing" constant="8" id="pIY-4I-QZj"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>

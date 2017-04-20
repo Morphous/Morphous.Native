@@ -19,7 +19,10 @@ namespace Morphous.Native.iOS.UI.Elements
             base.Bind();
             TitleLabel.Text = Element.Title;
 
-        //    DisplayContext.ViewController.Title = Element.Title;
+            if (Element.Zone.ContentItem == DisplayContext.RootContentItem)
+            {
+                DisplayContext.ViewController.Title = Element.Title;
+            }
         }
 	}
 }

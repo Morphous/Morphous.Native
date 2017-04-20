@@ -14,6 +14,12 @@ namespace MainSample.iOS
 	{
 		[Action ("ButtonClicked:")]
 		partial void ButtonClicked (Foundation.NSObject sender);
+
+		[Action ("TaxonomyButtonClicked:")]
+		partial void TaxonomyButtonClicked (Foundation.NSObject sender);
+
+		[Action ("TermButtonClicked:")]
+		partial void TermButtonClicked (Foundation.NSObject sender);
 		
 		void ReleaseDesignerOutlets ()
 		{

@@ -1,5 +1,7 @@
 ﻿using System;
 using Foundation;
+using Morphous.Native.iOS;
+using Morphous.Native.iOS.UI;
 using UIKit;
 
 namespace MainSample.iOS
@@ -18,10 +20,20 @@ namespace MainSample.iOS
 
         partial void ButtonClicked(NSObject sender)
         {
-            var contentStoryboard = UIStoryboard.FromName("Content", NSBundle.MainBundle);
-            var contentViewController = contentStoryboard.InstantiateInitialViewController();
-
+            var contentViewController = MphIOS.StackedContentItemViewController(16);
             ShowViewController(contentViewController, this);
+        }
+
+        partial void TermButtonClicked(NSObject sender)
+        {
+            var contentViewController = MphIOS.TableContentItemViewController(13);
+            ShowViewController(contentViewController, this);
+        }
+
+        partial void TaxonomyButtonClicked(NSObject sender)
+        {
+        	var contentViewController = MphIOS.TableContentItemViewController(12);
+        	ShowViewController(contentViewController, this);
         }
     }
 }

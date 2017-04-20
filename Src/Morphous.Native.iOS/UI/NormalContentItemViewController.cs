@@ -8,20 +8,22 @@ using Morphous.Native.iOS.Bindings;
 
 namespace Morphous.Native.iOS.UI
 {
-    public partial class ContentItemViewController : UIViewController
+    public partial class NormalContentItemViewController : UIViewController
     {
         private IContentItemViewModel ViewModel { get; set; }
 
         private Binding _contentItemBinding;
 
-        public ContentItemViewController(IntPtr handle) : base(handle)
+        public int ContentItemId { get; set; }
+
+        public NormalContentItemViewController(IntPtr handle) : base(handle)
         {
         }
 
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
-            ViewModel = ContentItemViewModel.Create(16);
+            ViewModel = ContentItemViewModel.Create(ContentItemId);
 
             _contentItemBinding = this.SetContentBinding(() => ViewModel.ContentItem, () => this.ScrollView);
         }

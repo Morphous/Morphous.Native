@@ -7,30 +7,38 @@
 using Foundation;
 using System.CodeDom.Compiler;
 
-namespace Morphous.Native.iOS.UI
+namespace Morphous.Native.iOS
 {
-	[Register ("DefaultContentItemView")]
-	partial class DefaultContentItemView
+	[Register ("TableContentItemViewController")]
+	partial class TableContentItemViewController
 	{
 		[Outlet]
-		UIKit.UIStackView Content { get; set; }
+		UIKit.UIView Content { get; set; }
 
 		[Outlet]
-		UIKit.UIStackView Header { get; set; }
+		UIKit.UIView Header { get; set; }
 
 		[Outlet]
-		UIKit.UIStackView Meta { get; set; }
+		UIKit.UIView Meta { get; set; }
+
+		[Outlet]
+		UIKit.UITableView TableView { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
-			if (Content != null) {
-				Content.Dispose ();
-				Content = null;
+			if (TableView != null) {
+				TableView.Dispose ();
+				TableView = null;
 			}
 
 			if (Header != null) {
 				Header.Dispose ();
 				Header = null;
+			}
+
+			if (Content != null) {
+				Content.Dispose ();
+				Content = null;
 			}
 
 			if (Meta != null) {

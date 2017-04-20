@@ -65,9 +65,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UI\ContentItemViewController.cs" />
-    <Compile Include="UI\ContentItemViewController.designer.cs">
-      <DependentUpon>ContentItemViewController.cs</DependentUpon>
+    <Compile Include="UI\NormalContentItemViewController.cs" />
+    <Compile Include="UI\NormalContentItemViewController.designer.cs">
+      <DependentUpon>NormalContentItemViewController.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\ContentItemView.cs" />
     <Compile Include="UI\ContentItemView.designer.cs">
@@ -106,6 +106,20 @@
     <Compile Include="UI\Elements\CommonPartView.designer.cs">
       <DependentUpon>CommonPartView.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\TableContentItemViewController.cs" />
+    <Compile Include="UI\TableContentItemViewController.designer.cs">
+      <DependentUpon>TableContentItemViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Elements\TermPartView.cs" />
+    <Compile Include="UI\Elements\TermPartView.designer.cs">
+      <DependentUpon>TermPartView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ContentItemCell.cs" />
+    <Compile Include="MphIOS.cs" />
+    <Compile Include="UI\Elements\TaxonomyPartView.cs" />
+    <Compile Include="UI\Elements\TaxonomyPartView.designer.cs">
+      <DependentUpon>TaxonomyPartView.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="UI\ContentItem_.xib" />
@@ -117,6 +131,10 @@
     <InterfaceDefinition Include="UI\Elements\ImagePart_.xib" />
     <InterfaceDefinition Include="UI\ContentItem_Image_Summary_.xib" />
     <InterfaceDefinition Include="UI\Elements\CommonPart_.xib" />
+    <InterfaceDefinition Include="UI\Elements\TermPart_.xib" />
+    <InterfaceDefinition Include="UI\Elements\BodyPart_Summary_.xib" />
+    <InterfaceDefinition Include="UI\ContentItem_Summary_.xib" />
+    <InterfaceDefinition Include="UI\Elements\TaxonomyPart_.xib" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Morphous.Native\Morphous.Native.csproj">

@@ -7,20 +7,14 @@
 using Foundation;
 using System.CodeDom.Compiler;
 
-namespace Morphous.Native.iOS.UI
+namespace Morphous.Native.iOS
 {
-	[Register ("ContentItemViewController")]
-	partial class ContentItemViewController
+	[Register ("TermPartView")]
+	partial class TermPartView
 	{
-		[Outlet]
-		UIKit.UIScrollView ScrollView { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
-			if (ScrollView != null) {
-				ScrollView.Dispose ();
-				ScrollView = null;
-			}
 		}
 	}
 }
