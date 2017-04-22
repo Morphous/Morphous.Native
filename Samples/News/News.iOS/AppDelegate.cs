@@ -1,4 +1,8 @@
 ﻿using Foundation;
+using GalaSoft.MvvmLight.Messaging;
+using Morphous.Native;
+using Morphous.Native.Messges;
+using Morphous.Native.Models;
 using UIKit;
 
 namespace News.iOS
@@ -20,6 +24,17 @@ namespace News.iOS
         {
             // Override point for customization after application launch.
             // If not required for your application you can safely delete this method
+
+            Mph.BaseUrl = "http://192.168.0.21:96";
+
+            Messenger.Default.Register<ContentItemCreatedMessage>(this, message =>
+            {
+                if (message.ContentItem.ContentType == "Article" && message.ContentItem.DisplayType == "Detail")
+				{
+                	var mediaContent = message.ContentItem.As<MediaField>().Media;
+                	mediaContent.As<ImagePart>().Alternates.Insert(0, "ArticleImage");
+                }
+            });
 
             return true;
         }

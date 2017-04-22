@@ -18,7 +18,7 @@ namespace Morphous.Native.iOS
 
         private Binding _contentItemBinding;
 
-        public int ContentItemId { get; set; }
+        public virtual int ContentItemId { get; set; }
 
 		public TableContentItemViewController (IntPtr handle) : base (handle)
 		{
@@ -53,7 +53,7 @@ namespace Morphous.Native.iOS
 
             foreach (var zone in ViewModel.ContentItem.Zones)
             {
-                var zoneProp = this.GetType().GetProperty(zone.Name, System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+                var zoneProp = typeof(TableContentItemViewController).GetProperty(zone.Name, System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
                 var zoneView = zoneProp?.GetValue(this, null) as UIView;
 
                 if (zoneView != null)
