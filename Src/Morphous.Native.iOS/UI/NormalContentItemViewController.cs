@@ -14,7 +14,7 @@ namespace Morphous.Native.iOS.UI
 
         private Binding _contentItemBinding;
 
-        public int ContentItemId { get; set; }
+        public virtual int ContentItemId { get; set; }
 
         public NormalContentItemViewController(IntPtr handle) : base(handle)
         {

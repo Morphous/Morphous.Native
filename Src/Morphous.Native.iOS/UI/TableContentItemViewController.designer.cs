@@ -26,9 +26,9 @@ namespace Morphous.Native.iOS
 		
 		void ReleaseDesignerOutlets ()
 		{
-			if (TableView != null) {
-				TableView.Dispose ();
-				TableView = null;
+			if (Content != null) {
+				Content.Dispose ();
+				Content = null;
 			}
 
 			if (Header != null) {
@@ -36,14 +36,14 @@ namespace Morphous.Native.iOS
 				Header = null;
 			}
 
-			if (Content != null) {
-				Content.Dispose ();
-				Content = null;
-			}
-
 			if (Meta != null) {
 				Meta.Dispose ();
 				Meta = null;
+			}
+
+			if (TableView != null) {
+				TableView.Dispose ();
+				TableView = null;
 			}
 		}
 	}

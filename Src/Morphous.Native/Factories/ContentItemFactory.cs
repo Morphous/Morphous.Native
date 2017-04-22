@@ -31,8 +31,8 @@ namespace Morphous.Native.Factories
             
             contentItem.Alternates.Add($"ContentItem_{contentItem.Id}");
             contentItem.Alternates.Add($"ContentItem_{contentItem.ContentType}_{contentItem.DisplayType}");
-            contentItem.Alternates.Add($"ContentItem_{contentItem.ContentType}");
             contentItem.Alternates.Add($"ContentItem_{contentItem.DisplayType}");
+            contentItem.Alternates.Add($"ContentItem_{contentItem.ContentType}");
             contentItem.Alternates.Add($"ContentItem");
 
             return contentItem;
@@ -86,9 +86,9 @@ namespace Morphous.Native.Factories
             element.Alternates.Add($"{element.Type}_{element.Zone.ContentItem.Id}");
             element.Alternates.Add($"{element.Type}_{parentItem.ContentType}_{parentItem.DisplayType}_{parentZone.Name}");
             element.Alternates.Add($"{element.Type}_{parentItem.ContentType}_{parentItem.DisplayType}");
-            element.Alternates.Add($"{element.Type}_{parentItem.ContentType}");
             element.Alternates.Add($"{element.Type}_{parentItem.DisplayType}_{parentZone.Name}");
             element.Alternates.Add($"{element.Type}_{parentItem.DisplayType}");
+            element.Alternates.Add($"{element.Type}_{parentItem.ContentType}");
             element.Alternates.Add($"{element.Type}_{parentZone.Name}");
             element.Alternates.Add($"{element.Type}");
 
