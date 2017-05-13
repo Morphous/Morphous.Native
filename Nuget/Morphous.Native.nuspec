@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+	<metadata minClientVersion="2.8.3">
+		<id>Morphous.Native</id>
+		<version>0.0.1</version>
+		<title>Morphous.Native </title>
+		<authors>Tom Pratt</authors>
+		<owners>Tom Pratt</owners>
+    <licenseUrl>todo</licenseUrl>
+    <projectUrl>todo</projectUrl>
+
+    <iconUrl>
+      https://www.nuget.org/Content/Images/packageDefaultIcon.png
+    </iconUrl>
+
+      <requireLicenseAcceptance>false</requireLicenseAcceptance>
+		<description>
+            A Xamarin library for displaying OrchardCMS content.
+        </description>
+		<summary>A Xamarin library for displaying OrchardCMS content.</summary>
+		<tags>xamarin, android, ios, orchard, orchardcms, morphous, native</tags>
+		<dependencies>
+          <group>
+            <dependency id="MvvmLightLibs" version="5.3.0"/>
+            <dependency id="Newtonsoft.Json" version="9.0.1"/>
+          </group>
+            <group targetFramework="MonoAndroid">
+                <dependency id="MvvmLightLibs" version="5.3.0"/>
+                <dependency id="Newtonsoft.Json" version="9.0.1"/>
+                <dependency id="Xamarin.FFImageLoading" version="2.2.9"/>
+                <dependency id="Xamarin.Android.Support.v7.AppCompat" version="25.3.1"/>
+                <dependency id="Xamarin.Android.Support.v7.RecyclerView" version="25.3.1"/>
+            </group>
+            <group targetFramework="Xamarin.iOS10">
+                <dependency id="MvvmLightLibs" version="5.3.0"/>
+                <dependency id="Newtonsoft.Json" version="9.0.1"/>
+                <dependency id="Xamarin.FFImageLoading" version="2.2.9"/>
+            </group>
+            <!--
+            <group targetFramework="portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10">
+            </group>
+            <<group targetFramework="net">
+            </group>
+            <group targetFramework="win">
+            </group>
+            <group targetFramework="wp">
+            </group>
+            <group targetFramework="wpa">
+            </group>
+            <group targetFramework="Xamarin.Mac20">
+            </group>
+			<group targetFramework="uap">
+			</group>
+			<group targetFramework="dotnet">
+			</group>-->
+		</dependencies>
+	</metadata>
+	<files>
+		<!--Core-->
+		<file src="..\Src\Morphous.Native\bin\Release\Morphous.Native.dll" target="lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10\Morphous.Native.dll" />
+		<file src="..\Src\Morphous.Native\bin\Release\Morphous.Native.pdb" target="lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10\Morphous.Native.pdb" />
+		
+        <!--Xamarin.Android-->
+		<file src="..\Src\Morphous.Native\bin\Release\Morphous.Native.dll" target="lib\MonoAndroid10\Morphous.Native.dll" />
+		<file src="..\Src\Morphous.Native\bin\Release\Morphous.Native.pdb" target="lib\MonoAndroid10\Morphous.Native.pdb" />
+
+        <file src="..\Src\Morphous.Native.Droid\bin\Release\Morphous.Native.Droid.dll" target="lib\MonoAndroid10\Morphous.Native.Droid.dll" />
+        <file src="..\Src\Morphous.Native.Droid\bin\Release\Morphous.Native.Droid.pdb" target="lib\MonoAndroid10\Morphous.Native.Droid.pdb" />
+
+		<!--Xamarin.iOS-->
+		<file src="..\Src\Morphous.Native\bin\Release\Morphous.Native.dll" target="lib\Xamarin.iOS10\Morphous.Native.dll" />
+        <file src="..\Src\Morphous.Native\bin\Release\Morphous.Native.pdb" target="lib\Xamarin.iOS10\Morphous.Native.pdb" />
+
+        <file src="..\Src\Morphous.Native.iOS\bin\Release\Morphous.Native.iOS.dll" target="lib\Xamarin.iOS10\Morphous.Native.iOS.dll" />
+        <file src="..\Src\Morphous.Native.iOS\bin\Release\Morphous.Native.iOS.pdb" target="lib\Xamarin.iOS10\Morphous.Native.iOS.pdb" />
+       
+	</files>
+</package>
