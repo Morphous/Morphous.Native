@@ -30,7 +30,7 @@ namespace Morphous.Native.Droid.UI.Elements
 
             if (toolbar != null && appCompatActivity != null)
             {
-                appCompatActivity.Title = Element.Title;
+                toolbar.Title = Element.Title;
                 appCompatActivity.SetSupportActionBar(toolbar);
                 return null;
             }
