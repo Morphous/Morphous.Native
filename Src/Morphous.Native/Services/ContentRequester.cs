@@ -40,7 +40,7 @@ namespace Morphous.Native.Services
         {
             var client = new HttpClient();
             client.DefaultRequestHeaders.Add("Accept", "application/json");
-            client.DefaultRequestHeaders.Add("Accept-Alternates", "forms");
+            client.DefaultRequestHeaders.Add("Accept-Alternates", "native");
 
             return client.GetAsync(url);
         }

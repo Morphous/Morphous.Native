@@ -39,7 +39,7 @@ namespace News.Droid
             var toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
             SetSupportActionBar(toolbar);
             
-            ViewModel = ContentItemViewModel.Create(12);
+            ViewModel = ContentItemViewModel.Create(14);
             ViewModel.PropertyChanged += ViewModel_PropertyChanged;
 
             var swipeRefreshLayout = FindViewById<SwipeRefreshLayout>(Resource.Id.swipeRefreshLayout);
