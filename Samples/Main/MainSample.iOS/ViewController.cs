@@ -1,5 +1,7 @@
 ﻿using System;
-
+using Foundation;
+using Morphous.Native.iOS;
+using Morphous.Native.iOS.UI;
 using UIKit;
 
 namespace MainSample.iOS
@@ -16,10 +18,22 @@ namespace MainSample.iOS
             // Perform any additional setup after loading the view, typically from a nib.
         }
 
-        public override void DidReceiveMemoryWarning()
+        partial void ButtonClicked(NSObject sender)
         {
-            base.DidReceiveMemoryWarning();
-            // Release any cached data, images, etc that aren't in use.
+            var contentViewController = MphIOS.StackedContentItemViewController(16);
+            ShowViewController(contentViewController, this);
+        }
+
+        partial void TermButtonClicked(NSObject sender)
+        {
+            var contentViewController = MphIOS.TableContentItemViewController(13);
+            ShowViewController(contentViewController, this);
+        }
+
+        partial void TaxonomyButtonClicked(NSObject sender)
+        {
+        	var contentViewController = MphIOS.TableContentItemViewController(12);
+        	ShowViewController(contentViewController, this);
         }
     }
 }

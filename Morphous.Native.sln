@@ -1,19 +1,22 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26403.7
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Morphous.Native", "Src\Morphous.Native\Morphous.Native.csproj", "{659A865A-2F90-4CC8-9B30-347A7E66ECAF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{A11E78E4-D573-4DB2-8B73-BB5595A6959F}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Morphous.Native.Tests", "Src\Tests\Morphous.Native.Tests\Morphous.Native.Tests.csproj", "{9D1CD6D5-39C4-46B6-AB63-42362BB4BE4B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Morphous.Native.Droid", "Src\Morphous.Native.Droid\Morphous.Native.Droid.csproj", "{6A778528-14D9-4270-96E2-66E7B1077806}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Morphous.Native.iOS", "Src\Morphous.Native.iOS\Morphous.Native.iOS.csproj", "{77955AB1-40EA-4634-A047-0BDF3C480F33}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Morphous.Native.UWP", "Src\Morphous.Native.UWP\Morphous.Native.UWP.csproj", "{818E536A-FE40-4EA9-99B6-BEAA3A70AB66}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Nuget", "Nuget", "{AF322339-1F06-4DB9-9CD3-29AE8B50FB85}"
+	ProjectSection(SolutionItems) = preProject
+		Nuget\Morphous.Native.nuspec = Nuget\Morphous.Native.nuspec
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,22 +46,6 @@ Global
 		{659A865A-2F90-4CC8-9B30-347A7E66ECAF}.Release|x64.Build.0 = Release|Any CPU
 		{659A865A-2F90-4CC8-9B30-347A7E66ECAF}.Release|x86.ActiveCfg = Release|Any CPU
 		{659A865A-2F90-4CC8-9B30-347A7E66ECAF}.Release|x86.Build.0 = Release|Any CPU
-		{9D1CD6D5-39C4-46B6-AB63-42362BB4BE4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9D1CD6D5-39C4-46B6-AB63-42362BB4BE4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9D1CD6D5-39C4-46B6-AB63-42362BB4BE4B}.Debug|ARM.ActiveCfg = Debug|Any CPU
-		{9D1CD6D5-39C4-46B6-AB63-42362BB4BE4B}.Debug|ARM.Build.0 = Debug|Any CPU
-		{9D1CD6D5-39C4-46B6-AB63-42362BB4BE4B}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{9D1CD6D5-39C4-46B6-AB63-42362BB4BE4B}.Debug|x64.Build.0 = Debug|Any CPU
-		{9D1CD6D5-39C4-46B6-AB63-42362BB4BE4B}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{9D1CD6D5-39C4-46B6-AB63-42362BB4BE4B}.Debug|x86.Build.0 = Debug|Any CPU
-		{9D1CD6D5-39C4-46B6-AB63-42362BB4BE4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9D1CD6D5-39C4-46B6-AB63-42362BB4BE4B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9D1CD6D5-39C4-46B6-AB63-42362BB4BE4B}.Release|ARM.ActiveCfg = Release|Any CPU
-		{9D1CD6D5-39C4-46B6-AB63-42362BB4BE4B}.Release|ARM.Build.0 = Release|Any CPU
-		{9D1CD6D5-39C4-46B6-AB63-42362BB4BE4B}.Release|x64.ActiveCfg = Release|Any CPU
-		{9D1CD6D5-39C4-46B6-AB63-42362BB4BE4B}.Release|x64.Build.0 = Release|Any CPU
-		{9D1CD6D5-39C4-46B6-AB63-42362BB4BE4B}.Release|x86.ActiveCfg = Release|Any CPU
-		{9D1CD6D5-39C4-46B6-AB63-42362BB4BE4B}.Release|x86.Build.0 = Release|Any CPU
 		{6A778528-14D9-4270-96E2-66E7B1077806}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6A778528-14D9-4270-96E2-66E7B1077806}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6A778528-14D9-4270-96E2-66E7B1077806}.Debug|ARM.ActiveCfg = Debug|Any CPU
@@ -110,8 +97,5 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{9D1CD6D5-39C4-46B6-AB63-42362BB4BE4B} = {A11E78E4-D573-4DB2-8B73-BB5595A6959F}
 	EndGlobalSection
 EndGlobal

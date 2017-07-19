@@ -1,4 +1,7 @@
 ﻿using Foundation;
+using Morphous.Native;
+using Morphous.Native.iOS;
+using Morphous.Native.iOS.UI;
 using UIKit;
 
 namespace MainSample.iOS
@@ -17,10 +20,18 @@ namespace MainSample.iOS
             set;
         }
 
+        [Preserve]
+        private void Include(NormalContentItemViewController contentItemViewController)
+        {
+
+        }
+
         public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
         {
             // Override point for customization after application launch.
             // If not required for your application you can safely delete this method
+
+            Mph.BaseUrl = "http://192.168.0.21:96";
 
             return true;
         }

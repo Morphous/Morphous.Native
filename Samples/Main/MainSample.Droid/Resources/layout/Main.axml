@@ -1,14 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    >
-<Button  
-    android:id="@+id/myButton"
-    android:layout_width="match_parent" 
-    android:layout_height="wrap_content" 
-    android:text="@string/hello"
-    />
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Thing" />
+    <Button
+        android:id="@+id/button_term"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Term" />
+    <Button
+        android:id="@+id/button_gc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="garbage collect" />
 </LinearLayout>
-

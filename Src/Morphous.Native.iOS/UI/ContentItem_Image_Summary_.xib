@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="TCf-nm-J3s" customClass="ContentItemImageSummaryView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="hg7-Tc-EGK">
+                    <rect key="frame" x="74" y="84" width="110" height="200"/>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="hg7-Tc-EGK" secondAttribute="trailing" id="2Ct-AO-M1K"/>
+                <constraint firstItem="hg7-Tc-EGK" firstAttribute="top" secondItem="TCf-nm-J3s" secondAttribute="top" id="ANd-Yg-ayi"/>
+                <constraint firstAttribute="bottom" secondItem="hg7-Tc-EGK" secondAttribute="bottom" id="cPp-nX-Vbq"/>
+                <constraint firstItem="hg7-Tc-EGK" firstAttribute="leading" secondItem="TCf-nm-J3s" secondAttribute="leading" id="rtX-LT-T7W"/>
+            </constraints>
+            <connections>
+                <outlet property="Content" destination="hg7-Tc-EGK" id="U9U-D5-NfR"/>
+            </connections>
+            <point key="canvasLocation" x="36" y="-13"/>
+        </view>
+    </objects>
+</document>
