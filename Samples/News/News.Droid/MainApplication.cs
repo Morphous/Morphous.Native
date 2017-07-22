@@ -26,7 +26,7 @@ namespace News.Droid
         public override void OnCreate()
         {
             base.OnCreate();
-            Mph.BaseUrl = "http://192.168.0.18:96";
+            Mph.BaseUrl = "https://morphousnews.azurewebsites.net";
 
             Messenger.Default.Register<ContentItemCreatedMessage>(this, message =>
             {

@@ -31,7 +31,7 @@ namespace MainSample.iOS
             // Override point for customization after application launch.
             // If not required for your application you can safely delete this method
 
-            Mph.BaseUrl = "http://192.168.0.21:96";
+            Mph.BaseUrl = "https://morphousnews.azurewebsites.net";
 
             return true;
         }
