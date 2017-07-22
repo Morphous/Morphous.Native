@@ -26,7 +26,7 @@ namespace MainSample.Droid
         public override void OnCreate()
         {
             base.OnCreate();
-            Mph.BaseUrl = "http://192.168.1.25:96";
+            Mph.BaseUrl = "https://morphousnews.azurewebsites.net";
         }
 
         public void SetObject(object someObject)

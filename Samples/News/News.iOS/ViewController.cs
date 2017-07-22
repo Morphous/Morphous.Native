@@ -9,7 +9,7 @@ namespace News.iOS
 
         public override int ContentItemId
         {
-            get { return 12; }
+            get { return 14; }
             set { }
         }
 
