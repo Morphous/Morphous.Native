@@ -19,7 +19,7 @@ using Android.Support.V4.Widget;
 
 namespace News.Droid
 {
-    [Activity(Label = "News", MainLauncher = true, Icon = "@drawable/icon")]
+    [Activity(Label = "Morphous News", MainLauncher = true, Icon = "@drawable/icon")]
     public class MainActivity : AppCompatActivity
     {
         private IContentItemViewModel ViewModel { get; set; }
